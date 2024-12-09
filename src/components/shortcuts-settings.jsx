@@ -69,8 +69,7 @@ const TYPE_PARAMS = {
     {
       text: msg`Variant`,
       name: 'variant',
-      type: 'text',
-      placeholder: msg`'local', 'bubble' or 'federated'`,
+      type: 'variant',
     },
     {
       text: msg`Instance`,
@@ -682,7 +681,30 @@ function ShortcutForm({
                   </p>
                 );
               }
-
+              
+              if (type === 'variant') {
+                return (
+                  <p>
+                    <label>
+                      <span>
+                        <Trans>Variant</Trans>
+                      </span>
+                      <select
+                        name="variant"
+                        required={!notRequired}
+                        disabled={disabled || uiState === 'loading'}
+                        defaultValue={editMode ? shortcut.variant : 'local'}
+                        dir="auto"
+                      >
+                        <option value="local"><Trans>Local</Trans></option>
+                        <option value="bubble"><Trans>Bubble</Trans></option>
+                        <option value="federated"><Trans>Federated</Trans></option>
+                      </select>
+                    </label>
+                  </p>
+                );
+              }
+              
               return (
                 <p>
                   <label>
