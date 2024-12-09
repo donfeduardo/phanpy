@@ -85,7 +85,7 @@ function NavMenu(props) {
     return results;
   }
   
-  const hasBubbleTimeline = supports("@akkoma/bubble-timeline");
+  const hasBubbleTimeline = supports("@akkoma/bubble-timeline") || supports("@chuckya/bubble-timeline");
   
   const buttonClickTS = useRef();
   return (

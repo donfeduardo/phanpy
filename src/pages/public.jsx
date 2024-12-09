@@ -39,7 +39,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
   }[variant];
   const source = {
     local: masto.v1.timelines.public.list,
-    bubble: masto.v1.timelines.bubble.list, // Bubble timeline isn't officially supported in Masto, but this seems to work nevertheless
+    bubble: supports('@akkoma/bubble-timeline') ? masto.v1.timelines.bubble.list : masto.v1.timelines.public.list,
     federated: masto.v1.timelines.public.list,
   }[variant];
 
@@ -53,6 +53,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
       const opts = {
         limit: LIMIT,
         local: variant === 'local',
+        bubble: variant === 'bubble' && supports('@chuckya/bubble-timeline')
       };
       if (variant === 'federated' && supports('@pixelfed/global-feed')) {
         opts.remote = true;
