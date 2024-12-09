@@ -85,9 +85,7 @@ function NavMenu(props) {
     return results;
   }
   
-  const instanceData = getCurrentInstance();
-  const hasBubbleTimeline =
-    instanceData?.pleroma?.metadata?.features?.includes?.('bubble_timeline');
+  const hasBubbleTimeline = supports("@akkoma/bubble-timeline");
   
   const buttonClickTS = useRef();
   return (
