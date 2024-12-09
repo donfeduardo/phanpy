@@ -84,9 +84,10 @@ function NavMenu(props) {
     const results = await blocksIterator.current.next();
     return results;
   }
-  
-  const hasBubbleTimeline = supports("@akkoma/bubble-timeline") || supports("@chuckya/bubble-timeline");
-  
+
+  const hasBubbleTimeline =
+    supports('@akkoma/bubble-timeline') || supports('@chuckya/bubble-timeline');
+
   const buttonClickTS = useRef();
   return (
     <>

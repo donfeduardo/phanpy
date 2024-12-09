@@ -29,8 +29,8 @@ const platformFeatures = {
   '@chuckya/bubble-timeline': containChuckya,
 };
 const advertisedFeatures = {
-  '@akkoma/bubble-timeline': "bubble_timeline",
-}
+  '@akkoma/bubble-timeline': 'bubble_timeline',
+};
 
 const supportsCache = {};
 
@@ -40,7 +40,7 @@ function supports(feature) {
     let version = instanceData.version;
     let domain = instanceData.domain;
     let pleroma = instanceData?.pleroma;
-    
+
     let softwareName = getCurrentNodeInfo()?.software?.name || 'mastodon';
 
     if (softwareName === 'hometown') {
@@ -54,10 +54,12 @@ function supports(feature) {
     if (platformFeatures[feature]) {
       return (supportsCache[key] = platformFeatures[feature].test(version));
     }
-    
+
     // Advertised features
-    if(pleroma) {
-      return (supportsCache[key] = pleroma.metadata.features.includes(advertisedFeatures[feature]));
+    if (pleroma) {
+      return (supportsCache[key] = pleroma.metadata.features.includes(
+        advertisedFeatures[feature],
+      ));
     }
 
     const range = features[feature];

@@ -167,7 +167,7 @@ export const SHORTCUTS_META = {
         local: t`Local`,
         bubble: t`Bubble`,
         federated: t`Federated`,
-      }[variant]),
+      })[variant],
     subtitle: ({ instance }) => instance || api().instance,
     path: ({ variant, instance }) => {
       const suffix = {
@@ -182,7 +182,7 @@ export const SHORTCUTS_META = {
         local: 'building',
         bubble: 'star2',
         federated: 'earth',
-      }[variant]),
+      })[variant],
   },
   trending: {
     id: 'trending',
@@ -681,7 +681,7 @@ function ShortcutForm({
                   </p>
                 );
               }
-              
+
               if (type === 'variant') {
                 return (
                   <p>
@@ -696,15 +696,21 @@ function ShortcutForm({
                         defaultValue={editMode ? shortcut.variant : 'local'}
                         dir="auto"
                       >
-                        <option value="local"><Trans>Local</Trans></option>
-                        <option value="bubble"><Trans>Bubble</Trans></option>
-                        <option value="federated"><Trans>Federated</Trans></option>
+                        <option value="local">
+                          <Trans>Local</Trans>
+                        </option>
+                        <option value="bubble">
+                          <Trans>Bubble</Trans>
+                        </option>
+                        <option value="federated">
+                          <Trans>Federated</Trans>
+                        </option>
                       </select>
                     </label>
                   </p>
                 );
               }
-              
+
               return (
                 <p>
                   <label>
