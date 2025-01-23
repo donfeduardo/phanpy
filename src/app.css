@@ -2605,6 +2605,9 @@ ul.link-list li a .icon {
       3px 0 var(--bg-color);
   }
 }
+#columns > *:first-child:not(:only-child) {
+  flex-basis: 65%;
+}
 #columns:has(> :nth-child(3)) > *:nth-child(even),
 #columns:has(> :nth-child(3))
   > *:nth-child(even)
