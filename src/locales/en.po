@@ -120,7 +120,7 @@ msgstr ""
 #: src/pages/accounts.jsx:110
 #: src/pages/hashtag.jsx:200
 #: src/pages/list.jsx:158
-#: src/pages/public.jsx:115
+#: src/pages/public.jsx:135
 #: src/pages/status.jsx:1214
 #: src/pages/trending.jsx:472
 msgid "More"
@@ -543,7 +543,7 @@ msgid "Cloak mode enabled"
 msgstr ""
 
 #: src/components/columns.jsx:27
-#: src/components/nav-menu.jsx:178
+#: src/components/nav-menu.jsx:179
 #: src/components/shortcuts-settings.jsx:139
 #: src/components/timeline.jsx:439
 #: src/pages/catchup.jsx:876
@@ -665,7 +665,7 @@ msgid "Public"
 msgstr ""
 
 #: src/components/compose.jsx:1237
-#: src/components/nav-menu.jsx:340
+#: src/components/nav-menu.jsx:341
 #: src/components/shortcuts-settings.jsx:167
 #: src/components/shortcuts-settings.jsx:700
 #: src/components/status.jsx:94
@@ -741,7 +741,7 @@ msgstr "Failed to download GIF"
 
 #: src/components/compose.jsx:1884
 #: src/components/compose.jsx:1961
-#: src/components/nav-menu.jsx:241
+#: src/components/nav-menu.jsx:242
 msgid "More…"
 msgstr ""
 
@@ -1034,8 +1034,8 @@ msgstr ""
 msgid "Nothing to show"
 msgstr ""
 
-#: src/components/keyboard-shortcuts-help.jsx:43
-#: src/components/nav-menu.jsx:367
+#: src/components/keyboard-shortcuts-help.jsx:44
+#: src/components/nav-menu.jsx:368
 #: src/pages/catchup.jsx:1619
 msgid "Keyboard shortcuts"
 msgstr ""
@@ -1132,7 +1132,7 @@ msgid "<0>Ctrl</0> + <1>Enter</1> or <2>⌘</2> + <3>Enter</3>"
 msgstr ""
 
 #: src/components/keyboard-shortcuts-help.jsx:148
-#: src/components/nav-menu.jsx:328
+#: src/components/nav-menu.jsx:329
 #: src/components/search-form.jsx:73
 #: src/components/shortcuts-settings.jsx:52
 #: src/components/shortcuts-settings.jsx:196
@@ -1297,32 +1297,32 @@ msgstr ""
 msgid "Post updated. Check it out."
 msgstr ""
 
-#: src/components/nav-menu.jsx:120
+#: src/components/nav-menu.jsx:121
 msgid "Menu"
 msgstr ""
 
-#: src/components/nav-menu.jsx:156
+#: src/components/nav-menu.jsx:157
 msgid "Reload page now to update?"
 msgstr ""
 
-#: src/components/nav-menu.jsx:168
+#: src/components/nav-menu.jsx:169
 msgid "New update available…"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/nav-menu.jsx:187
+#: src/components/nav-menu.jsx:188
 #: src/components/shortcuts-settings.jsx:140
 #: src/pages/following.jsx:23
 #: src/pages/following.jsx:142
 msgid "following.title"
 msgstr "Following"
 
-#: src/components/nav-menu.jsx:194
+#: src/components/nav-menu.jsx:195
 #: src/pages/catchup.jsx:871
 msgid "Catch-up"
 msgstr ""
 
-#: src/components/nav-menu.jsx:201
+#: src/components/nav-menu.jsx:202
 #: src/components/shortcuts-settings.jsx:58
 #: src/components/shortcuts-settings.jsx:146
 #: src/pages/home.jsx:225
@@ -1333,7 +1333,7 @@ msgstr ""
 msgid "Mentions"
 msgstr ""
 
-#: src/components/nav-menu.jsx:208
+#: src/components/nav-menu.jsx:209
 #: src/components/shortcuts-settings.jsx:49
 #: src/components/shortcuts-settings.jsx:152
 #: src/pages/filters.jsx:23
@@ -1344,15 +1344,15 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: src/components/nav-menu.jsx:211
+#: src/components/nav-menu.jsx:212
 msgid "New"
 msgstr ""
 
-#: src/components/nav-menu.jsx:222
+#: src/components/nav-menu.jsx:223
 msgid "Profile"
 msgstr ""
 
-#: src/components/nav-menu.jsx:230
+#: src/components/nav-menu.jsx:231
 #: src/components/shortcuts-settings.jsx:54
 #: src/components/shortcuts-settings.jsx:212
 #: src/pages/bookmarks.jsx:12
@@ -1360,7 +1360,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: src/components/nav-menu.jsx:250
+#: src/components/nav-menu.jsx:251
 #: src/components/shortcuts-settings.jsx:55
 #: src/components/shortcuts-settings.jsx:218
 #: src/pages/catchup.jsx:1446
@@ -1371,41 +1371,41 @@ msgstr ""
 msgid "Likes"
 msgstr ""
 
-#: src/components/nav-menu.jsx:262
+#: src/components/nav-menu.jsx:257
 #: src/pages/followed-hashtags.jsx:15
 #: src/pages/followed-hashtags.jsx:45
 msgid "Followed Hashtags"
 msgstr ""
 
-#: src/components/nav-menu.jsx:264
-#: src/pages/account-statuses.jsx:331
+#: src/components/nav-menu.jsx:265
+#: src/pages/account-statuses.jsx:330
 #: src/pages/filters.jsx:54
 #: src/pages/filters.jsx:93
 #: src/pages/hashtag.jsx:340
 msgid "Filters"
 msgstr ""
 
-#: src/components/nav-menu.jsx:272
+#: src/components/nav-menu.jsx:273
 msgid "Muted users"
 msgstr ""
 
-#: src/components/nav-menu.jsx:280
+#: src/components/nav-menu.jsx:281
 msgid "Muted users…"
 msgstr ""
 
-#: src/components/nav-menu.jsx:287
+#: src/components/nav-menu.jsx:288
 msgid "Blocked users"
 msgstr ""
 
-#: src/components/nav-menu.jsx:295
+#: src/components/nav-menu.jsx:296
 msgid "Blocked users…"
 msgstr ""
 
-#: src/components/nav-menu.jsx:307
+#: src/components/nav-menu.jsx:308
 msgid "Accounts…"
 msgstr ""
 
-#: src/components/nav-menu.jsx:317
+#: src/components/nav-menu.jsx:318
 #: src/pages/login.jsx:27
 #: src/pages/login.jsx:190
 #: src/pages/status.jsx:837
@@ -1413,36 +1413,36 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: src/components/nav-menu.jsx:334
+#: src/components/nav-menu.jsx:335
 #: src/components/shortcuts-settings.jsx:57
 #: src/components/shortcuts-settings.jsx:189
 #: src/pages/trending.jsx:442
 msgid "Trending"
 msgstr ""
 
-#: src/components/nav-menu.jsx:347
+#: src/components/nav-menu.jsx:348
 #: src/components/shortcuts-settings.jsx:168
 #: src/components/shortcuts-settings.jsx:703
 msgid "Bubble"
 msgstr "Bubble"
 
-#: src/components/nav-menu.jsx:354
+#: src/components/nav-menu.jsx:355
 #: src/components/shortcuts-settings.jsx:169
 #: src/components/shortcuts-settings.jsx:706
 msgid "Federated"
 msgstr ""
 
-#: src/components/nav-menu.jsx:377
+#: src/components/nav-menu.jsx:378
 msgid "Shortcuts / Columns…"
 msgstr ""
 
-#: src/components/nav-menu.jsx:387
-#: src/components/nav-menu.jsx:401
+#: src/components/nav-menu.jsx:388
+#: src/components/nav-menu.jsx:402
 msgid "Settings…"
 msgstr ""
 
-#: src/components/nav-menu.jsx:431
-#: src/components/nav-menu.jsx:458
+#: src/components/nav-menu.jsx:432
+#: src/components/nav-menu.jsx:459
 #: src/components/shortcuts-settings.jsx:50
 #: src/components/shortcuts-settings.jsx:158
 #: src/pages/list.jsx:127
@@ -1451,7 +1451,7 @@ msgstr ""
 msgid "Lists"
 msgstr ""
 
-#: src/components/nav-menu.jsx:439
+#: src/components/nav-menu.jsx:440
 #: src/components/shortcuts.jsx:215
 #: src/pages/list.jsx:134
 msgid "All Lists"
@@ -2578,7 +2578,7 @@ msgid "Nothing to see here yet."
 msgstr ""
 
 #: src/pages/account-statuses.jsx:505
-#: src/pages/public.jsx:117
+#: src/pages/public.jsx:118
 #: src/pages/trending.jsx:450
 msgid "Unable to load posts"
 msgstr ""
@@ -3150,25 +3150,25 @@ msgid "Add to Shortcuts"
 msgstr ""
 
 #: src/pages/hashtag.jsx:487
-#: src/pages/public.jsx:166
+#: src/pages/public.jsx:167
 #: src/pages/trending.jsx:479
 msgid "Enter a new instance e.g. \"mastodon.social\""
 msgstr ""
 
 #: src/pages/hashtag.jsx:490
-#: src/pages/public.jsx:169
+#: src/pages/public.jsx:170
 #: src/pages/trending.jsx:482
 msgid "Invalid instance"
 msgstr ""
 
 #: src/pages/hashtag.jsx:504
-#: src/pages/public.jsx:183
+#: src/pages/public.jsx:184
 #: src/pages/trending.jsx:494
 msgid "Go to another instance…"
 msgstr ""
 
 #: src/pages/hashtag.jsx:517
-#: src/pages/public.jsx:196
+#: src/pages/public.jsx:197
 #: src/pages/trending.jsx:505
 msgid "Go to my instance (<0>{currentInstance}</0>)"
 msgstr ""
@@ -3395,43 +3395,43 @@ msgstr ""
 msgid "Dismissed"
 msgstr ""
 
-#: src/pages/public.jsx:26
+#: src/pages/public.jsx:27
 msgid "Local timeline ({instance})"
 msgstr ""
 
-#: src/pages/public.jsx:27
+#: src/pages/public.jsx:28
 msgid "Bubble timeline ({instance})"
 msgstr "Bubble timeline ({instance})"
 
-#: src/pages/public.jsx:28
+#: src/pages/public.jsx:29
 msgid "Federated timeline ({instance})"
 msgstr ""
 
-#: src/pages/public.jsx:31
+#: src/pages/public.jsx:32
 msgid "Local timeline"
 msgstr ""
 
-#: src/pages/public.jsx:32
+#: src/pages/public.jsx:33
 msgid "Bubble timeline"
 msgstr "Bubble timeline"
 
-#: src/pages/public.jsx:33
+#: src/pages/public.jsx:34
 msgid "Federated timeline"
 msgstr ""
 
-#: src/pages/public.jsx:116
+#: src/pages/public.jsx:117
 msgid "No one has posted anything yet."
 msgstr ""
 
-#: src/pages/public.jsx:142
+#: src/pages/public.jsx:143
 msgid "Switch to Local"
 msgstr ""
 
-#: src/pages/public.jsx:150
+#: src/pages/public.jsx:151
 msgid "Switch to Bubble"
 msgstr "Switch to Bubble"
 
-#: src/pages/public.jsx:158
+#: src/pages/public.jsx:159
 msgid "Switch to Federated"
 msgstr ""
 
