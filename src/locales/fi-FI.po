@@ -18,63 +18,63 @@ msgstr ""
 "X-Crowdin-File: /main/src/locales/en.po\n"
 "X-Crowdin-File-ID: 18\n"
 
-#: src/components/account-block.jsx:136
+#: src/components/account-block.jsx:137
 msgid "Locked"
 msgstr "Lukittu"
 
 #. placeholder {0}: shortenNumber(statusesCount)
-#: src/components/account-block.jsx:142
+#: src/components/account-block.jsx:143
 msgid "Posts: {0}"
 msgstr "Julkaisut: {0}"
 
 #. placeholder {0}: niceDateTime(lastStatusAt, { hideTime: true, })
-#: src/components/account-block.jsx:147
+#: src/components/account-block.jsx:148
 msgid "Last posted: {0}"
 msgstr "Julkaissut viimeksi: {0}"
 
-#: src/components/account-block.jsx:162
-#: src/components/account-info.jsx:690
+#: src/components/account-block.jsx:163
+#: src/components/account-info.jsx:692
 msgid "Automated"
 msgstr "Botti"
 
-#: src/components/account-block.jsx:169
-#: src/components/account-info.jsx:695
+#: src/components/account-block.jsx:170
+#: src/components/account-info.jsx:697
 #: src/components/status.jsx:588
 msgid "Group"
 msgstr "Ryhmä"
 
-#: src/components/account-block.jsx:179
+#: src/components/account-block.jsx:180
 msgid "Mutual"
 msgstr "Seuraatte toisianne"
 
-#: src/components/account-block.jsx:183
-#: src/components/account-info.jsx:1762
+#: src/components/account-block.jsx:184
+#: src/components/account-info.jsx:1764
 msgid "Requested"
 msgstr "Pyydetty"
 
-#: src/components/account-block.jsx:187
-#: src/components/account-info.jsx:1753
+#: src/components/account-block.jsx:188
+#: src/components/account-info.jsx:1755
 msgid "Following"
 msgstr "Seurataan"
 
-#: src/components/account-block.jsx:191
-#: src/components/account-info.jsx:1144
+#: src/components/account-block.jsx:192
+#: src/components/account-info.jsx:1146
 msgid "Follows you"
 msgstr "Seuraa sinua"
 
-#: src/components/account-block.jsx:199
+#: src/components/account-block.jsx:200
 msgid "{followersCount, plural, one {# follower} other {# followers}}"
 msgstr "{followersCount, plural, one {# seuraaja} other {# seuraajaa}}"
 
-#: src/components/account-block.jsx:208
-#: src/components/account-info.jsx:738
+#: src/components/account-block.jsx:209
+#: src/components/account-info.jsx:740
 msgid "Verified"
 msgstr "Vahvistettu"
 
 #. placeholder {0}: niceDateTime(createdAt, { hideTime: true, })
 #. placeholder {0}: niceDateTime(createdAt, { hideTime: true, })
-#: src/components/account-block.jsx:223
-#: src/components/account-info.jsx:840
+#: src/components/account-block.jsx:224
+#: src/components/account-info.jsx:842
 msgid "Joined <0>{0}</0>"
 msgstr "Liittynyt <0>{0}</0>"
 
@@ -91,20 +91,20 @@ msgid "Go to account page"
 msgstr "Siirry tilisivulle"
 
 #: src/components/account-info.jsx:429
-#: src/components/account-info.jsx:760
-#: src/components/account-info.jsx:790
+#: src/components/account-info.jsx:762
+#: src/components/account-info.jsx:792
 msgid "Followers"
 msgstr "Seuraajat"
 
 #. js-lingui-explicit-id
 #: src/components/account-info.jsx:433
-#: src/components/account-info.jsx:800
-#: src/components/account-info.jsx:819
+#: src/components/account-info.jsx:802
+#: src/components/account-info.jsx:821
 msgid "following.stats"
 msgstr "Seurattavat"
 
 #: src/components/account-info.jsx:436
-#: src/components/account-info.jsx:836
+#: src/components/account-info.jsx:838
 #: src/pages/account-statuses.jsx:479
 #: src/pages/search.jsx:341
 #: src/pages/search.jsx:488
@@ -112,7 +112,7 @@ msgid "Posts"
 msgstr "Julkaisut"
 
 #: src/components/account-info.jsx:444
-#: src/components/account-info.jsx:1200
+#: src/components/account-info.jsx:1202
 #: src/components/compose.jsx:2772
 #: src/components/media-alt-modal.jsx:46
 #: src/components/media-modal.jsx:358
@@ -125,7 +125,7 @@ msgstr "Julkaisut"
 #: src/pages/accounts.jsx:110
 #: src/pages/hashtag.jsx:200
 #: src/pages/list.jsx:158
-#: src/pages/public.jsx:115
+#: src/pages/public.jsx:135
 #: src/pages/scheduled-posts.jsx:87
 #: src/pages/status.jsx:1232
 #: src/pages/trending.jsx:469
@@ -137,17 +137,17 @@ msgid "<0>{displayName}</0> has indicated that their new account is now:"
 msgstr "<0>{displayName}</0> on ilmoittanut, että hänen uusi tilinsä on nyt:"
 
 #: src/components/account-info.jsx:601
-#: src/components/account-info.jsx:1358
+#: src/components/account-info.jsx:1360
 msgid "Handle copied"
 msgstr "Käyttäjätunnus kopioitu"
 
 #: src/components/account-info.jsx:604
-#: src/components/account-info.jsx:1361
+#: src/components/account-info.jsx:1363
 msgid "Unable to copy handle"
 msgstr "Käyttäjätunnusta ei voitu kopioida"
 
 #: src/components/account-info.jsx:610
-#: src/components/account-info.jsx:1367
+#: src/components/account-info.jsx:1369
 msgid "Copy handle"
 msgstr "Kopioi käyttäjätunnus"
 
@@ -159,29 +159,29 @@ msgstr "Siirry alkuperäiselle profiilisivulle"
 msgid "View profile image"
 msgstr "Näytä profiilikuva"
 
-#: src/components/account-info.jsx:651
+#: src/components/account-info.jsx:652
 msgid "View profile header"
 msgstr "Näytä profiilin otsake"
 
-#: src/components/account-info.jsx:666
-#: src/components/account-info.jsx:1668
-#: src/components/account-info.jsx:2187
+#: src/components/account-info.jsx:668
+#: src/components/account-info.jsx:1670
+#: src/components/account-info.jsx:2189
 msgid "Edit profile"
 msgstr "Muokkaa profiilia"
 
-#: src/components/account-info.jsx:685
+#: src/components/account-info.jsx:687
 msgid "In Memoriam"
 msgstr "Muistoissamme"
 
-#: src/components/account-info.jsx:767
-#: src/components/account-info.jsx:810
+#: src/components/account-info.jsx:769
+#: src/components/account-info.jsx:812
 msgid "This user has chosen to not make this information available."
 msgstr "Käyttäjä on päättänyt pitää nämä tiedot yksityisinä."
 
 #. placeholder {0}: ( postingStats.originals / postingStats.total ).toLocaleString(i18n.locale || undefined, { style: 'percent', })
 #. placeholder {1}: ( postingStats.replies / postingStats.total ).toLocaleString(i18n.locale || undefined, { style: 'percent', })
 #. placeholder {2}: ( postingStats.boosts / postingStats.total ).toLocaleString(i18n.locale || undefined, { style: 'percent', })
-#: src/components/account-info.jsx:865
+#: src/components/account-info.jsx:867
 msgid "{0} original posts, {1} replies, {2} boosts"
 msgstr "{0} alkuperäistä julkaisua, {1} vastausta, {2} tehostusta"
 
@@ -192,22 +192,22 @@ msgstr "{0} alkuperäistä julkaisua, {1} vastausta, {2} tehostusta"
 #. placeholder {4}: postingStats.total
 #. placeholder {5}: postingStats.total
 #. placeholder {6}: postingStats.daysSinceLastPost
-#: src/components/account-info.jsx:881
+#: src/components/account-info.jsx:883
 msgid "{0, plural, one {{1, plural, one {Last 1 post in the past 1 day} other {Last 1 post in the past {2} days}}} other {{3, plural, one {Last {4} posts in the past 1 day} other {Last {5} posts in the past {6} days}}}}"
 msgstr "{0, plural, one {{1, plural, one {Viimeisin julkaisu viime päivänä} other {Viimeisin julkaisu viimeisenä {2} päivänä}}} other {{3, plural, one {Viimeiset {4} julkaisua viime päivänä} other {Viimeiset {5} julkaisua viimeisenä {6} päivänä}}}}"
 
 #. placeholder {0}: postingStats.total
 #. placeholder {1}: postingStats.total
-#: src/components/account-info.jsx:897
+#: src/components/account-info.jsx:899
 msgid "{0, plural, one {Last 1 post in the past year(s)} other {Last {1} posts in the past year(s)}}"
 msgstr "{0, plural, one {Viimeisen julkaisu viime vuosina} other {Viimeiset {1} julkaisua viime vuosina}}"
 
-#: src/components/account-info.jsx:922
+#: src/components/account-info.jsx:924
 #: src/pages/catchup.jsx:71
 msgid "Original"
 msgstr "Alkuperäiset"
 
-#: src/components/account-info.jsx:926
+#: src/components/account-info.jsx:928
 #: src/components/status.jsx:2372
 #: src/pages/catchup.jsx:72
 #: src/pages/catchup.jsx:1447
@@ -217,7 +217,7 @@ msgstr "Alkuperäiset"
 msgid "Replies"
 msgstr "Vastaukset"
 
-#: src/components/account-info.jsx:930
+#: src/components/account-info.jsx:932
 #: src/pages/catchup.jsx:73
 #: src/pages/catchup.jsx:1449
 #: src/pages/catchup.jsx:2074
@@ -225,205 +225,209 @@ msgstr "Vastaukset"
 msgid "Boosts"
 msgstr "Tehostukset"
 
-#: src/components/account-info.jsx:936
+#: src/components/account-info.jsx:938
 msgid "Post stats unavailable."
 msgstr "Julkaisutilastoja ei saatavilla."
 
-#: src/components/account-info.jsx:967
+#: src/components/account-info.jsx:969
 msgid "View post stats"
 msgstr "Näytä julkaisutilastot"
 
 #. placeholder {0}: niceDateTime(lastStatusAt, { hideTime: true, })
-#: src/components/account-info.jsx:1148
+#: src/components/account-info.jsx:1150
 msgid "Last post: <0>{0}</0>"
 msgstr "Edellinen julkaisu: <0>{0}</0>"
 
-#: src/components/account-info.jsx:1162
+#: src/components/account-info.jsx:1164
 msgid "Muted"
 msgstr "Mykistetty"
 
-#: src/components/account-info.jsx:1167
+#: src/components/account-info.jsx:1169
 msgid "Blocked"
 msgstr "Estetty"
 
-#: src/components/account-info.jsx:1176
+#: src/components/account-info.jsx:1178
 msgid "Private note"
 msgstr "Yksityinen merkintä"
 
-#: src/components/account-info.jsx:1233
+#: src/components/account-info.jsx:1235
 msgid "Mention <0>@{username}</0>"
 msgstr "Mainitse <0>@{username}</0>"
 
-#: src/components/account-info.jsx:1245
+#: src/components/account-info.jsx:1247
 msgid "Translate bio"
 msgstr "Käännä elämäkerta"
 
-#: src/components/account-info.jsx:1256
+#: src/components/account-info.jsx:1258
 msgid "Edit private note"
 msgstr "Muokkaa yksityistä merkintää"
 
-#: src/components/account-info.jsx:1256
+#: src/components/account-info.jsx:1258
 msgid "Add private note"
 msgstr "Lisää yksityinen merkintä"
 
-#: src/components/account-info.jsx:1276
+#: src/components/account-info.jsx:1278
 msgid "Notifications enabled for @{username}'s posts."
 msgstr "Ilmoitukset käyttäjän @{username} julkaisuista otettu käyttöön."
 
-#: src/components/account-info.jsx:1277
+#: src/components/account-info.jsx:1279
 msgid " Notifications disabled for @{username}'s posts."
 msgstr " Ilmoitukset käyttäjän @{username} julkaisuista poistettu käytöstä."
 
-#: src/components/account-info.jsx:1289
+#: src/components/account-info.jsx:1291
 msgid "Disable notifications"
 msgstr "Poista ilmoitukset käytöstä"
 
-#: src/components/account-info.jsx:1290
+#: src/components/account-info.jsx:1292
 msgid "Enable notifications"
 msgstr "Ota ilmoitukset käyttöön"
 
-#: src/components/account-info.jsx:1307
+#: src/components/account-info.jsx:1309
 msgid "Boosts from @{username} enabled."
 msgstr "Käyttäjän @{username} tehostukset otettu käyttöön."
 
-#: src/components/account-info.jsx:1308
+#: src/components/account-info.jsx:1310
 msgid "Boosts from @{username} disabled."
 msgstr "Käyttäjän @{username} tehostukset poistettu käytöstä."
 
-#: src/components/account-info.jsx:1319
+#: src/components/account-info.jsx:1321
 msgid "Disable boosts"
 msgstr "Poista tehostukset käytöstä"
 
-#: src/components/account-info.jsx:1319
+#: src/components/account-info.jsx:1321
 msgid "Enable boosts"
 msgstr "Ota tehostukset käyttöön"
 
-#: src/components/account-info.jsx:1335
-#: src/components/account-info.jsx:1345
-#: src/components/account-info.jsx:1933
+#: src/components/account-info.jsx:1337
+#: src/components/account-info.jsx:1347
+#: src/components/account-info.jsx:1935
 msgid "Add/Remove from Lists"
 msgstr "Lisää/poista listoista"
 
-#: src/components/account-info.jsx:1384
+#: src/components/account-info.jsx:1386
 #: src/components/status.jsx:1253
 msgid "Link copied"
 msgstr "Linkki kopioitu"
 
-#: src/components/account-info.jsx:1387
+#: src/components/account-info.jsx:1389
 #: src/components/status.jsx:1256
 msgid "Unable to copy link"
 msgstr "Linkkiä ei voitu kopioida"
 
-#: src/components/account-info.jsx:1393
-#: src/components/shortcuts-settings.jsx:1059
+#: src/components/account-info.jsx:1395
+#: src/components/shortcuts-settings.jsx:1105
 #: src/components/status.jsx:1262
 #: src/components/status.jsx:3359
 msgid "Copy"
 msgstr "Kopioi"
 
-#: src/components/account-info.jsx:1408
-#: src/components/shortcuts-settings.jsx:1077
+#: src/components/account-info.jsx:1410
+#: src/components/shortcuts-settings.jsx:1123
 #: src/components/status.jsx:1278
 msgid "Sharing doesn't seem to work."
 msgstr "Jako ei näytä toimivan."
 
-#: src/components/account-info.jsx:1414
+#: src/components/account-info.jsx:1416
 #: src/components/status.jsx:1284
 msgid "Share…"
 msgstr "Jaa…"
 
-#: src/components/account-info.jsx:1434
+#: src/components/account-info.jsx:1436
 msgid "Unmuted @{username}"
 msgstr "Kumottu käyttäjän @{username} mykistys"
 
-#: src/components/account-info.jsx:1446
+#: src/components/account-info.jsx:1448
 msgid "Unmute <0>@{username}</0>"
 msgstr "Kumoa käyttäjän <0>@{username}</0> mykistys"
 
-#: src/components/account-info.jsx:1462
+#: src/components/account-info.jsx:1464
 msgid "Mute <0>@{username}</0>…"
 msgstr "Mykistä <0>@{username}</0>…"
 
 #. placeholder {0}: typeof MUTE_DURATIONS_LABELS[duration] === 'function' ? MUTE_DURATIONS_LABELS[duration]() : _(MUTE_DURATIONS_LABELS[duration])
-#: src/components/account-info.jsx:1494
+#: src/components/account-info.jsx:1496
 msgid "Muted @{username} for {0}"
 msgstr "Mykistetty @{username}, kestona {0}"
 
-#: src/components/account-info.jsx:1506
+#: src/components/account-info.jsx:1508
 msgid "Unable to mute @{username}"
 msgstr "Käyttäjää @{username} ei voitu mykistää"
 
-#: src/components/account-info.jsx:1527
+#: src/components/account-info.jsx:1529
 msgid "Remove <0>@{username}</0> from followers?"
 msgstr "Poistetaanko <0>@{username}</0> seuraajista?"
 
-#: src/components/account-info.jsx:1547
+#: src/components/account-info.jsx:1549
 msgid "@{username} removed from followers"
 msgstr "@{username} poistettu seuraajista"
 
-#: src/components/account-info.jsx:1559
+#: src/components/account-info.jsx:1561
 msgid "Remove follower…"
 msgstr "Poista seuraaja…"
 
-#: src/components/account-info.jsx:1570
+#: src/components/account-info.jsx:1572
 msgid "Block <0>@{username}</0>?"
 msgstr "Estetäänkö <0>@{username}</0>?"
 
-#: src/components/account-info.jsx:1594
+#: src/components/account-info.jsx:1596
 msgid "Unblocked @{username}"
 msgstr "Kumottu käyttäjän @{username} esto"
 
-#: src/components/account-info.jsx:1602
+#: src/components/account-info.jsx:1604
 msgid "Blocked @{username}"
 msgstr "Estetty @{username}"
 
-#: src/components/account-info.jsx:1610
+#: src/components/account-info.jsx:1612
 msgid "Unable to unblock @{username}"
 msgstr "Käyttäjän @{username} mykistystä ei voitu kumota"
 
-#: src/components/account-info.jsx:1612
+#: src/components/account-info.jsx:1614
 msgid "Unable to block @{username}"
 msgstr "Käyttäjää @{username} ei voitu estää"
 
-#: src/components/account-info.jsx:1622
+#: src/components/account-info.jsx:1624
 msgid "Unblock <0>@{username}</0>"
 msgstr "Kumoa käyttäjän <0>@{username}</0> esto"
 
-#: src/components/account-info.jsx:1631
+#: src/components/account-info.jsx:1633
 msgid "Block <0>@{username}</0>…"
 msgstr "Estä <0>@{username}</0>…"
 
-#: src/components/account-info.jsx:1648
+#: src/components/account-info.jsx:1650
 msgid "Report <0>@{username}</0>…"
 msgstr "Raportoi <0>@{username}</0>…"
 
-#: src/components/account-info.jsx:1704
+#: src/components/account-info.jsx:1705
+#~ msgid "Unfollow @{0}?"
+#~ msgstr "Lopetetaanko käyttäjän @{0} seuraaminen?"
+
+#: src/components/account-info.jsx:1706
 msgid "Withdraw follow request?"
 msgstr "Perutaanko seurauspyyntö?"
 
-#. placeholder {0}: info.acct || info.username
-#: src/components/account-info.jsx:1705
-msgid "Unfollow @{0}?"
-msgstr "Lopetetaanko käyttäjän @{0} seuraaminen?"
+#. placeholder {1}: info.acct || info.username
+#: src/components/account-info.jsx:1707
+msgid "Unfollow @{1}?"
+msgstr ""
 
-#: src/components/account-info.jsx:1756
+#: src/components/account-info.jsx:1758
 msgid "Unfollow…"
 msgstr "Älä seuraa…"
 
-#: src/components/account-info.jsx:1765
+#: src/components/account-info.jsx:1767
 msgid "Withdraw…"
 msgstr "Peru…"
 
-#: src/components/account-info.jsx:1772
-#: src/components/account-info.jsx:1776
+#: src/components/account-info.jsx:1774
+#: src/components/account-info.jsx:1778
 #: src/pages/hashtag.jsx:262
 msgid "Follow"
 msgstr "Seuraa"
 
-#: src/components/account-info.jsx:1873
-#: src/components/account-info.jsx:1928
-#: src/components/account-info.jsx:2062
-#: src/components/account-info.jsx:2182
+#: src/components/account-info.jsx:1875
+#: src/components/account-info.jsx:1930
+#: src/components/account-info.jsx:2064
+#: src/components/account-info.jsx:2184
 #: src/components/account-sheet.jsx:38
 #: src/components/compose.jsx:881
 #: src/components/compose.jsx:2728
@@ -439,9 +443,9 @@ msgstr "Seuraa"
 #: src/components/media-modal.jsx:322
 #: src/components/notification-service.jsx:157
 #: src/components/report-modal.jsx:75
-#: src/components/shortcuts-settings.jsx:230
-#: src/components/shortcuts-settings.jsx:583
-#: src/components/shortcuts-settings.jsx:783
+#: src/components/shortcuts-settings.jsx:247
+#: src/components/shortcuts-settings.jsx:600
+#: src/components/shortcuts-settings.jsx:829
 #: src/components/status.jsx:3083
 #: src/components/status.jsx:3323
 #: src/components/status.jsx:3832
@@ -456,97 +460,97 @@ msgstr "Seuraa"
 msgid "Close"
 msgstr "Sulje"
 
-#: src/components/account-info.jsx:1878
+#: src/components/account-info.jsx:1880
 msgid "Translated Bio"
 msgstr "Käännetty elämäkerta"
 
-#: src/components/account-info.jsx:1973
+#: src/components/account-info.jsx:1975
 msgid "Unable to remove from list."
 msgstr "Listasta ei voitu poistaa."
 
-#: src/components/account-info.jsx:1974
+#: src/components/account-info.jsx:1976
 msgid "Unable to add to list."
 msgstr "Listaan ei voitu lisätä."
 
-#: src/components/account-info.jsx:1993
+#: src/components/account-info.jsx:1995
 #: src/pages/lists.jsx:105
 msgid "Unable to load lists."
 msgstr "Listoja ei voitu ladata."
 
-#: src/components/account-info.jsx:1997
+#: src/components/account-info.jsx:1999
 msgid "No lists."
 msgstr "Ei listoja."
 
-#: src/components/account-info.jsx:2008
+#: src/components/account-info.jsx:2010
 #: src/components/list-add-edit.jsx:40
 #: src/pages/lists.jsx:59
 msgid "New list"
 msgstr "Uusi lista"
 
 #. placeholder {0}: account?.username || account?.acct
-#: src/components/account-info.jsx:2067
+#: src/components/account-info.jsx:2069
 msgid "Private note about <0>@{0}</0>"
 msgstr "Yksityinen merkintä käyttäjästä <0>@{0}</0>"
 
-#: src/components/account-info.jsx:2097
+#: src/components/account-info.jsx:2099
 msgid "Unable to update private note."
 msgstr "Yksityistä merkintää ei voitu päivittää."
 
-#: src/components/account-info.jsx:2120
-#: src/components/account-info.jsx:2418
+#: src/components/account-info.jsx:2122
+#: src/components/account-info.jsx:2420
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: src/components/account-info.jsx:2125
+#: src/components/account-info.jsx:2127
 msgid "Save & close"
 msgstr "Tallenna ja sulje"
 
-#: src/components/account-info.jsx:2242
+#: src/components/account-info.jsx:2244
 msgid "Unable to update profile."
 msgstr "Profiilia ei voitu päivittää."
 
-#: src/components/account-info.jsx:2249
+#: src/components/account-info.jsx:2251
 msgid "Header picture"
 msgstr "Otsakekuva"
 
-#: src/components/account-info.jsx:2301
+#: src/components/account-info.jsx:2303
 msgid "Profile picture"
 msgstr "Profiilikuva"
 
-#: src/components/account-info.jsx:2353
+#: src/components/account-info.jsx:2355
 #: src/components/list-add-edit.jsx:105
 msgid "Name"
 msgstr "Nimi"
 
-#: src/components/account-info.jsx:2366
+#: src/components/account-info.jsx:2368
 msgid "Bio"
 msgstr "Elämäkerta"
 
-#: src/components/account-info.jsx:2379
+#: src/components/account-info.jsx:2381
 msgid "Extra fields"
 msgstr "Lisäkentät"
 
-#: src/components/account-info.jsx:2385
+#: src/components/account-info.jsx:2387
 msgid "Label"
 msgstr "Nimike"
 
-#: src/components/account-info.jsx:2388
+#: src/components/account-info.jsx:2390
 msgid "Content"
 msgstr "Sisältö"
 
-#: src/components/account-info.jsx:2421
+#: src/components/account-info.jsx:2423
 #: src/components/list-add-edit.jsx:150
-#: src/components/shortcuts-settings.jsx:715
+#: src/components/shortcuts-settings.jsx:761
 #: src/pages/filters.jsx:570
 #: src/pages/notifications.jsx:1000
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/components/account-info.jsx:2475
+#: src/components/account-info.jsx:2477
 msgid "username"
 msgstr "käyttäjänimi"
 
-#: src/components/account-info.jsx:2479
+#: src/components/account-info.jsx:2481
 msgid "server domain name"
 msgstr "palvelimen verkkotunnus"
 
@@ -559,7 +563,7 @@ msgid "Cloak mode enabled"
 msgstr "Peittotila otettu käyttöön"
 
 #: src/components/columns.jsx:27
-#: src/components/nav-menu.jsx:176
+#: src/components/nav-menu.jsx:179
 #: src/components/shortcuts-settings.jsx:139
 #: src/components/timeline.jsx:463
 #: src/pages/catchup.jsx:882
@@ -577,7 +581,7 @@ msgid "Compose"
 msgstr "Luo"
 
 #: src/components/compose-button.jsx:169
-#: src/components/nav-menu.jsx:260
+#: src/components/nav-menu.jsx:263
 #: src/pages/scheduled-posts.jsx:31
 #: src/pages/scheduled-posts.jsx:76
 msgid "Scheduled Posts"
@@ -701,8 +705,9 @@ msgid "Public"
 msgstr "Julkinen"
 
 #: src/components/compose.jsx:1268
-#: src/components/nav-menu.jsx:344
-#: src/components/shortcuts-settings.jsx:165
+#: src/components/nav-menu.jsx:347
+#: src/components/shortcuts-settings.jsx:167
+#: src/components/shortcuts-settings.jsx:700
 #: src/components/status.jsx:97
 msgid "Local"
 msgstr "Paikallinen"
@@ -747,7 +752,7 @@ msgstr "Julkaistaan <0/>"
 
 #: src/components/compose.jsx:1436
 #: src/components/compose.jsx:3260
-#: src/components/shortcuts-settings.jsx:715
+#: src/components/shortcuts-settings.jsx:761
 #: src/pages/list.jsx:362
 msgid "Add"
 msgstr "Lisää"
@@ -784,7 +789,7 @@ msgstr "GIF-kuvan lataus epäonnistui"
 
 #: src/components/compose.jsx:2032
 #: src/components/compose.jsx:2109
-#: src/components/nav-menu.jsx:239
+#: src/components/nav-menu.jsx:242
 msgid "More…"
 msgstr "Lisää…"
 
@@ -805,22 +810,37 @@ msgid "Audio description"
 msgstr "Äänen kuvaus"
 
 #. placeholder {0}: prettyBytes( imageSize, )
-#. placeholder {0}: prettyBytes( videoSize, )
 #. placeholder {1}: prettyBytes(imageSizeLimit)
-#. placeholder {1}: prettyBytes(videoSizeLimit)
 #: src/components/compose.jsx:2592
-#: src/components/compose.jsx:2612
 msgid "File size too large. Uploading might encounter issues. Try reduce the file size from {0} to {1} or lower."
 msgstr "Liian suuri tiedostokoko. Palveluun lataaminen saattaa aiheuttaa ongelmia. Kokeile pienentää tiedostoa koosta {0} kokoon {1} tai pienemmäksi."
 
-#. placeholder {0}: i18n.number( width, )
-#. placeholder {1}: i18n.number(height)
-#. placeholder {2}: i18n.number(newWidth)
-#. placeholder {3}: i18n.number( newHeight, )
+#. placeholder {2}: i18n.number( width, )
+#. placeholder {3}: i18n.number(height)
+#. placeholder {4}: i18n.number(newWidth)
+#. placeholder {5}: i18n.number( newHeight, )
+#: src/components/compose.jsx:2604
+msgid "Dimension too large. Uploading might encounter issues. Try reduce dimension from {2}×{3}px to {4}×{5}px."
+msgstr ""
+
 #: src/components/compose.jsx:2604
 #: src/components/compose.jsx:2624
-msgid "Dimension too large. Uploading might encounter issues. Try reduce dimension from {0}×{1}px to {2}×{3}px."
-msgstr "Liian suuret mitat. Palveluun lataaminen saattaa aiheuttaa ongelmia. Kokeile pienentää kuvaa mitoista {0}×{1} px mittoihin {2}×{3} px."
+#~ msgid "Dimension too large. Uploading might encounter issues. Try reduce dimension from {0}×{1}px to {2}×{3}px."
+#~ msgstr "Liian suuret mitat. Palveluun lataaminen saattaa aiheuttaa ongelmia. Kokeile pienentää kuvaa mitoista {0}×{1} px mittoihin {2}×{3} px."
+
+#. placeholder {6}: prettyBytes( videoSize, )
+#. placeholder {7}: prettyBytes(videoSizeLimit)
+#: src/components/compose.jsx:2612
+msgid "File size too large. Uploading might encounter issues. Try reduce the file size from {6} to {7} or lower."
+msgstr ""
+
+#. placeholder {8}: i18n.number( width, )
+#. placeholder {9}: i18n.number(height)
+#. placeholder {10}: i18n.number(newWidth)
+#. placeholder {11}: i18n.number( newHeight, )
+#: src/components/compose.jsx:2624
+msgid "Dimension too large. Uploading might encounter issues. Try reduce dimension from {8}×{9}px to {10}×{11}px."
+msgstr ""
 
 #: src/components/compose.jsx:2632
 msgid "Frame rate too high. Uploading might encounter issues."
@@ -828,7 +848,7 @@ msgstr "Liian suuri kuvataajuus. Palveluun lataaminen saattaa aiheuttaa ongelmia
 
 #: src/components/compose.jsx:2692
 #: src/components/compose.jsx:2942
-#: src/components/shortcuts-settings.jsx:726
+#: src/components/shortcuts-settings.jsx:772
 #: src/pages/catchup.jsx:1080
 #: src/pages/filters.jsx:413
 msgid "Remove"
@@ -856,10 +876,14 @@ msgstr "Muokkaa äänen kuvausta"
 msgid "Generating description. Please wait…"
 msgstr "Luodaan kuvausta. Odota hetki…"
 
-#. placeholder {0}: e.message
+#. placeholder {12}: e.message
 #: src/components/compose.jsx:2801
-msgid "Failed to generate description: {0}"
-msgstr "Kuvauksen luonti epäonnistui: {0}"
+msgid "Failed to generate description: {12}"
+msgstr ""
+
+#: src/components/compose.jsx:2801
+#~ msgid "Failed to generate description: {0}"
+#~ msgstr "Kuvauksen luonti epäonnistui: {0}"
 
 #: src/components/compose.jsx:2802
 msgid "Failed to generate description"
@@ -871,10 +895,14 @@ msgstr "Kuvauksen luonti epäonnistui"
 msgid "Generate description…"
 msgstr "Luo kuvaus…"
 
-#. placeholder {0}: e?.message ? `: ${e.message}` : ''
+#. placeholder {13}: e?.message ? `: ${e.message}` : ''
 #: src/components/compose.jsx:2853
-msgid "Failed to generate description{0}"
-msgstr "Kuvauksen luonti epäonnistui{0}"
+msgid "Failed to generate description{13}"
+msgstr ""
+
+#: src/components/compose.jsx:2853
+#~ msgid "Failed to generate description{0}"
+#~ msgstr "Kuvauksen luonti epäonnistui{0}"
 
 #. placeholder {0}: localeCode2Text(lang)
 #: src/components/compose.jsx:2868
@@ -1069,7 +1097,7 @@ msgid "Nothing to show"
 msgstr "Ei mitään näytettävää"
 
 #: src/components/keyboard-shortcuts-help.jsx:47
-#: src/components/nav-menu.jsx:363
+#: src/components/nav-menu.jsx:374
 #: src/pages/catchup.jsx:1621
 msgid "Keyboard shortcuts"
 msgstr "Pikanäppäimet"
@@ -1166,10 +1194,10 @@ msgid "<0>Ctrl</0> + <1>Enter</1> or <2>⌘</2> + <3>Enter</3>"
 msgstr "<0>Ctrl</0> + <1>Enter</1> tai <2>⌘</2> + <3>Enter</3>"
 
 #: src/components/keyboard-shortcuts-help.jsx:151
-#: src/components/nav-menu.jsx:332
+#: src/components/nav-menu.jsx:335
 #: src/components/search-form.jsx:73
 #: src/components/shortcuts-settings.jsx:52
-#: src/components/shortcuts-settings.jsx:179
+#: src/components/shortcuts-settings.jsx:196
 #: src/pages/search.jsx:46
 #: src/pages/search.jsx:313
 msgid "Search"
@@ -1342,32 +1370,32 @@ msgstr "Vastaus julkaistu. Tarkista se."
 msgid "Post updated. Check it out."
 msgstr "Julkaisu päivitetty. Tarkista se."
 
-#: src/components/nav-menu.jsx:118
+#: src/components/nav-menu.jsx:121
 msgid "Menu"
 msgstr "Valikko"
 
-#: src/components/nav-menu.jsx:154
+#: src/components/nav-menu.jsx:157
 msgid "Reload page now to update?"
 msgstr "Päivitetäänkö lataamalla sivu uudelleen nyt?"
 
-#: src/components/nav-menu.jsx:166
+#: src/components/nav-menu.jsx:169
 msgid "New update available…"
 msgstr "Uusi päivitys saatavilla…"
 
 #. js-lingui-explicit-id
-#: src/components/nav-menu.jsx:185
+#: src/components/nav-menu.jsx:188
 #: src/components/shortcuts-settings.jsx:140
 #: src/pages/following.jsx:23
 #: src/pages/following.jsx:142
 msgid "following.title"
 msgstr "Seurattavat"
 
-#: src/components/nav-menu.jsx:192
+#: src/components/nav-menu.jsx:195
 #: src/pages/catchup.jsx:877
 msgid "Catch-up"
 msgstr "Kiinnikuronta"
 
-#: src/components/nav-menu.jsx:199
+#: src/components/nav-menu.jsx:202
 #: src/components/shortcuts-settings.jsx:58
 #: src/components/shortcuts-settings.jsx:146
 #: src/pages/home.jsx:228
@@ -1378,7 +1406,7 @@ msgstr "Kiinnikuronta"
 msgid "Mentions"
 msgstr "Maininnat"
 
-#: src/components/nav-menu.jsx:206
+#: src/components/nav-menu.jsx:209
 #: src/components/shortcuts-settings.jsx:49
 #: src/components/shortcuts-settings.jsx:152
 #: src/pages/filters.jsx:24
@@ -1389,25 +1417,25 @@ msgstr "Maininnat"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/components/nav-menu.jsx:209
+#: src/components/nav-menu.jsx:212
 msgid "New"
 msgstr "Uusi"
 
-#: src/components/nav-menu.jsx:220
+#: src/components/nav-menu.jsx:223
 msgid "Profile"
 msgstr "Profiili"
 
-#: src/components/nav-menu.jsx:228
+#: src/components/nav-menu.jsx:231
 #: src/components/shortcuts-settings.jsx:54
-#: src/components/shortcuts-settings.jsx:195
+#: src/components/shortcuts-settings.jsx:212
 #: src/pages/bookmarks.jsx:12
 #: src/pages/bookmarks.jsx:24
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: src/components/nav-menu.jsx:248
+#: src/components/nav-menu.jsx:251
 #: src/components/shortcuts-settings.jsx:55
-#: src/components/shortcuts-settings.jsx:201
+#: src/components/shortcuts-settings.jsx:218
 #: src/pages/catchup.jsx:1448
 #: src/pages/catchup.jsx:2068
 #: src/pages/favourites.jsx:12
@@ -1416,13 +1444,13 @@ msgstr "Kirjanmerkit"
 msgid "Likes"
 msgstr "Tykkäykset"
 
-#: src/components/nav-menu.jsx:254
+#: src/components/nav-menu.jsx:257
 #: src/pages/followed-hashtags.jsx:15
 #: src/pages/followed-hashtags.jsx:45
 msgid "Followed Hashtags"
 msgstr "Seurattavat aihetunnisteet"
 
-#: src/components/nav-menu.jsx:268
+#: src/components/nav-menu.jsx:271
 #: src/pages/account-statuses.jsx:326
 #: src/pages/filters.jsx:55
 #: src/pages/filters.jsx:94
@@ -1430,27 +1458,27 @@ msgstr "Seurattavat aihetunnisteet"
 msgid "Filters"
 msgstr "Suodattimet"
 
-#: src/components/nav-menu.jsx:276
+#: src/components/nav-menu.jsx:279
 msgid "Muted users"
 msgstr "Mykistetyt käyttäjät"
 
-#: src/components/nav-menu.jsx:284
+#: src/components/nav-menu.jsx:287
 msgid "Muted users…"
 msgstr "Mykistetyt käyttäjät…"
 
-#: src/components/nav-menu.jsx:291
+#: src/components/nav-menu.jsx:294
 msgid "Blocked users"
 msgstr "Estetyt käyttäjät"
 
-#: src/components/nav-menu.jsx:299
+#: src/components/nav-menu.jsx:302
 msgid "Blocked users…"
 msgstr "Estetyt käyttäjät…"
 
-#: src/components/nav-menu.jsx:311
+#: src/components/nav-menu.jsx:314
 msgid "Accounts…"
 msgstr "Tilit…"
 
-#: src/components/nav-menu.jsx:321
+#: src/components/nav-menu.jsx:324
 #: src/pages/login.jsx:27
 #: src/pages/login.jsx:190
 #: src/pages/status.jsx:855
@@ -1458,29 +1486,36 @@ msgstr "Tilit…"
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: src/components/nav-menu.jsx:338
+#: src/components/nav-menu.jsx:341
 #: src/components/shortcuts-settings.jsx:57
-#: src/components/shortcuts-settings.jsx:172
+#: src/components/shortcuts-settings.jsx:189
 #: src/pages/trending.jsx:439
 msgid "Trending"
 msgstr "Suositut"
 
-#: src/components/nav-menu.jsx:350
-#: src/components/shortcuts-settings.jsx:165
+#: src/components/nav-menu.jsx:354
+#: src/components/shortcuts-settings.jsx:168
+#: src/components/shortcuts-settings.jsx:703
+msgid "Bubble"
+msgstr ""
+
+#: src/components/nav-menu.jsx:361
+#: src/components/shortcuts-settings.jsx:169
+#: src/components/shortcuts-settings.jsx:706
 msgid "Federated"
 msgstr "Federoitu"
 
-#: src/components/nav-menu.jsx:373
+#: src/components/nav-menu.jsx:384
 msgid "Shortcuts / Columns…"
 msgstr "Pikavalinnat / Sarakkeet…"
 
-#: src/components/nav-menu.jsx:383
-#: src/components/nav-menu.jsx:397
+#: src/components/nav-menu.jsx:394
+#: src/components/nav-menu.jsx:408
 msgid "Settings…"
 msgstr "Asetukset…"
 
-#: src/components/nav-menu.jsx:427
-#: src/components/nav-menu.jsx:454
+#: src/components/nav-menu.jsx:438
+#: src/components/nav-menu.jsx:465
 #: src/components/shortcuts-settings.jsx:50
 #: src/components/shortcuts-settings.jsx:158
 #: src/pages/list.jsx:127
@@ -1489,7 +1524,7 @@ msgstr "Asetukset…"
 msgid "Lists"
 msgstr "Listat"
 
-#: src/components/nav-menu.jsx:435
+#: src/components/nav-menu.jsx:446
 #: src/components/shortcuts.jsx:214
 #: src/pages/list.jsx:134
 msgid "All Lists"
@@ -1865,8 +1900,12 @@ msgid "Home / Following"
 msgstr "Koti / Seurattavat"
 
 #: src/components/shortcuts-settings.jsx:51
-msgid "Public (Local / Federated)"
-msgstr "Julkinen (paikallinen / federoitu)"
+msgid "Local / Bubble / Federated"
+msgstr ""
+
+#: src/components/shortcuts-settings.jsx:51
+#~ msgid "Public (Local / Federated)"
+#~ msgstr "Julkinen (paikallinen / federoitu)"
 
 #: src/components/shortcuts-settings.jsx:53
 msgid "Account"
@@ -1881,8 +1920,13 @@ msgid "List ID"
 msgstr "Listan tunnus"
 
 #: src/components/shortcuts-settings.jsx:70
-msgid "Local only"
-msgstr "Vain paikalliset"
+#: src/components/shortcuts-settings.jsx:690
+msgid "Variant"
+msgstr ""
+
+#: src/components/shortcuts-settings.jsx:70
+#~ msgid "Local only"
+#~ msgstr "Vain paikalliset"
 
 #: src/components/shortcuts-settings.jsx:75
 #: src/components/shortcuts-settings.jsx:84
@@ -1914,240 +1958,240 @@ msgstr "esim. PixelArt (enintään 5, välilyönnein eroteltuina)"
 msgid "Media only"
 msgstr "Vain media"
 
-#: src/components/shortcuts-settings.jsx:235
+#: src/components/shortcuts-settings.jsx:252
 #: src/components/shortcuts.jsx:191
 msgid "Shortcuts"
 msgstr "Pikavalinnat"
 
-#: src/components/shortcuts-settings.jsx:243
+#: src/components/shortcuts-settings.jsx:260
 msgid "beta"
 msgstr "beeta"
 
-#: src/components/shortcuts-settings.jsx:249
+#: src/components/shortcuts-settings.jsx:266
 msgid "Specify a list of shortcuts that'll appear as:"
 msgstr "Määritä luettelo pikavalintoja, jotka näkyvät seuraavasti:"
 
-#: src/components/shortcuts-settings.jsx:255
+#: src/components/shortcuts-settings.jsx:272
 msgid "Floating button"
 msgstr "Kelluva painike"
 
-#: src/components/shortcuts-settings.jsx:260
+#: src/components/shortcuts-settings.jsx:277
 msgid "Tab/Menu bar"
 msgstr "Välilehti-/valikkopalkki"
 
-#: src/components/shortcuts-settings.jsx:265
+#: src/components/shortcuts-settings.jsx:282
 msgid "Multi-column"
 msgstr "Useampi sarake"
 
-#: src/components/shortcuts-settings.jsx:332
+#: src/components/shortcuts-settings.jsx:349
 msgid "Not available in current view mode"
 msgstr "Ei saatavilla nykyisessä näkymätilassa"
 
-#: src/components/shortcuts-settings.jsx:351
+#: src/components/shortcuts-settings.jsx:368
 msgid "Move up"
 msgstr "Siirrä ylöspäin"
 
-#: src/components/shortcuts-settings.jsx:367
+#: src/components/shortcuts-settings.jsx:384
 msgid "Move down"
 msgstr "Siirrä alaspäin"
 
-#: src/components/shortcuts-settings.jsx:379
+#: src/components/shortcuts-settings.jsx:396
 #: src/components/status.jsx:1390
 #: src/pages/list.jsx:171
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: src/components/shortcuts-settings.jsx:400
+#: src/components/shortcuts-settings.jsx:417
 msgid "Add more than one shortcut/column to make this work."
 msgstr "Lisää useampi pikavalinta/sarake, jotta tämä toimisi."
 
-#: src/components/shortcuts-settings.jsx:411
+#: src/components/shortcuts-settings.jsx:428
 msgid "No columns yet. Tap on the Add column button."
 msgstr "Ei vielä sarakkeita. Napauta Lisää sarake -painiketta."
 
-#: src/components/shortcuts-settings.jsx:412
+#: src/components/shortcuts-settings.jsx:429
 msgid "No shortcuts yet. Tap on the Add shortcut button."
 msgstr "Ei vielä pikavalintoja. Napauta Lisää pikavalinta -painiketta."
 
-#: src/components/shortcuts-settings.jsx:415
+#: src/components/shortcuts-settings.jsx:432
 msgid "Not sure what to add?<0/>Try adding <1>Home / Following and Notifications</1> first."
 msgstr "Etkö ole varma, mitä lisätä?<0/>Kokeile lisätä ensin <1>Koti / Seurattavat tai Ilmoitukset</1>."
 
-#: src/components/shortcuts-settings.jsx:443
+#: src/components/shortcuts-settings.jsx:460
 msgid "Max {SHORTCUTS_LIMIT} columns"
 msgstr "Enintään {SHORTCUTS_LIMIT} saraketta"
 
-#: src/components/shortcuts-settings.jsx:444
+#: src/components/shortcuts-settings.jsx:461
 msgid "Max {SHORTCUTS_LIMIT} shortcuts"
 msgstr "Enintään {SHORTCUTS_LIMIT} pikavalintaa"
 
-#: src/components/shortcuts-settings.jsx:458
+#: src/components/shortcuts-settings.jsx:475
 msgid "Import/export"
 msgstr "Tuo/vie"
 
-#: src/components/shortcuts-settings.jsx:468
+#: src/components/shortcuts-settings.jsx:485
 msgid "Add column…"
 msgstr "Lisää sarake…"
 
-#: src/components/shortcuts-settings.jsx:469
+#: src/components/shortcuts-settings.jsx:486
 msgid "Add shortcut…"
 msgstr "Lisää pikavalinta…"
 
-#: src/components/shortcuts-settings.jsx:516
+#: src/components/shortcuts-settings.jsx:533
 msgid "Specific list is optional. For multi-column mode, list is required, else the column will not be shown."
 msgstr "Tietty lista on valinnainen. Usean sarakkeen tilassa lista tarvitaan, tai saraketta ei näytetä."
 
-#: src/components/shortcuts-settings.jsx:517
+#: src/components/shortcuts-settings.jsx:534
 msgid "For multi-column mode, search term is required, else the column will not be shown."
 msgstr "Usean sarakkeen tilassa tarvitaan hakutermi, tai muuten saraketta ei näytetä."
 
-#: src/components/shortcuts-settings.jsx:518
+#: src/components/shortcuts-settings.jsx:535
 msgid "Multiple hashtags are supported. Space-separated."
 msgstr "Useaa aihetunnistetta tuetaan. Erottele välilyönnein."
 
-#: src/components/shortcuts-settings.jsx:587
+#: src/components/shortcuts-settings.jsx:604
 msgid "Edit shortcut"
 msgstr "Muokkaa pikavalintaa"
 
-#: src/components/shortcuts-settings.jsx:587
+#: src/components/shortcuts-settings.jsx:604
 msgid "Add shortcut"
 msgstr "Lisää pikavalinta"
 
-#: src/components/shortcuts-settings.jsx:623
+#: src/components/shortcuts-settings.jsx:640
 msgid "Timeline"
 msgstr "Aikajana"
 
-#: src/components/shortcuts-settings.jsx:649
+#: src/components/shortcuts-settings.jsx:666
 msgid "List"
 msgstr "Lista"
 
-#: src/components/shortcuts-settings.jsx:788
+#: src/components/shortcuts-settings.jsx:834
 msgid "Import/Export <0>Shortcuts</0>"
 msgstr "Tuo/vie <0>pikavalinnat</0>"
 
-#: src/components/shortcuts-settings.jsx:798
+#: src/components/shortcuts-settings.jsx:844
 msgid "Import"
 msgstr "Tuo"
 
-#: src/components/shortcuts-settings.jsx:806
+#: src/components/shortcuts-settings.jsx:852
 msgid "Paste shortcuts here"
 msgstr "Liitä pikavalinnat tähän"
 
-#: src/components/shortcuts-settings.jsx:822
+#: src/components/shortcuts-settings.jsx:868
 msgid "Downloading saved shortcuts from instance server…"
 msgstr "Ladataan tallennetut pikavalinnat instanssipalvelimelta…"
 
-#: src/components/shortcuts-settings.jsx:851
+#: src/components/shortcuts-settings.jsx:897
 msgid "Unable to download shortcuts"
 msgstr "Pikavalintoja ei voitu ladata"
 
-#: src/components/shortcuts-settings.jsx:854
+#: src/components/shortcuts-settings.jsx:900
 msgid "Download shortcuts from instance server"
 msgstr "Lataa pikavalinnat instanssipalvelimelta"
 
-#: src/components/shortcuts-settings.jsx:912
+#: src/components/shortcuts-settings.jsx:958
 msgid "* Exists in current shortcuts"
 msgstr "* Kuuluu nykyisiin pikavalintoihin"
 
-#: src/components/shortcuts-settings.jsx:917
+#: src/components/shortcuts-settings.jsx:963
 msgid "List may not work if it's from a different account."
 msgstr "Lista ei välttämättä toimi, jos se on eri tililtä."
 
-#: src/components/shortcuts-settings.jsx:927
+#: src/components/shortcuts-settings.jsx:973
 msgid "Invalid settings format"
 msgstr "Virheellinen asetusformaatti"
 
-#: src/components/shortcuts-settings.jsx:935
+#: src/components/shortcuts-settings.jsx:981
 msgid "Append to current shortcuts?"
 msgstr "Lisätäänkö nykyisiin pikavalintoihin?"
 
-#: src/components/shortcuts-settings.jsx:938
+#: src/components/shortcuts-settings.jsx:984
 msgid "Only shortcuts that don’t exist in current shortcuts will be appended."
 msgstr "Lisätään vain pikavalinnat, joita ei ole nykyisissä pikavalinnoissa."
 
-#: src/components/shortcuts-settings.jsx:960
+#: src/components/shortcuts-settings.jsx:1006
 msgid "No new shortcuts to import"
 msgstr "Ei uusia pikavalintoja tuotavaksi"
 
-#: src/components/shortcuts-settings.jsx:975
+#: src/components/shortcuts-settings.jsx:1021
 msgid "Shortcuts imported. Exceeded max {SHORTCUTS_LIMIT}, so the rest are not imported."
 msgstr "Pikavalinnat tuotu. Enimmäismäärä {SHORTCUTS_LIMIT} ylittyi, joten loppuja ei tuotu."
 
-#: src/components/shortcuts-settings.jsx:976
-#: src/components/shortcuts-settings.jsx:1000
+#: src/components/shortcuts-settings.jsx:1022
+#: src/components/shortcuts-settings.jsx:1046
 msgid "Shortcuts imported"
 msgstr "Pikavalinnat tuotu"
 
-#: src/components/shortcuts-settings.jsx:986
+#: src/components/shortcuts-settings.jsx:1032
 msgid "Import & append…"
 msgstr "Tuo ja lisää…"
 
-#: src/components/shortcuts-settings.jsx:994
+#: src/components/shortcuts-settings.jsx:1040
 msgid "Override current shortcuts?"
 msgstr "Korvataanko nykyiset pikavalinnat?"
 
-#: src/components/shortcuts-settings.jsx:995
+#: src/components/shortcuts-settings.jsx:1041
 msgid "Import shortcuts?"
 msgstr "Tuodaanko pikavalinnat?"
 
-#: src/components/shortcuts-settings.jsx:1009
+#: src/components/shortcuts-settings.jsx:1055
 msgid "or override…"
 msgstr "tai korvaa…"
 
-#: src/components/shortcuts-settings.jsx:1009
+#: src/components/shortcuts-settings.jsx:1055
 msgid "Import…"
 msgstr "Tuo…"
 
-#: src/components/shortcuts-settings.jsx:1018
+#: src/components/shortcuts-settings.jsx:1064
 msgid "Export"
 msgstr "Vie"
 
-#: src/components/shortcuts-settings.jsx:1033
+#: src/components/shortcuts-settings.jsx:1079
 msgid "Shortcuts copied"
 msgstr "Pikavalinnat kopioitu"
 
-#: src/components/shortcuts-settings.jsx:1036
+#: src/components/shortcuts-settings.jsx:1082
 msgid "Unable to copy shortcuts"
 msgstr "Pikavalintoja ei voitu kopioida"
 
-#: src/components/shortcuts-settings.jsx:1050
+#: src/components/shortcuts-settings.jsx:1096
 msgid "Shortcut settings copied"
 msgstr "Pikavalintojen asetukset kopioitu"
 
-#: src/components/shortcuts-settings.jsx:1053
+#: src/components/shortcuts-settings.jsx:1099
 msgid "Unable to copy shortcut settings"
 msgstr "Pikavalintojen asetuksia ei voitu kopioida"
 
-#: src/components/shortcuts-settings.jsx:1083
+#: src/components/shortcuts-settings.jsx:1129
 msgid "Share"
 msgstr "Jaa"
 
-#: src/components/shortcuts-settings.jsx:1122
+#: src/components/shortcuts-settings.jsx:1168
 msgid "Saving shortcuts to instance server…"
 msgstr "Tallennetaan pikavalinnat instanssipalvelimelle…"
 
-#: src/components/shortcuts-settings.jsx:1129
+#: src/components/shortcuts-settings.jsx:1175
 msgid "Shortcuts saved"
 msgstr "Pikavalinnat tallennettu"
 
-#: src/components/shortcuts-settings.jsx:1134
+#: src/components/shortcuts-settings.jsx:1180
 msgid "Unable to save shortcuts"
 msgstr "Pikavalintoja ei voitu tallentaa"
 
-#: src/components/shortcuts-settings.jsx:1137
+#: src/components/shortcuts-settings.jsx:1183
 msgid "Sync to instance server"
 msgstr "Synkronoi instanssipalvelimelle"
 
 #. placeholder {0}: shortcutsStr.length
-#: src/components/shortcuts-settings.jsx:1145
+#: src/components/shortcuts-settings.jsx:1191
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# merkki} other {# merkkiä}}"
 
-#: src/components/shortcuts-settings.jsx:1157
+#: src/components/shortcuts-settings.jsx:1203
 msgid "Raw Shortcuts JSON"
 msgstr "Pikavalintojen raaka-JSON"
 
-#: src/components/shortcuts-settings.jsx:1170
+#: src/components/shortcuts-settings.jsx:1216
 msgid "Import/export settings from/to instance server (Very experimental)"
 msgstr "Tuo/vie asetukset instanssipalvelimelta/-palvelimelle (erittäin kokeellinen)"
 
@@ -2164,20 +2208,32 @@ msgstr "Valitettavasti parhaillaan kirjautuneena oleva instanssi ei voi olla vuo
 msgid "Unliked @{0}'s post"
 msgstr "Kumottu käyttäjän @{0} julkaisun tykkäys"
 
-#. placeholder {0}: username || acct
+#. placeholder {1}: username || acct
 #: src/components/status.jsx:865
-msgid "Liked @{0}'s post"
-msgstr "Tykätty käyttäjän @{0} julkaisusta"
+msgid "Liked @{1}'s post"
+msgstr ""
 
-#. placeholder {0}: username || acct
+#: src/components/status.jsx:865
+#~ msgid "Liked @{0}'s post"
+#~ msgstr "Tykätty käyttäjän @{0} julkaisusta"
+
+#. placeholder {2}: username || acct
 #: src/components/status.jsx:904
-msgid "Unbookmarked @{0}'s post"
-msgstr "Poistettu käyttäjän @{0} julkaisu kirjanmerkeistä"
+msgid "Unbookmarked @{2}'s post"
+msgstr ""
 
-#. placeholder {0}: username || acct
+#: src/components/status.jsx:904
+#~ msgid "Unbookmarked @{0}'s post"
+#~ msgstr "Poistettu käyttäjän @{0} julkaisu kirjanmerkeistä"
+
+#. placeholder {3}: username || acct
 #: src/components/status.jsx:905
-msgid "Bookmarked @{0}'s post"
-msgstr "Lisätty käyttäjän @{0} julkaisu kirjanmerkkeihin"
+msgid "Bookmarked @{3}'s post"
+msgstr ""
+
+#: src/components/status.jsx:905
+#~ msgid "Bookmarked @{0}'s post"
+#~ msgstr "Lisätty käyttäjän @{0} julkaisu kirjanmerkkeihin"
 
 #: src/components/status.jsx:1002
 msgid "Some media have no descriptions."
@@ -2200,17 +2256,25 @@ msgstr "Kumoa tehostus"
 msgid "Quote"
 msgstr "Lainaa"
 
-#. placeholder {0}: username || acct
+#. placeholder {4}: username || acct
+#: src/components/status.jsx:1061
+msgid "Unboosted @{4}'s post"
+msgstr ""
+
 #: src/components/status.jsx:1061
 #: src/components/status.jsx:1524
-msgid "Unboosted @{0}'s post"
-msgstr "Kumottu käyttäjän @{0} julkaisun tehostus"
+#~ msgid "Unboosted @{0}'s post"
+#~ msgstr "Kumottu käyttäjän @{0} julkaisun tehostus"
 
-#. placeholder {0}: username || acct
+#. placeholder {5}: username || acct
+#: src/components/status.jsx:1062
+msgid "Boosted @{5}'s post"
+msgstr ""
+
 #: src/components/status.jsx:1062
 #: src/components/status.jsx:1525
-msgid "Boosted @{0}'s post"
-msgstr "Tehostettu käyttäjän @{0} julkaisua"
+#~ msgid "Boosted @{0}'s post"
+#~ msgstr "Tehostettu käyttäjän @{0} julkaisua"
 
 #: src/components/status.jsx:1074
 msgid "Boost…"
@@ -2328,6 +2392,16 @@ msgstr "Julkaisua ei voitu poistaa"
 #: src/components/status.jsx:1448
 msgid "Report post…"
 msgstr "Raportoi julkaisu…"
+
+#. placeholder {6}: username || acct
+#: src/components/status.jsx:1524
+msgid "Unboosted @{6}'s post"
+msgstr ""
+
+#. placeholder {7}: username || acct
+#: src/components/status.jsx:1525
+msgid "Boosted @{7}'s post"
+msgstr ""
 
 #: src/components/status.jsx:1817
 #: src/components/status.jsx:1853
@@ -2616,17 +2690,21 @@ msgstr "Näytetään julkaisut, joissa on mediaa"
 msgid "Showing posts tagged with #{0}"
 msgstr "Näytetään julkaisut tunnisteella #{0}"
 
-#. placeholder {0}: date.toLocaleString(i18n.locale, { month: 'long', year: 'numeric', })
+#. placeholder {1}: date.toLocaleString(i18n.locale, { month: 'long', year: 'numeric', })
 #: src/pages/account-statuses.jsx:411
-msgid "Showing posts in {0}"
-msgstr "Näytetään julkaisut ajalta {0}"
+msgid "Showing posts in {1}"
+msgstr ""
+
+#: src/pages/account-statuses.jsx:411
+#~ msgid "Showing posts in {0}"
+#~ msgstr "Näytetään julkaisut ajalta {0}"
 
 #: src/pages/account-statuses.jsx:500
 msgid "Nothing to see here yet."
 msgstr "Täällä ei ole vielä mitään nähtävää."
 
 #: src/pages/account-statuses.jsx:501
-#: src/pages/public.jsx:98
+#: src/pages/public.jsx:118
 #: src/pages/trending.jsx:447
 msgid "Unable to load posts"
 msgstr "Julkaisua ei voitu ladata"
@@ -2835,10 +2913,14 @@ msgstr "Poistetaanko tämä kiinnikuronta?"
 msgid "Removing Catch-up {0}"
 msgstr "Poistetaan kiinnikuronta {0}"
 
-#. placeholder {0}: pc.id
+#. placeholder {1}: pc.id
 #: src/pages/catchup.jsx:1075
-msgid "Catch-up {0} removed"
-msgstr "Kiinnikuronta {0} poistettu"
+msgid "Catch-up {1} removed"
+msgstr ""
+
+#: src/pages/catchup.jsx:1075
+#~ msgid "Catch-up {0} removed"
+#~ msgstr "Kiinnikuronta {0} poistettu"
 
 #: src/pages/catchup.jsx:1089
 msgid "Note: Only max 3 will be stored. The rest will be automatically removed."
@@ -3197,25 +3279,25 @@ msgid "Add to Shortcuts"
 msgstr "Lisää pikatoimintoihin"
 
 #: src/pages/hashtag.jsx:487
-#: src/pages/public.jsx:140
+#: src/pages/public.jsx:167
 #: src/pages/trending.jsx:476
 msgid "Enter a new instance e.g. \"mastodon.social\""
 msgstr "Anna uusi instanssi, esim. ”mastodon.social”"
 
 #: src/pages/hashtag.jsx:490
-#: src/pages/public.jsx:143
+#: src/pages/public.jsx:170
 #: src/pages/trending.jsx:479
 msgid "Invalid instance"
 msgstr "Virheellinen instanssi"
 
 #: src/pages/hashtag.jsx:504
-#: src/pages/public.jsx:157
+#: src/pages/public.jsx:184
 #: src/pages/trending.jsx:491
 msgid "Go to another instance…"
 msgstr "Siirry toiseen instanssiin…"
 
 #: src/pages/hashtag.jsx:517
-#: src/pages/public.jsx:170
+#: src/pages/public.jsx:197
 #: src/pages/trending.jsx:502
 msgid "Go to my instance (<0>{currentInstance}</0>)"
 msgstr "Siirry omalle instanssille (<0>{currentInstance}</0>)"
@@ -3425,10 +3507,14 @@ msgstr "Ilmoituspyyntöä ei voitu hyväksyä"
 msgid "Allow"
 msgstr "Salli"
 
-#. placeholder {0}: request.account.username
+#. placeholder {1}: request.account.username
 #: src/pages/notifications.jsx:1250
-msgid "Notifications from @{0} will not show up in Filtered notifications from now on."
-msgstr "Ilmoitukset käyttäjältä @{0} eivät näy suodatetuissa ilmoituksissa tästä lähtien."
+msgid "Notifications from @{1} will not show up in Filtered notifications from now on."
+msgstr ""
+
+#: src/pages/notifications.jsx:1250
+#~ msgid "Notifications from @{0} will not show up in Filtered notifications from now on."
+#~ msgstr "Ilmoitukset käyttäjältä @{0} eivät näy suodatetuissa ilmoituksissa tästä lähtien."
 
 #: src/pages/notifications.jsx:1255
 msgid "Unable to dismiss notification request"
@@ -3442,33 +3528,45 @@ msgstr "Hylkää"
 msgid "Dismissed"
 msgstr "Hylätty"
 
-#: src/pages/public.jsx:28
+#: src/pages/public.jsx:27
 msgid "Local timeline ({instance})"
 msgstr "Paikallinen aikajana ({instance})"
+
+#: src/pages/public.jsx:28
+msgid "Bubble timeline ({instance})"
+msgstr ""
 
 #: src/pages/public.jsx:29
 msgid "Federated timeline ({instance})"
 msgstr "Federoitu aikajana ({instance})"
 
-#: src/pages/public.jsx:91
+#: src/pages/public.jsx:32
 msgid "Local timeline"
 msgstr "Paikallinen aikajana"
 
-#: src/pages/public.jsx:91
+#: src/pages/public.jsx:33
+msgid "Bubble timeline"
+msgstr ""
+
+#: src/pages/public.jsx:34
 msgid "Federated timeline"
 msgstr "Federoitu aikajana"
 
-#: src/pages/public.jsx:97
+#: src/pages/public.jsx:117
 msgid "No one has posted anything yet."
 msgstr "Kukaan ei ole vielä julkaissut mitään."
 
-#: src/pages/public.jsx:124
-msgid "Switch to Federated"
-msgstr "Vaihda federoituun"
-
-#: src/pages/public.jsx:131
+#: src/pages/public.jsx:143
 msgid "Switch to Local"
 msgstr "Vaihda paikalliseen"
+
+#: src/pages/public.jsx:151
+msgid "Switch to Bubble"
+msgstr ""
+
+#: src/pages/public.jsx:159
+msgid "Switch to Federated"
+msgstr "Vaihda federoituun"
 
 #: src/pages/scheduled-posts.jsx:108
 msgid "No scheduled posts."
@@ -3865,10 +3963,14 @@ msgstr "Kokeellinen"
 msgid "Unable to switch"
 msgstr "Ei voitu vaihtaa"
 
-#. placeholder {0}: punycode.toUnicode( postInstance, )
+#. placeholder {1}: punycode.toUnicode( postInstance, )
 #: src/pages/status.jsx:1311
-msgid "Switch to post's instance ({0})"
-msgstr "Vaihda julkaisun instanssiin ({0})"
+msgid "Switch to post's instance ({1})"
+msgstr ""
+
+#: src/pages/status.jsx:1311
+#~ msgid "Switch to post's instance ({0})"
+#~ msgstr "Vaihda julkaisun instanssiin ({0})"
 
 #: src/pages/status.jsx:1314
 msgid "Switch to post's instance"
@@ -4015,4 +4117,3 @@ msgstr "Julkaisuluonnos on parhaillaan pienennettynä. Julkaise tai hylkää se 
 #: src/utils/show-compose.js:21
 msgid "A post is currently open. Post or discard it before creating a new one."
 msgstr "Julkaisu on parhaillaan avoinna. Julkaise tai hylkää se ennen kuin luot uuden."
-
