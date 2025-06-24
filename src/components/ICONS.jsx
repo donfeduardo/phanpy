@@ -176,4 +176,8 @@ export const ICONS = {
   minimize: () => import('@iconify-icons/mingcute/arrows-down-line'),
   celebrate: () => import('@iconify-icons/mingcute/celebrate-line'),
   star2: () => import('@iconify-icons/mingcute/star-2-line'),
+  schedule: () => import('@iconify-icons/mingcute/calendar-time-add-line'),
+  month: () => import('@iconify-icons/mingcute/calendar-month-line'),
+  day: () => import('@iconify-icons/mingcute/calendar-day-line'),
+  camera: () => import('@iconify-icons/mingcute/camera-line'),
 };

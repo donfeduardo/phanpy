@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '@lingui/react/macro';
 import { getBlurHashAverageColor } from 'fast-blurhash';
 import { Fragment } from 'preact';
 import { memo } from 'preact/compat';
@@ -165,9 +165,12 @@ function Media({
     onUpdate,
   };
 
+  const [mediaLoadError, setMediaLoadError] = useState(false);
+
   const Parent = useMemo(
-    () => (to ? (props) => <Link to={to} {...props} /> : 'div'),
-    [to],
+    () =>
+      to && !mediaLoadError ? (props) => <Link to={to} {...props} /> : 'div',
+    [to, mediaLoadError],
   );
 
   const remoteMediaURLObj = remoteMediaURL ? getURLObj(remoteMediaURL) : null;
@@ -182,6 +185,9 @@ function Media({
   const isImage =
     type === 'image' ||
     (type === 'unknown' && previewUrl && !isVideoMaybe && !isAudioMaybe);
+  const isPreviewVideoMaybe =
+    previewUrl &&
+    /\.(mp4|m4r|m4v|mov|webm)$/i.test(getURLObj(previewUrl).pathname);
 
   const parentRef = useRef();
   const [imageSmallerThanParent, setImageSmallerThanParent] = useState(false);
@@ -392,6 +398,8 @@ function Media({
                   const { src } = e.target;
                   if (src === mediaURL && mediaURL !== remoteMediaURL) {
                     e.target.src = remoteMediaURL;
+                  } else {
+                    setMediaLoadError(true);
                   }
                 }}
               />
@@ -401,6 +409,16 @@ function Media({
             </>
           )}
         </Parent>
+        {mediaLoadError && (
+          <div>
+            <a href={remoteUrl} class="button plain6 small" target="_blank">
+              <Icon icon="external" />{' '}
+              <span>
+                <Trans>Open file</Trans>
+              </span>
+            </a>
+          </div>
+        )}
       </Figure>
     );
   } else if (type === 'gifv' || type === 'video' || isVideoMaybe) {
@@ -562,7 +580,7 @@ function Media({
             />
           ) : (
             <>
-              {previewUrl ? (
+              {previewUrl && !isPreviewVideoMaybe ? (
                 <img
                   src={previewUrl}
                   alt={showInlineDesc ? '' : description}
