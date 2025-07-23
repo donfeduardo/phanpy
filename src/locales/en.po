@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/components/account-block.jsx:137
 msgid "Locked"
@@ -2334,16 +2340,6 @@ msgstr "Unable to delete post"
 #: src/components/status.jsx:1448
 msgid "Report post…"
 msgstr "Report post…"
-
-#. placeholder {6}: username || acct
-#: src/components/status.jsx:1524
-msgid "Unboosted @{6}'s post"
-msgstr "Unboosted @{6}'s post"
-
-#. placeholder {7}: username || acct
-#: src/components/status.jsx:1525
-msgid "Boosted @{7}'s post"
-msgstr "Boosted @{7}'s post"
 
 #. placeholder {6}: username || acct
 #: src/components/status.jsx:1524
