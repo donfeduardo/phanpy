@@ -61,7 +61,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
       if (variant === 'federated' && supports('@pixelfed/global-feed')) {
         opts.remote = true;
       }
-      publicIterator.current = source(opts);
+      publicIterator.current = masto.v1.timelines.public.list(opts).values();
     }
     const results = await publicIterator.current.next();
     let { value } = results;
@@ -89,6 +89,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           local: variant === 'local',
           since_id: latestItem.current,
         })
+        .values()
         .next();
       let { value } = results;
       const valueContainsLatestItem = value[0]?.id === latestItem.current; // since_id might not be supported
