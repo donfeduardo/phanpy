@@ -22,6 +22,7 @@ const platformFeatures = {
   '@mastodon/profile-edit': notContainPixelfed,
   '@mastodon/profile-private-note': notContainPixelfed,
   '@mastodon/pinned-posts': notContainPixelfed,
+  '@chuckya/bubble-timeline': containChuckya,
   '@pixelfed/trending': containPixelfed,
   '@pixelfed/home-include-reblogs': containPixelfed,
   '@pixelfed/global-feed': containPixelfed,
@@ -29,6 +30,7 @@ const platformFeatures = {
   '@akkoma/local-visibility-post': containAkkoma,
   '@chuckya/bubble-timeline': containChuckya,
 };
+// Named features for which support is explicitly expressed by the instance
 const advertisedFeatures = {
   '@akkoma/bubble-timeline': 'bubble_timeline',
 };
@@ -40,10 +42,7 @@ const atSoftwareSlashMatch = /^@([a-z]+)\//i;
 
 function supports(feature) {
   try {
-    let instanceData = getCurrentInstance();
-    let version = instanceData.version;
-    let domain = instanceData.domain;
-    let pleroma = instanceData?.pleroma;
+    let { version, domain, pleroma } = getCurrentInstance();
 
     let softwareName = getCurrentNodeInfo()?.software?.name || 'mastodon';
 
