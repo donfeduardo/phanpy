@@ -21,6 +21,8 @@ const platformFeatures = {
   '@mastodon/post-edit': notContainPixelfed,
   '@mastodon/profile-edit': notContainPixelfed,
   '@mastodon/profile-private-note': notContainPixelfed,
+  '@mastodon/pinned-posts': notContainPixelfed,
+  '@chuckya/bubble-timeline': containChuckya,
   '@pixelfed/trending': containPixelfed,
   '@pixelfed/home-include-reblogs': containPixelfed,
   '@pixelfed/global-feed': containPixelfed,
@@ -28,6 +30,7 @@ const platformFeatures = {
   '@akkoma/local-visibility-post': containAkkoma,
   '@chuckya/bubble-timeline': containChuckya,
 };
+// Named features for which support is explicitly expressed by the instance
 const advertisedFeatures = {
   '@akkoma/bubble-timeline': 'bubble_timeline',
 };
@@ -36,10 +39,7 @@ const supportsCache = {};
 
 function supports(feature) {
   try {
-    let instanceData = getCurrentInstance();
-    let version = instanceData.version;
-    let domain = instanceData.domain;
-    let pleroma = instanceData?.pleroma;
+    let { version, domain, pleroma } = getCurrentInstance();
 
     let softwareName = getCurrentNodeInfo()?.software?.name || 'mastodon';
 
@@ -55,7 +55,7 @@ function supports(feature) {
       return (supportsCache[key] = platformFeatures[feature].test(version));
     }
 
-    // Advertised features
+    // use Pleroma / Akkoma's advertised feature list to see if a given feature is supported
     if (pleroma) {
       return (supportsCache[key] = pleroma.metadata.features.includes(
         advertisedFeatures[feature],

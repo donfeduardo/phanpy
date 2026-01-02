@@ -67,9 +67,23 @@ const TYPE_PARAMS = {
   ],
   public: [
     {
-      text: msg`Variant`,
+      text: msg`Type`,
       name: 'variant',
-      type: 'variant',
+      type: 'select',
+      values: [
+        {
+          name: msg`Local`,
+          value: 'local',
+        },
+        {
+          name: msg`Bubble`,
+          value: 'bubble',
+        },
+        {
+          name: msg`Federated`,
+          value: 'federated',
+        },
+      ],
     },
     {
       text: msg`Instance`,
@@ -657,7 +671,15 @@ function ShortcutForm({
             </label>
           </p>
           {TYPE_PARAMS[currentType]?.map?.(
-            ({ text, name, type, placeholder, pattern, notRequired }) => {
+            ({
+              text,
+              name,
+              type,
+              placeholder,
+              pattern,
+              notRequired,
+              values,
+            }) => {
               if (currentType === 'list') {
                 return (
                   <p>
@@ -676,6 +698,28 @@ function ShortcutForm({
                         {lists.map((list) => (
                           <option value={list.id}>{list.title}</option>
                         ))}
+                      </select>
+                    </label>
+                  </p>
+                );
+              } else if (type === 'select') {
+                let options = values.map(({ name, value }) => (
+                  <option key={value} value={value}>
+                    {_(name)}
+                  </option>
+                ));
+
+                return (
+                  <p>
+                    <label>
+                      <span>{_(text)}</span>
+                      <select
+                        name={name}
+                        required={!notRequired}
+                        disabled={disabled || uiState === 'loading'}
+                        dir="auto"
+                      >
+                        {options}
                       </select>
                     </label>
                   </p>

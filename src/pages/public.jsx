@@ -19,49 +19,51 @@ function Public({ variant = 'federated', columnMode, ...props }) {
   const { t } = useLingui();
   const snapStates = useSnapshot(states);
   const params = columnMode ? {} : useParams();
+  
   const { masto, instance } = api({
     instance: props?.instance || params.instance,
   });
+
   const { masto: currentMasto, instance: currentInstance } = api();
+
   const title = {
     local: t`Local timeline (${instance})`,
     bubble: t`Bubble timeline (${instance})`,
     federated: t`Federated timeline (${instance})`,
   }[variant];
-  const headerText = {
-    local: t`Local timeline`,
-    bubble: t`Bubble timeline`,
-    federated: t`Federated timeline`,
-  }[variant];
-  const path = {
-    local: '/:instance?/p/l',
-    bubble: '/:instance?/p/b',
-    federated: '/:instance?/p',
-  }[variant];
-  const source = {
-    local: masto.v1.timelines.public.list,
-    bubble: supports('@akkoma/bubble-timeline')
-      ? masto.v1.timelines.bubble.list
-      : masto.v1.timelines.public.list,
-    federated: masto.v1.timelines.public.list,
-  }[variant];
 
+  const path = {
+    local: `/:instance?/p/l`,
+    bubble: `/:instance?/p/b`,
+    federated: `/:instance?/p`,
+  }[variant];
   useTitle(title, path);
+
   // const navigate = useNavigate();
   const latestItem = useRef();
+
+  // TODO: this switches depending on our current instance, and not the instance we're viewing
+  let endpoint;
+  if(supports('@akkoma/bubble-timeline')) {
+    endpoint = masto.v1.timelines.bubble
+  }
+  else {
+    endpoint = masto.v1.timelines.public
+  }
 
   const publicIterator = useRef();
   async function fetchPublic(firstLoad) {
     if (firstLoad || !publicIterator.current) {
+
+      // TODO: same as above for Pixelfed here
       const opts = {
         limit: LIMIT,
-        local: variant === 'local',
-        bubble: variant === 'bubble' && supports('@chuckya/bubble-timeline'),
+        local: variant === 'local' || undefined,
+        bubble: variant === 'bubble' || undefined,
+        remote: variant === 'federated' && supports('@pixelfed/global-feed') || undefined,
       };
-      if (variant === 'federated' && supports('@pixelfed/global-feed')) {
-        opts.remote = true;
-      }
-      publicIterator.current = source(opts);
+
+      publicIterator.current = endpoint.list(opts).values();
     }
     const results = await publicIterator.current.next();
     let { value } = results;
@@ -83,12 +85,13 @@ function Public({ variant = 'federated', columnMode, ...props }) {
 
   async function checkForUpdates() {
     try {
-      const results = await source
+      const results = await endpoint
         .list({
           limit: 1,
           local: variant === 'local',
           since_id: latestItem.current,
         })
+        .values()
         .next();
       let { value } = results;
       const valueContainsLatestItem = value[0]?.id === latestItem.current; // since_id might not be supported
@@ -101,6 +104,12 @@ function Public({ variant = 'federated', columnMode, ...props }) {
       return false;
     }
   }
+
+  const headerText = {
+    local: t`Local timeline`,
+    bubble: t`Bubble timeline`,
+    federated: t`Federated timeline`,
+  }[variant];
 
   return (
     <Timeline
@@ -138,7 +147,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
         >
           {variant !== 'local' && (
             <MenuItem href={`/#/${instance}/p/l`}>
-              <Icon icon="transfer" />{' '}
+              <Icon icon="building" />{' '}
               <span>
                 <Trans>Switch to Local</Trans>
               </span>
@@ -146,7 +155,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           )}
           {variant !== 'bubble' && (
             <MenuItem href={`/#/${instance}/p/b`}>
-              <Icon icon="transfer" />{' '}
+              <Icon icon="star2" />{' '}
               <span>
                 <Trans>Switch to Bubble</Trans>
               </span>
@@ -154,7 +163,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           )}
           {variant !== 'federated' && (
             <MenuItem href={`/#/${instance}/p`}>
-              <Icon icon="transfer" />{' '}
+              <Icon icon="earth" />{' '}
               <span>
                 <Trans>Switch to Federated</Trans>
               </span>
@@ -173,9 +182,11 @@ function Public({ variant = 'federated', columnMode, ...props }) {
               if (newInstance) {
                 newInstance = newInstance.toLowerCase().trim();
                 // navigate(isLocal ? `/${newInstance}/p/l` : `/${newInstance}/p`);
-                location.hash = isLocal
-                  ? `/${newInstance}/p/l`
-                  : `/${newInstance}/p`;
+                location.hash = {
+                  local: `/${newInstance}/p/l`,
+                  bubble: `/${newInstance}/p/b`,
+                  federated: `/${newInstance}/p`,
+                }[variant];
               }
             }}
           >
