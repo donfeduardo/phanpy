@@ -66,10 +66,7 @@ const memSupportsGroupedNotifications = mem(
 
 function mastoFetchNotificationsIterable(opts = {}) {
   const { masto } = api();
-  if (
-    states.settings.groupedNotificationsAlpha &&
-    memSupportsGroupedNotifications()
-  ) {
+  if (memSupportsGroupedNotifications()) {
     // https://github.com/mastodon/mastodon/pull/29889
     return masto.v2.notifications.list({
       limit: NOTIFICATIONS_GROUPED_LIMIT,
@@ -87,10 +84,7 @@ export function mastoFetchNotifications(opts = {}) {
 }
 
 export function getGroupedNotifications(notifications) {
-  if (
-    states.settings.groupedNotificationsAlpha &&
-    memSupportsGroupedNotifications()
-  ) {
+  if (memSupportsGroupedNotifications()) {
     return groupNotifications2(notifications);
   } else {
     return groupNotifications(notifications);
@@ -279,9 +273,10 @@ function Notifications({ columnMode }) {
             .then((announcements) => {
               announcements.sort((a, b) => {
                 // Sort by updatedAt first, then createdAt
-                const aDate = new Date(a.updatedAt || a.createdAt);
-                const bDate = new Date(b.updatedAt || b.createdAt);
-                return bDate - aDate;
+                return (
+                  Date.parse(b.updatedAt || b.createdAt) -
+                  Date.parse(a.updatedAt || a.createdAt)
+                );
               });
               setAnnouncements(announcements);
             })

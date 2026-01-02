@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -11,7 +11,10 @@
       "*.{js,jsx,ts,tsx,json,jsonc}",
       "scripts/**/*.js",
       "!wrangler.jsonc",
-      "!i18n-volunteers.json"
+      "!i18n-volunteers.json",
+      "!!**/.git",
+      "!!**/dist",
+      "!!**/node_modules"
     ]
   },
   "formatter": {

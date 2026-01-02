@@ -8,7 +8,7 @@ import {
   getAccount,
   getAccountByAccessToken,
   getAccountByInstance,
-  getCurrentAccount,
+  getCurrentAcc,
   saveAccount,
   setCurrentAccountID,
 } from './store-utils';
@@ -45,13 +45,17 @@ export function initClient({ instance, accessToken }) {
   const masto = createRestAPIClient({
     url,
     accessToken, // Can be null
-    timeout: 2 * 60_000, // Unfortunatly this is global instead of per-request
+    timeout: 2 * 60_000, // Unfortunately this is global instead of per-request
+    mediaTimeout: 10 * 60_000,
   });
 
   const client = {
     masto,
     instance,
     accessToken,
+    onStreamingReady: function (callback) {
+      this._streamingCallback = callback;
+    },
   };
   apis[instance] = client;
   if (!accountApis[instance]) accountApis[instance] = {};
@@ -161,6 +165,15 @@ export async function initInstance(client, instance) {
     client.streaming = streamClient;
     // masto.ws = streamClient;
     console.log('🎏 Streaming API client:', client);
+
+    if (client._streamingCallback) {
+      try {
+        client._streamingCallback(streamClient);
+      } catch (e) {
+        console.error('Error in streaming callback:', e);
+      }
+      client._streamingCallback = null;
+    }
   }
   __BENCHMARK.end('init-instance');
 }
@@ -294,7 +307,7 @@ export function api({ instance, accessToken, accountID, account } = {}) {
     }
   }
 
-  const currentAccount = getCurrentAccount();
+  const currentAccount = getCurrentAcc();
 
   // If only instance is provided, get the masto instance for that instance
   if (instance) {

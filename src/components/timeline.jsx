@@ -31,6 +31,7 @@ import Link from './link';
 import MediaPost from './media-post';
 import NavMenu from './nav-menu';
 import Status from './status';
+import ThreadBadge from './thread-badge';
 
 const scrollIntoViewOptions = {
   block: 'start',
@@ -284,20 +285,8 @@ function Timeline({
   const headerRef = useRef();
   // const [hiddenUI, setHiddenUI] = useState(false);
   const [nearReachStart, setNearReachStart] = useState(false);
-  useScrollFn(
-    {
-      scrollableRef,
-      distanceFromEnd: 2,
-      scrollThresholdStart: 44,
-    },
-    ({
-      scrollDirection,
-      nearReachStart,
-      // nearReachEnd,
-      reachStart,
-      // reachEnd,
-    }) => {
-      // setHiddenUI(scrollDirection === 'end' && !nearReachEnd);
+  const scrollFnCallback = useCallback(
+    ({ scrollDirection, nearReachStart, reachStart }) => {
       if (headerRef.current) {
         const hiddenUI = scrollDirection === 'end' && !nearReachStart;
         headerRef.current.hidden = hiddenUI;
@@ -306,11 +295,16 @@ function Timeline({
       if (reachStart) {
         loadItems(true);
       }
-      // else if (nearReachEnd || (reachEnd && showMore)) {
-      //   loadItems();
-      // }
     },
-    [],
+    [setNearReachStart, loadItems],
+  );
+  const { resetScrollDirection } = useScrollFn(
+    {
+      scrollableRef,
+      distanceFromEnd: 2,
+      scrollThresholdStart: 44,
+    },
+    scrollFnCallback,
   );
 
   useEffect(() => {
@@ -436,6 +430,7 @@ function Timeline({
           ) {
             setTimeout(() => {
               headerRef.current.hidden = false;
+              resetScrollDirection();
             }, 250);
           }
         }}
@@ -875,27 +870,8 @@ const TimelineItem = memo(
 function StatusCarousel({ title, class: className, children }) {
   const { t } = useLingui();
   const carouselRef = useRef();
-  // const { reachStart, reachEnd, init } = useScroll({
-  //   scrollableRef: carouselRef,
-  //   direction: 'horizontal',
-  // });
   const startButtonRef = useRef();
   const endButtonRef = useRef();
-  // useScrollFn(
-  //   {
-  //     scrollableRef: carouselRef,
-  //     direction: 'horizontal',
-  //     init: true,
-  //   },
-  //   ({ reachStart, reachEnd }) => {
-  //     if (startButtonRef.current) startButtonRef.current.disabled = reachStart;
-  //     if (endButtonRef.current) endButtonRef.current.disabled = reachEnd;
-  //   },
-  //   [],
-  // );
-  // useEffect(() => {
-  //   init?.();
-  // }, []);
 
   const [render, setRender] = useState(false);
   useEffect(() => {
@@ -980,18 +956,9 @@ function TimelineStatusCompact({ status, instance, filterContext }) {
       }`}
       tabindex="-1"
     >
-      {!!snapStates.statusThreadNumber[sKey] ? (
-        <div class="status-thread-badge">
-          <Icon icon="thread" size="s" alt={t`Thread`} />
-          {snapStates.statusThreadNumber[sKey]
-            ? ` ${snapStates.statusThreadNumber[sKey]}/X`
-            : ''}
-        </div>
-      ) : (
-        <div class="status-thread-badge">
-          <Icon icon="thread" size="s" alt={t`Thread`} />
-        </div>
-      )}
+      <div class="status-thread-badge-container">
+        <ThreadBadge index={snapStates.statusThreadNumber[sKey]} />
+      </div>
       <div
         class="content-compact"
         title={statusPeekText}
