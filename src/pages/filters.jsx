@@ -304,7 +304,7 @@ function FiltersAddEdit({ filter, onClose }) {
                     // Other clients don't do this
                     if (hasExpiry) {
                       expiresIn = Math.floor(
-                        (expiresAtDate - new Date()) / 1000,
+                        (expiresAtDate - Date.now()) / 1000,
                       );
                     } else {
                       expiresIn = null;
@@ -361,6 +361,7 @@ function FiltersAddEdit({ filter, onClose }) {
                 defaultValue={title}
                 disabled={uiState === 'loading'}
                 dir="auto"
+                enterKeyHint="done"
                 required
               />
             </label>
@@ -384,6 +385,7 @@ function FiltersAddEdit({ filter, onClose }) {
                         disabled={uiState === 'loading'}
                         required
                         dir="auto"
+                        enterKeyHint="done"
                       />
                       <div class="filter-keyword-actions">
                         <label>
@@ -615,7 +617,7 @@ function ExpiryStatus({ expiresAt, showNeverExpires }) {
   const { t } = useLingui();
   const hasExpiry = !!expiresAt;
   const expiresAtDate = hasExpiry && new Date(expiresAt);
-  const expired = hasExpiry && expiresAtDate <= new Date();
+  const expired = hasExpiry && Date.parse(expiresAt) <= Date.now();
 
   // If less than a minute left, re-render interval every second, else every minute
   const [_, rerender] = useReducer((c) => c + 1, 0);

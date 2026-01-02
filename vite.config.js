@@ -6,7 +6,7 @@ import { lingui } from '@lingui/vite-plugin';
 import preact from '@preact/preset-vite';
 import Sonda from 'sonda/vite';
 import { uid } from 'uid/single';
-import { defineConfig, loadEnv } from 'vite';
+import { createLogger, defineConfig, loadEnv } from 'vite';
 import generateFile from 'vite-plugin-generate-file';
 import htmlPlugin from 'vite-plugin-html-config';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -22,18 +22,24 @@ const {
   PHANPY_CLIENT_NAME: CLIENT_NAME,
   PHANPY_APP_ERROR_LOGGING: ERROR_LOGGING,
   PHANPY_REFERRER_POLICY: REFERRER_POLICY,
+  PHANPY_DISALLOW_ROBOTS: DISALLOW_ROBOTS,
   PHANPY_DEV,
 } = loadEnv('production', process.cwd(), allowedEnvPrefixes);
 
 const now = new Date();
 let commitHash;
+let commitTime;
 let fakeCommitHash = false;
 try {
-  commitHash = execSync('git rev-parse --short HEAD').toString().trim();
+  const gitResult = execSync('git log -1 --format="%h %cI"').toString().trim();
+  const [hash, time] = gitResult.split(' ');
+  commitHash = hash;
+  commitTime = new Date(time);
 } catch (error) {
   // If error, means git is not installed or not a git repo (could be downloaded instead of git cloned)
   // Fallback to random hash which should be different on every build run 🤞
   commitHash = uid();
+  commitTime = now;
   fakeCommitHash = true;
 }
 
@@ -42,8 +48,26 @@ const rollbarCode = fs.readFileSync(
   'utf-8',
 );
 
+// https://github.com/vitejs/vite/issues/9597#issuecomment-1209305107
+const excludedPostCSSWarnings = [
+  ':is()', // This IS fine
+  'display: box;', // Browsers are kinda late for the ellipsis support
+];
+const logger = createLogger();
+const originalWarn = logger.warn;
+logger.warn = (msg, options) => {
+  if (
+    msg.includes('vite:css') &&
+    excludedPostCSSWarnings.some((str) => msg.includes(str))
+  ) {
+    return;
+  }
+  originalWarn(msg, options);
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  customLogger: logger,
   base: './',
   envPrefix: allowedEnvPrefixes,
   appType: 'mpa',
@@ -51,10 +75,16 @@ export default defineConfig({
   define: {
     __BUILD_TIME__: JSON.stringify(now),
     __COMMIT_HASH__: JSON.stringify(commitHash),
+    __COMMIT_TIME__: JSON.stringify(commitTime),
     __FAKE_COMMIT_HASH__: fakeCommitHash,
   },
   server: {
     host: true,
+    watch: {
+      awaitWriteFinish: {
+        pollInterval: 1000,
+      },
+    },
   },
   css: {
     preprocessorMaxWorkers: 1,
@@ -119,7 +149,31 @@ export default defineConfig({
           commitHash,
         },
       },
+      ...(DISALLOW_ROBOTS
+        ? [
+            {
+              type: 'raw',
+              output: './robots.txt',
+              data: 'User-agent: *\nDisallow: /',
+            },
+          ]
+        : []),
     ]),
+    {
+      // https://developers.cloudflare.com/pages/configuration/early-hints/
+      name: 'generate-headers',
+      writeBundle(_, bundle) {
+        const cssFiles = Object.keys(bundle).filter((file) =>
+          file.endsWith('.css'),
+        );
+        if (cssFiles.length > 0) {
+          const links = cssFiles
+            .map((file) => `  Link: <${file}>; rel=preload; as=style`)
+            .join('\n');
+          fs.writeFileSync(resolve(__dirname, 'dist/_headers'), `/\n${links}`);
+        }
+      },
+    },
     VitePWA({
       manifest: {
         name: CLIENT_NAME,
@@ -163,14 +217,38 @@ export default defineConfig({
       brotli: true,
       open: false,
     }),
+    {
+      name: 'css-ordering-plugin',
+      transformIndexHtml(html) {
+        const stylesheets = [];
+        html = html.replace(
+          /<link[^>]*rel=["']stylesheet["'][^>]*>/g,
+          (match) => {
+            stylesheets.push(match);
+            return '';
+          },
+        );
+
+        // Try to place before first <link> tag, fallback to after last <meta> tag
+        const linkRegex = /<link[^>]*>/;
+        if (linkRegex.test(html)) {
+          return html.replace(linkRegex, (match) => {
+            return stylesheets.join('') + match;
+          });
+        } else {
+          return html.replace(/(<meta[^>]*>)(?![\s\S]*<meta)/, (match) => {
+            return match + stylesheets.join('');
+          });
+        }
+      },
+    },
   ],
   build: {
     sourcemap: true,
-    // Note: In Vite 6, if cssCodeSplit = false, it will show error "Cannot read properties of undefined (reading 'includes')"
-    // TODO: Revisit this when this issue is fixed
-    // cssCodeSplit: false,
+    cssCodeSplit: false,
     rollupOptions: {
       treeshake: false,
+      external: ['@xmldom/xmldom'], // exifreader's optional dependency, not needed
       input: {
         main: resolve(__dirname, 'index.html'),
         compose: resolve(__dirname, 'compose/index.html'),
@@ -225,6 +303,29 @@ export default defineConfig({
                 }
               });
             }
+          },
+        },
+        {
+          name: 'remove-chunk-sourcemaps',
+          generateBundle(_, bundle) {
+            // Remove .js.map files and sourcemap references for specific chunks
+            Object.keys(bundle).forEach((fileName) => {
+              const shouldRemoveSourcemap =
+                fileName.includes('locales/') || fileName.includes('icons/');
+
+              if (fileName.endsWith('.js.map') && shouldRemoveSourcemap) {
+                delete bundle[fileName];
+              } else if (fileName.endsWith('.js') && shouldRemoveSourcemap) {
+                const chunk = bundle[fileName];
+                if (chunk.type === 'chunk' && chunk.code) {
+                  // Remove sourceMappingURL comment
+                  chunk.code = chunk.code.replace(
+                    /\/\/# sourceMappingURL=.+\.js\.map\n?$/,
+                    '',
+                  );
+                }
+              }
+            });
           },
         },
       ],

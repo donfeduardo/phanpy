@@ -21,6 +21,7 @@ import {
   removeSubscription,
   updateSubscription,
 } from '../utils/push-notifications';
+import { supportsNativeQuote } from '../utils/quote-utils';
 import showToast from '../utils/show-toast';
 import states from '../utils/states';
 import store from '../utils/store';
@@ -75,6 +76,8 @@ function Settings({ onClose }) {
   const [expTabBarV2, setExpTabBarV2] = useState(
     store.local.get('experiments-tabBarV2') ?? false,
   );
+
+  const disableQuotePolicy = prefs['posting:default:visibility'] === 'private';
 
   return (
     <div
@@ -158,7 +161,7 @@ function Settings({ onClose }) {
                       .querySelector('meta[name="color-scheme"]')
                       .setAttribute(
                         'content',
-                        theme === 'auto' ? 'dark light' : theme,
+                        theme === 'auto' ? 'light dark' : theme,
                       );
 
                     if (theme === 'auto') {
@@ -256,8 +259,7 @@ function Settings({ onClose }) {
               <span>
                 <label>
                   <Trans>Display language</Trans>
-                </label>
-                <br />
+                </label>{' '}
                 <small>
                   <a
                     href="https://crowdin.com/project/phanpy"
@@ -280,52 +282,99 @@ function Settings({ onClose }) {
             <section>
               <ul>
                 <li>
-                  <div>
-                    <label for="posting-privacy-field">
-                      <Trans>Default visibility</Trans>{' '}
+                  <label for="posting-privacy-field">
+                    <Trans>Default visibility</Trans>{' '}
+                    <Icon icon="cloud" alt={t`Synced`} class="synced-icon" />
+                  </label>
+                  <select
+                    id="posting-privacy-field"
+                    value={prefs['posting:default:visibility'] || 'public'}
+                    onChange={(e) => {
+                      const { value } = e.target;
+                      (async () => {
+                        try {
+                          await masto.v1.accounts.updateCredentials({
+                            source: {
+                              privacy: value,
+                            },
+                          });
+                          const newPrefs = {
+                            ...prefs,
+                            'posting:default:visibility': value,
+                          };
+                          if (value === 'private') {
+                            newPrefs['posting:default:quote_policy'] = 'nobody';
+                          }
+                          setPrefs(newPrefs);
+                          setPreferences(newPrefs);
+                          showToast(t`Default visibility updated`);
+                        } catch (e) {
+                          alert(t`Failed to update default visibility`);
+                          console.error(e);
+                        }
+                      })();
+                    }}
+                  >
+                    <option value="public">
+                      <Trans>Public</Trans>
+                    </option>
+                    <option value="unlisted">
+                      <Trans>Quiet public</Trans>
+                    </option>
+                    <option value="private">
+                      <Trans>Followers</Trans>
+                    </option>
+                  </select>
+                </li>
+                {supportsNativeQuote() && (
+                  <li>
+                    <label for="posting-quote-policy-field">
+                      <Trans>Quote settings</Trans>{' '}
                       <Icon icon="cloud" alt={t`Synced`} class="synced-icon" />
                     </label>
-                  </div>
-                  <div>
                     <select
-                      id="posting-privacy-field"
-                      value={prefs['posting:default:visibility'] || 'public'}
+                      id="posting-quote-policy-field"
+                      value={
+                        disableQuotePolicy
+                          ? 'nobody'
+                          : prefs['posting:default:quote_policy'] || 'public'
+                      }
+                      disabled={disableQuotePolicy}
                       onChange={(e) => {
                         const { value } = e.target;
                         (async () => {
                           try {
                             await masto.v1.accounts.updateCredentials({
                               source: {
-                                privacy: value,
+                                quote_policy: value,
                               },
                             });
-                            setPrefs({
+                            const newPrefs = {
                               ...prefs,
-                              'posting:default:visibility': value,
-                            });
-                            setPreferences({
-                              ...prefs,
-                              'posting:default:visibility': value,
-                            });
+                              'posting:default:quote_policy': value,
+                            };
+                            setPrefs(newPrefs);
+                            setPreferences(newPrefs);
+                            showToast(t`Quote settings updated`);
                           } catch (e) {
-                            alert(t`Failed to update posting privacy`);
+                            alert(t`Failed to update quote settings`);
                             console.error(e);
                           }
                         })();
                       }}
                     >
-                      <option value="public">
-                        <Trans>Public</Trans>
+                      <option value="public" disabled={disableQuotePolicy}>
+                        <Trans>Anyone can quote</Trans>
                       </option>
-                      <option value="unlisted">
-                        <Trans>Unlisted</Trans>
+                      <option value="followers" disabled={disableQuotePolicy}>
+                        <Trans>Your followers can quote</Trans>
                       </option>
-                      <option value="private">
-                        <Trans>Followers only</Trans>
+                      <option value="nobody">
+                        <Trans>Only you can quote</Trans>
                       </option>
                     </select>
-                  </div>
-                </li>
+                  </li>
+                )}
               </ul>
             </section>
             <p class="section-postnote">
@@ -604,29 +653,6 @@ function Settings({ onClose }) {
                 </div>
               </li>
             )}
-            {authenticated && getAPIVersions()?.mastodon >= 2 && (
-              <li class="block">
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={snapStates.settings.groupedNotificationsAlpha}
-                    onChange={(e) => {
-                      states.settings.groupedNotificationsAlpha =
-                        e.target.checked;
-                    }}
-                  />{' '}
-                  <Trans>Server-side grouped notifications</Trans>
-                </label>
-                <div class="sub-section insignificant">
-                  <small>
-                    <Trans>
-                      Alpha-stage feature. Potentially improved grouping window
-                      but basic grouping logic.
-                    </Trans>
-                  </small>
-                </div>
-              </li>
-            )}
             {authenticated && (
               <li class="block">
                 <label>
@@ -806,7 +832,7 @@ function Settings({ onClose }) {
               <Trans>Privacy Policy</Trans>
             </a>
           </p>
-          {__BUILD_TIME__ && (
+          {__COMMIT_TIME__ && (
             <p>
               {WEBSITE && (
                 <>
@@ -824,7 +850,7 @@ function Settings({ onClose }) {
                   class="version-string"
                   readOnly
                   size="18" // Manually calculated here
-                  value={`${__BUILD_TIME__.slice(0, 10).replace(/-/g, '.')}${
+                  value={`${__COMMIT_TIME__.slice(0, 10).replace(/-/g, '.')}${
                     __COMMIT_HASH__ ? `.${__COMMIT_HASH__}` : ''
                   }`}
                   onClick={(e) => {
