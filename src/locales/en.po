@@ -1162,7 +1162,7 @@ msgstr ""
 #: src/pages/accounts.jsx:127
 #: src/pages/hashtag.jsx:203
 #: src/pages/list.jsx:171
-#: src/pages/public.jsx:146
+#: src/pages/public.jsx:144
 #: src/pages/scheduled-posts.jsx:89
 #: src/pages/status.jsx:1532
 #: src/pages/trending.jsx:474
@@ -3116,7 +3116,7 @@ msgid "Nothing to see here yet."
 msgstr ""
 
 #: src/pages/account-statuses.jsx:537
-#: src/pages/public.jsx:129
+#: src/pages/public.jsx:127
 #: src/pages/trending.jsx:452
 msgid "Unable to load posts"
 msgstr ""
@@ -3692,25 +3692,25 @@ msgid "Add to Shortcuts"
 msgstr ""
 
 #: src/pages/hashtag.jsx:492
-#: src/pages/public.jsx:178
+#: src/pages/public.jsx:176
 #: src/pages/trending.jsx:481
 msgid "Enter a new instance e.g. \"mastodon.social\""
 msgstr ""
 
 #: src/pages/hashtag.jsx:495
-#: src/pages/public.jsx:181
+#: src/pages/public.jsx:179
 #: src/pages/trending.jsx:484
 msgid "Invalid instance"
 msgstr ""
 
 #: src/pages/hashtag.jsx:509
-#: src/pages/public.jsx:197
+#: src/pages/public.jsx:195
 #: src/pages/trending.jsx:496
 msgid "Go to another instance…"
 msgstr ""
 
 #: src/pages/hashtag.jsx:522
-#: src/pages/public.jsx:210
+#: src/pages/public.jsx:208
 #: src/pages/trending.jsx:507
 msgid "Go to my instance (<0>{currentInstance}</0>)"
 msgstr ""
@@ -3945,31 +3945,31 @@ msgstr "Bubble timeline ({instance})"
 msgid "Federated timeline ({instance})"
 msgstr ""
 
-#: src/pages/public.jsx:111
+#: src/pages/public.jsx:109
 msgid "Local timeline"
 msgstr ""
 
-#: src/pages/public.jsx:112
+#: src/pages/public.jsx:110
 msgid "Bubble timeline"
 msgstr "Bubble timeline"
 
-#: src/pages/public.jsx:113
+#: src/pages/public.jsx:111
 msgid "Federated timeline"
 msgstr ""
 
-#: src/pages/public.jsx:128
+#: src/pages/public.jsx:126
 msgid "No one has posted anything yet."
 msgstr ""
 
-#: src/pages/public.jsx:154
+#: src/pages/public.jsx:152
 msgid "Switch to Local"
 msgstr "Switch to Local"
 
-#: src/pages/public.jsx:162
+#: src/pages/public.jsx:160
 msgid "Switch to Bubble"
 msgstr "Switch to Bubble"
 
-#: src/pages/public.jsx:170
+#: src/pages/public.jsx:168
 msgid "Switch to Federated"
 msgstr "Switch to Federated"
 
