@@ -1,7 +1,7 @@
 import { Trans, useLingui } from '@lingui/react/macro';
-import { Menu, MenuDivider, MenuItem } from '@szhsin/react-menu';
-import { useRef } from 'preact/hooks';
-import { useNavigate, useParams } from 'react-router-dom';
+import { MenuDivider, MenuItem } from '@szhsin/react-menu';
+import { useRef, useState } from 'preact/hooks';
+import { useParams } from 'react-router-dom';
 import { useSnapshot } from 'valtio';
 
 import Icon from '../components/icon';
@@ -10,7 +10,9 @@ import Timeline from '../components/timeline';
 import { api } from '../utils/api';
 import { filteredItems } from '../utils/filters';
 import states, { saveStatus } from '../utils/states';
+import store from '../utils/store';
 import supports from '../utils/supports';
+import { checkTimelineAccess } from '../utils/timeline-access';
 import useTitle from '../utils/useTitle';
 
 const LIMIT = 20;
@@ -20,7 +22,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
   const snapStates = useSnapshot(states);
   const params = columnMode ? {} : useParams();
   
-  const { masto, instance } = api({
+  const { masto, authenticated, instance } = api({
     instance: props?.instance || params.instance,
   });
 
@@ -51,11 +53,33 @@ function Public({ variant = 'federated', columnMode, ...props }) {
     endpoint = masto.v1.timelines.public
   }
 
+  // Timeline access: public, authenticated, disabled
+  const [timelineAccess, setTimelineAccess] = useState(null);
+  const isDisabled = timelineAccess === 'disabled';
+  const requiresAuth = timelineAccess === 'authenticated';
+  const isPrivate = requiresAuth && !authenticated;
+
   const publicIterator = useRef();
   async function fetchPublic(firstLoad) {
     if (firstLoad || !publicIterator.current) {
 
       // TODO: same as above for Pixelfed here
+      const access = await checkTimelineAccess({
+        feed: 'liveFeeds',
+        feedType: isLocal ? 'local' : 'remote',
+        instance,
+      });
+      setTimelineAccess(access);
+      if (
+        access === 'disabled' ||
+        (access === 'authenticated' && !authenticated)
+      ) {
+        return {
+          done: true,
+          value: [],
+        };
+      }
+
       const opts = {
         limit: LIMIT,
         local: variant === 'local' || undefined,
@@ -84,6 +108,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
   }
 
   async function checkForUpdates() {
+    if (isDisabled || isPrivate) return false;
     try {
       const results = await endpoint
         .list({
@@ -123,7 +148,13 @@ function Public({ variant = 'federated', columnMode, ...props }) {
       }
       id="public"
       instance={instance}
-      emptyText={t`No one has posted anything yet.`}
+      emptyText={
+        isDisabled
+          ? t`This timeline is disabled on this server.`
+          : isPrivate
+            ? t`Login required to see posts from this server.`
+            : t`No one has posted anything yet.`
+      }
       errorText={t`Unable to load posts`}
       fetchItems={fetchPublic}
       checkForUpdates={checkForUpdates}
@@ -173,10 +204,10 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           <MenuItem
             onClick={() => {
               let newInstance = prompt(
-                t`Enter a new instance e.g. "mastodon.social"`,
+                t`Enter a new server e.g. "mastodon.social"`,
               );
               if (!/\./.test(newInstance)) {
-                if (newInstance) alert(t`Invalid instance`);
+                if (newInstance) alert(t`Invalid server`);
                 return;
               }
               if (newInstance) {
@@ -192,7 +223,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           >
             <Icon icon="bus" />{' '}
             <span>
-              <Trans>Go to another instance…</Trans>
+              <Trans>Go to another server…</Trans>
             </span>
           </MenuItem>
           {currentInstance !== instance && (
@@ -206,7 +237,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
               <Icon icon="bus" />{' '}
               <small class="menu-double-lines">
                 <Trans>
-                  Go to my instance (<b>{currentInstance}</b>)
+                  Go to my server (<b>{currentInstance}</b>)
                 </Trans>
               </small>
             </MenuItem>

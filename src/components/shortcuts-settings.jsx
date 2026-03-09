@@ -21,7 +21,7 @@ import pmem from '../utils/pmem';
 import showToast from '../utils/show-toast';
 import states from '../utils/states';
 import store from '../utils/store';
-import { getCurrentAccountID } from '../utils/store-utils';
+import { getCurrentAccount, getCurrentAccountID } from '../utils/store-utils';
 
 import AsyncText from './AsyncText';
 import Icon from './icon';
@@ -42,6 +42,7 @@ const TYPES = [
   'hashtag',
   'bookmarks',
   'favourites',
+  'profile', // Own profile
   // NOTE: Hide for now
   // 'account-statuses', // Need @acct search first
 ];
@@ -57,6 +58,7 @@ const TYPE_TEXT = {
   hashtag: msg`Hashtag`,
   trending: msg`Trending`,
   mentions: msg`Mentions`,
+  profile: msg`Profile`,
 };
 const TYPE_PARAMS = {
   list: [
@@ -87,7 +89,7 @@ const TYPE_PARAMS = {
       ],
     },
     {
-      text: msg`Instance`,
+      text: msg`Server`,
       name: 'instance',
       type: 'text',
       placeholder: msg`Optional, e.g. mastodon.social`,
@@ -96,7 +98,7 @@ const TYPE_PARAMS = {
   ],
   trending: [
     {
-      text: msg`Instance`,
+      text: msg`Server`,
       name: 'instance',
       type: 'text',
       placeholder: msg`Optional, e.g. mastodon.social`,
@@ -134,7 +136,7 @@ const TYPE_PARAMS = {
       type: 'checkbox',
     },
     {
-      text: msg`Instance`,
+      text: msg`Server`,
       name: 'instance',
       type: 'text',
       placeholder: msg`Optional, e.g. mastodon.social`,
@@ -215,6 +217,20 @@ export const SHORTCUTS_META = {
         : '/search',
     icon: 'search',
     excludeViewMode: ({ query }) => (!query ? ['multi-column'] : []),
+  },
+  profile: {
+    id: 'profile',
+    title: msg`Profile`,
+    path: () => `/a/${getCurrentAccountID()}?replies=1`,
+    icon: 'user',
+    altIcon: () => {
+      const account = getCurrentAccount();
+      return {
+        // Prefer static URL
+        url: account?.info?.avatarStatic || account?.info?.avatar,
+        type: 'avatar',
+      };
+    },
   },
   'account-statuses': {
     id: 'account-statuses',
@@ -931,9 +947,7 @@ function ImportExport({ shortcuts, onClose }) {
                 onClick={async () => {
                   setImportUIState('cloud-downloading');
                   const currentAccount = getCurrentAccountID();
-                  showToast(
-                    t`Downloading saved shortcuts from instance server…`,
-                  );
+                  showToast(t`Downloading saved shortcuts from server…`);
                   try {
                     const relationships =
                       await masto.v1.accounts.relationships.fetch({
@@ -964,7 +978,7 @@ function ImportExport({ shortcuts, onClose }) {
                     showToast(t`Unable to download shortcuts`);
                   }
                 }}
-                title={t`Download shortcuts from instance server`}
+                title={t`Download shortcuts from server`}
               >
                 <Icon icon="cloud" />
                 <Icon icon="arrow-down" size="s" />
@@ -1207,7 +1221,7 @@ function ImportExport({ shortcuts, onClose }) {
                       } else {
                         newNote = `${note}\n\n\n<phanpy-shortcuts-settings>${settingsJSON}</phanpy-shortcuts-settings>`;
                       }
-                      showToast(t`Saving shortcuts to instance server…`);
+                      showToast(t`Saving shortcuts to server…`);
                       await masto.v1.accounts
                         .$select(currentAccount)
                         .note.create({
@@ -1222,7 +1236,7 @@ function ImportExport({ shortcuts, onClose }) {
                     showToast(t`Unable to save shortcuts`);
                   }
                 }}
-                title={t`Sync to instance server`}
+                title={t`Sync to server`}
               >
                 <Icon icon="cloud" />
                 <Icon icon="arrow-up" size="s" />
@@ -1302,8 +1316,7 @@ function ImportExport({ shortcuts, onClose }) {
             <p>
               <Icon icon="cloud" />{' '}
               <Trans>
-                Import/export settings from/to instance server (Very
-                experimental)
+                Import/export settings from/to server (Very experimental)
               </Trans>
             </p>
           </footer>
