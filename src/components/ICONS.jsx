@@ -199,6 +199,7 @@ export const ICONS = {
   scan: () => import('../iconify-icons/mingcute/scan-line.js'),
   note: () => import('../iconify-icons/mingcute/document-3-line.js'),
   grid: () => import('../iconify-icons/mingcute/grid-line.js'),
+  star2: () => import('../iconify-icons/mingcute/star-2-line'),
   moon: {
     module: () => import('../iconify-icons/mingcute/moon-line.js'),
     flip: 'horizontal',

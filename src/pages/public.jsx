@@ -17,19 +17,26 @@ import useTitle from '../utils/useTitle';
 
 const LIMIT = 20;
 
-function Public({ local, columnMode, ...props }) {
+function Public({ variant = 'federated', columnMode, ...props }) {
   const { t } = useLingui();
   const snapStates = useSnapshot(states);
-  const isLocal = !!local;
   const params = columnMode ? {} : useParams();
   const { masto, authenticated, instance } = api({
     instance: props?.instance || params.instance,
   });
   const { instance: currentInstance } = api();
-  const title = isLocal
-    ? t`Local timeline (${instance})`
-    : t`Federated timeline (${instance})`;
-  useTitle(title, isLocal ? `/:instance?/p/l` : `/:instance?/p`);
+  const title = {
+    local: t`Local timeline (${instance})`,
+    bubble: t`Bubble timeline (${instance})`,
+    federated: t`Federated timeline (${instance})`,
+  }[variant];
+
+  const path = {
+    local: `/:instance?/p/l`,
+    bubble: `/:instance?/p/b`,
+    federated: `/:instance?/p`,
+  }[variant];
+  useTitle(title, path);
   // const navigate = useNavigate();
   const latestItem = useRef();
 
@@ -38,6 +45,15 @@ function Public({ local, columnMode, ...props }) {
   const isDisabled = timelineAccess === 'disabled';
   const requiresAuth = timelineAccess === 'authenticated';
   const isPrivate = requiresAuth && !authenticated;
+  
+  // TODO: this switches depending on our current instance, and not the instance we're viewing
+  let endpoint;
+  if(supports('@akkoma/bubble-timeline')) {
+    endpoint = masto.v1.timelines.bubble
+  }
+  else {
+    endpoint = masto.v1.timelines.public
+  }
 
   const publicIterator = useRef();
   async function fetchPublic(firstLoad) {
@@ -58,14 +74,16 @@ function Public({ local, columnMode, ...props }) {
         };
       }
 
+      // TODO: same as above for Pixelfed here
+
       const opts = {
         limit: LIMIT,
-        local: isLocal || undefined,
+        local: variant === 'local' || undefined,
+        bubble: variant === 'bubble' || undefined,
+        remote: variant === 'federated' && supports('@pixelfed/global-feed') || undefined,
       };
-      if (!isLocal && supports('@pixelfed/global-feed')) {
-        opts.remote = true;
-      }
-      publicIterator.current = masto.v1.timelines.public.list(opts).values();
+
+      publicIterator.current = endpoint.list(opts).values();
     }
     const results = await publicIterator.current.next();
     let { value } = results;
@@ -88,10 +106,10 @@ function Public({ local, columnMode, ...props }) {
   async function checkForUpdates() {
     if (isDisabled || isPrivate) return false;
     try {
-      const results = await masto.v1.timelines.public
+      const results = await endpoint
         .list({
           limit: 1,
-          local: isLocal,
+          local: variant === 'local',
           since_id: latestItem.current,
         })
         .values()
@@ -108,13 +126,19 @@ function Public({ local, columnMode, ...props }) {
     }
   }
 
+  const headerText = {
+    local: t`Local timeline`,
+    bubble: t`Bubble timeline`,
+    federated: t`Federated timeline`,
+  }[variant];
+
   return (
     <Timeline
-      key={instance + isLocal}
+      key={instance + variant}
       title={title}
       titleComponent={
         <h1 class="header-double-lines">
-          <b>{isLocal ? t`Local timeline` : t`Federated timeline`}</b>
+          <b>{headerText}</b>
           <div>{instance}</div>
         </h1>
       }
@@ -148,23 +172,30 @@ function Public({ local, columnMode, ...props }) {
             </button>
           }
         >
-          <MenuItem href={isLocal ? `/#/${instance}/p` : `/#/${instance}/p/l`}>
-            {isLocal ? (
-              <>
-                <Icon icon="transfer" />{' '}
-                <span>
-                  <Trans>Switch to Federated</Trans>
-                </span>
-              </>
-            ) : (
-              <>
-                <Icon icon="transfer" />{' '}
-                <span>
-                  <Trans>Switch to Local</Trans>
-                </span>
-              </>
-            )}
-          </MenuItem>
+          {variant !== 'local' && (
+            <MenuItem href={`/#/${instance}/p/l`}>
+              <Icon icon="building" />{' '}
+              <span>
+                <Trans>Switch to Local</Trans>
+              </span>
+            </MenuItem>
+          )}
+          {variant !== 'bubble' && (
+            <MenuItem href={`/#/${instance}/p/b`}>
+              <Icon icon="star2" />{' '}
+              <span>
+                <Trans>Switch to Bubble</Trans>
+              </span>
+            </MenuItem>
+          )}
+          {variant !== 'federated' && (
+            <MenuItem href={`/#/${instance}/p`}>
+              <Icon icon="earth" />{' '}
+              <span>
+                <Trans>Switch to Federated</Trans>
+              </span>
+            </MenuItem>
+          )}
           <MenuDivider />
           <MenuItem
             onClick={() => {
@@ -178,9 +209,11 @@ function Public({ local, columnMode, ...props }) {
               if (newInstance) {
                 newInstance = newInstance.toLowerCase().trim();
                 // navigate(isLocal ? `/${newInstance}/p/l` : `/${newInstance}/p`);
-                location.hash = isLocal
-                  ? `/${newInstance}/p/l`
-                  : `/${newInstance}/p`;
+                location.hash = {
+                  local: `/${newInstance}/p/l`,
+                  bubble: `/${newInstance}/p/b`,
+                  federated: `/${newInstance}/p`,
+                }[variant];
               }
             }}
           >
