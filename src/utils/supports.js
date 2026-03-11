@@ -22,7 +22,6 @@ const platformFeatures = {
   '@mastodon/profile-edit': notContainPixelfed,
   '@mastodon/profile-private-note': notContainPixelfed,
   '@mastodon/pinned-posts': notContainPixelfed,
-  '@chuckya/bubble-timeline': containChuckya,
   '@pixelfed/trending': containPixelfed,
   '@pixelfed/home-include-reblogs': containPixelfed,
   '@pixelfed/global-feed': containPixelfed,
@@ -58,14 +57,15 @@ function supports(feature) {
       return (supportsCache[key] = platformFeatures[feature].test(version));
     }
 
+    // use Pleroma / Akkoma's advertised feature list to see if a given feature is supported
+    if (pleroma) {
+      return (supportsCache[key] = pleroma.metadata.features.includes(
+        advertisedFeatures[feature],
+      ));
+    }
+
     const featureMatch = feature.match(atSoftwareSlashMatch);
     if (!featureMatch) {
-      // use Pleroma / Akkoma's advertised feature list to see if a given feature is supported
-      if (pleroma) {
-        return (supportsCache[key] = pleroma.metadata.features.includes(
-          advertisedFeatures[feature],
-        ));
-      }
       // Only software match, e.g. supports('@mastodon')
       const software = feature.replace(/^@/, '');
       return (supportsCache[key] = softwareName === software);

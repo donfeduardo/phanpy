@@ -116,7 +116,7 @@ export async function initInstance(client, instance) {
   // spec: https://github.com/jhass/nodeinfo
   try {
     if (uri || domain) {
-      let urlBase = uri || `https://${domain}`;
+      let urlBase = `https://${uri}` || `https://${domain}`;
       const wellKnown = await (
         await fetch(`${urlBase}/.well-known/nodeinfo`)
       ).json();

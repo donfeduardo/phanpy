@@ -20,6 +20,7 @@ const LIMIT = 20;
 function Public({ variant = 'federated', columnMode, ...props }) {
   const { t } = useLingui();
   const snapStates = useSnapshot(states);
+  const isLocal = variant === 'local';
   const params = columnMode ? {} : useParams();
   const { masto, authenticated, instance } = api({
     instance: props?.instance || params.instance,
@@ -45,22 +46,29 @@ function Public({ variant = 'federated', columnMode, ...props }) {
   const isDisabled = timelineAccess === 'disabled';
   const requiresAuth = timelineAccess === 'authenticated';
   const isPrivate = requiresAuth && !authenticated;
-  
+
+  const publicIterator = useRef();
+
   // TODO: this switches depending on our current instance, and not the instance we're viewing
   let endpoint;
-  if(supports('@akkoma/bubble-timeline')) {
+  if(supports('@akkoma/bubble-timeline') && variant === 'bubble') {
     endpoint = masto.v1.timelines.bubble
   }
   else {
     endpoint = masto.v1.timelines.public
   }
-
-  const publicIterator = useRef();
+  
+  if (publicIterator.endpoint && publicIterator.endpoint != endpoint) {
+    publicIterator.current = undefined;
+  }
+  
+  publicIterator.endpoint = endpoint;
+  
   async function fetchPublic(firstLoad) {
     if (firstLoad || !publicIterator.current) {
       const access = await checkTimelineAccess({
         feed: 'liveFeeds',
-        feedType: isLocal ? 'local' : 'remote',
+        feedType: variant,
         instance,
       });
       setTimelineAccess(access);
@@ -74,15 +82,13 @@ function Public({ variant = 'federated', columnMode, ...props }) {
         };
       }
 
-      // TODO: same as above for Pixelfed here
-
       const opts = {
         limit: LIMIT,
-        local: variant === 'local' || undefined,
-        bubble: variant === 'bubble' || undefined,
-        remote: variant === 'federated' && supports('@pixelfed/global-feed') || undefined,
+        local: isLocal || undefined,
       };
-
+      if (!isLocal && supports('@pixelfed/global-feed')) {
+        opts.remote = true;
+      }
       publicIterator.current = endpoint.list(opts).values();
     }
     const results = await publicIterator.current.next();
@@ -109,7 +115,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
       const results = await endpoint
         .list({
           limit: 1,
-          local: variant === 'local',
+          local: isLocal,
           since_id: latestItem.current,
         })
         .values()
