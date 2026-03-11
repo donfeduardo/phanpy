@@ -161,7 +161,7 @@ msgstr "复制用户名"
 #: src/components/account-info.jsx:644
 #: src/components/related-actions.jsx:255
 #: src/components/related-actions.jsx:604
-#: src/components/shortcuts-settings.jsx:1089
+#: src/components/shortcuts-settings.jsx:1187
 msgid "QR code"
 msgstr "二维码"
 
@@ -289,9 +289,9 @@ msgstr "查看嘟文统计"
 #: src/components/quote-settings-sheet.jsx:61
 #: src/components/quotes-modal.jsx:76
 #: src/components/report-modal.jsx:118
-#: src/components/shortcuts-settings.jsx:239
-#: src/components/shortcuts-settings.jsx:592
-#: src/components/shortcuts-settings.jsx:793
+#: src/components/shortcuts-settings.jsx:278
+#: src/components/shortcuts-settings.jsx:631
+#: src/components/shortcuts-settings.jsx:891
 #: src/components/status.jsx:3391
 #: src/components/status.jsx:3603
 #: src/components/translated-bio-sheet.jsx:21
@@ -299,7 +299,7 @@ msgstr "查看嘟文统计"
 #: src/pages/catchup.jsx:1712
 #: src/pages/filters.jsx:225
 #: src/pages/list.jsx:302
-#: src/pages/notifications.jsx:1005
+#: src/pages/notifications.jsx:1035
 #: src/pages/scheduled-posts.jsx:288
 #: src/pages/settings.jsx:100
 #: src/pages/status.jsx:1651
@@ -349,14 +349,14 @@ msgid "More from <0/>"
 msgstr "<0/> 的更多内容"
 
 #: src/components/columns.jsx:29
-#: src/components/nav-menu.jsx:181
-#: src/components/shortcuts-settings.jsx:142
-#: src/components/timeline.jsx:487
+#: src/components/nav-menu.jsx:190
+#: src/components/shortcuts-settings.jsx:156
+#: src/components/timeline.jsx:492
 #: src/pages/catchup.jsx:1008
 #: src/pages/filters.jsx:90
 #: src/pages/followed-hashtags.jsx:41
 #: src/pages/home.jsx:54
-#: src/pages/notifications.jsx:638
+#: src/pages/notifications.jsx:668
 #: src/pages/scheduled-posts.jsx:74
 msgid "Home"
 msgstr "主页"
@@ -367,7 +367,7 @@ msgid "Compose"
 msgstr "发嘟"
 
 #: src/components/compose-button.jsx:177
-#: src/components/nav-menu.jsx:265
+#: src/components/nav-menu.jsx:274
 #: src/pages/scheduled-posts.jsx:31
 #: src/pages/scheduled-posts.jsx:78
 msgid "Scheduled Posts"
@@ -384,7 +384,7 @@ msgstr "选项 {0}"
 
 #: src/components/compose-poll.jsx:64
 #: src/components/media-attachment.jsx:349
-#: src/components/shortcuts-settings.jsx:735
+#: src/components/shortcuts-settings.jsx:833
 #: src/pages/catchup.jsx:1209
 #: src/pages/filters.jsx:415
 msgid "Remove"
@@ -393,7 +393,7 @@ msgstr "移除"
 #: src/components/compose-poll.jsx:80
 #: src/components/compose.jsx:1737
 #: src/components/mention-modal.jsx:221
-#: src/components/shortcuts-settings.jsx:724
+#: src/components/shortcuts-settings.jsx:822
 #: src/pages/list.jsx:388
 msgid "Add"
 msgstr "添加"
@@ -512,7 +512,7 @@ msgstr "附加附件 #{i} 失败"
 
 #: src/components/compose.jsx:1493
 #: src/components/status.jsx:2495
-#: src/components/timeline.jsx:1013
+#: src/components/timeline.jsx:1018
 msgid "Content warning"
 msgstr "内容警告"
 
@@ -582,8 +582,10 @@ msgid "Public"
 msgstr "公开"
 
 #: src/components/compose.jsx:2022
-#: src/components/nav-menu.jsx:349
-#: src/components/shortcuts-settings.jsx:168
+#: src/components/nav-menu.jsx:358
+#: src/components/shortcuts-settings.jsx:78
+#: src/components/shortcuts-settings.jsx:184
+#: src/components/shortcuts-settings.jsx:761
 #: src/utils/visibility-text.jsx:5
 msgid "Local"
 msgstr "本站"
@@ -741,14 +743,14 @@ msgstr "编辑历史快照"
 #: src/components/edit-history-controls.jsx:35
 #: src/components/gif-picker-modal.jsx:208
 #: src/components/media-modal.jsx:478
-#: src/components/timeline.jsx:926
+#: src/components/timeline.jsx:931
 msgid "Previous"
 msgstr "上一页"
 
 #: src/components/edit-history-controls.jsx:47
 #: src/components/gif-picker-modal.jsx:226
 #: src/components/media-modal.jsx:497
-#: src/components/timeline.jsx:943
+#: src/components/timeline.jsx:948
 msgid "Next"
 msgstr "下一页"
 
@@ -792,9 +794,9 @@ msgstr "内容"
 #: src/components/edit-profile-sheet.jsx:329
 #: src/components/list-add-edit.jsx:152
 #: src/components/quote-settings-sheet.jsx:92
-#: src/components/shortcuts-settings.jsx:724
+#: src/components/shortcuts-settings.jsx:822
 #: src/pages/filters.jsx:572
-#: src/pages/notifications.jsx:1071
+#: src/pages/notifications.jsx:1101
 msgid "Save"
 msgstr "保存"
 
@@ -812,7 +814,7 @@ msgid "No featured profiles."
 msgstr "暂无精选账户。"
 
 #: src/components/follow-request-buttons.jsx:43
-#: src/pages/notifications.jsx:1055
+#: src/pages/notifications.jsx:1085
 msgid "Accept"
 msgstr "接受"
 
@@ -821,7 +823,7 @@ msgid "Reject"
 msgstr "拒绝"
 
 #: src/components/follow-request-buttons.jsx:76
-#: src/pages/notifications.jsx:1339
+#: src/pages/notifications.jsx:1369
 msgid "Accepted"
 msgstr "已接受"
 
@@ -839,9 +841,9 @@ msgstr "账号"
 
 #: src/components/generic-accounts.jsx:214
 #: src/components/quotes-modal.jsx:129
-#: src/components/timeline.jsx:569
+#: src/components/timeline.jsx:574
 #: src/pages/list.jsx:321
-#: src/pages/notifications.jsx:985
+#: src/pages/notifications.jsx:1015
 #: src/pages/search.jsx:562
 #: src/pages/status.jsx:1685
 msgid "Show more…"
@@ -850,7 +852,7 @@ msgstr "显示更多…"
 #: src/components/generic-accounts.jsx:219
 #: src/components/quote-chain-modal.jsx:169
 #: src/components/quotes-modal.jsx:133
-#: src/components/timeline.jsx:574
+#: src/components/timeline.jsx:579
 #: src/pages/search.jsx:567
 msgid "The end."
 msgstr "到底了。"
@@ -909,7 +911,7 @@ msgid "Import/Export <0>Accounts</0>"
 msgstr "导入/导出 <0>帐户</0>"
 
 #: src/components/import-export-accounts.jsx:128
-#: src/components/shortcuts-settings.jsx:808
+#: src/components/shortcuts-settings.jsx:906
 msgid "Import"
 msgstr "导入"
 
@@ -918,7 +920,7 @@ msgid "Select file…"
 msgstr "选择文件…"
 
 #: src/components/import-export-accounts.jsx:151
-#: src/components/shortcuts-settings.jsx:1056
+#: src/components/shortcuts-settings.jsx:1154
 msgid "Export"
 msgstr "导出"
 
@@ -936,7 +938,7 @@ msgid "<0>{key1}</0> then <1>{key2}</1>"
 msgstr "<0>{key1}</0> 随后按下 <1>{key2}</1>"
 
 #: src/components/keyboard-shortcuts-help.jsx:57
-#: src/components/nav-menu.jsx:368
+#: src/components/nav-menu.jsx:386
 #: src/pages/catchup.jsx:1750
 msgid "Keyboard shortcuts"
 msgstr "快捷键"
@@ -1033,10 +1035,10 @@ msgid "<0>Ctrl</0> + <1>Enter</1> or <2>⌘</2> + <3>Enter</3>"
 msgstr "<0>Ctrl</0> + <1>Enter</1> 或 <2>⌘</2> + <3>Enter</3>"
 
 #: src/components/keyboard-shortcuts-help.jsx:161
-#: src/components/nav-menu.jsx:337
+#: src/components/nav-menu.jsx:346
 #: src/components/search-form.jsx:208
 #: src/components/shortcuts-settings.jsx:54
-#: src/components/shortcuts-settings.jsx:182
+#: src/components/shortcuts-settings.jsx:213
 #: src/pages/search.jsx:47
 #: src/pages/search.jsx:317
 msgid "Search"
@@ -1187,7 +1189,7 @@ msgstr "媒体描述"
 #: src/pages/accounts.jsx:147
 #: src/pages/hashtag.jsx:232
 #: src/pages/list.jsx:171
-#: src/pages/public.jsx:147
+#: src/pages/public.jsx:171
 #: src/pages/scheduled-posts.jsx:89
 #: src/pages/status.jsx:1552
 #: src/pages/trending.jsx:474
@@ -1333,7 +1335,7 @@ msgstr "已过滤: {filterTitleStr}"
 #: src/components/status-compact.jsx:70
 #: src/components/status.jsx:3529
 #: src/components/status.jsx:3607
-#: src/components/timeline.jsx:1002
+#: src/components/timeline.jsx:1007
 #: src/pages/catchup.jsx:79
 #: src/pages/catchup.jsx:2033
 msgid "Filtered"
@@ -1367,81 +1369,81 @@ msgstr "回复已发送。点击查看。"
 msgid "Post updated. Check it out."
 msgstr "嘟文已更新。点击查看。"
 
-#: src/components/nav-menu.jsx:123
+#: src/components/nav-menu.jsx:132
 msgid "Menu"
 msgstr "菜单"
 
-#: src/components/nav-menu.jsx:159
+#: src/components/nav-menu.jsx:168
 msgid "Reload page now to update?"
 msgstr "是否现在刷新页面以更新？"
 
-#: src/components/nav-menu.jsx:171
+#: src/components/nav-menu.jsx:180
 msgid "New update available…"
 msgstr "有更新可用…"
 
 #. js-lingui-explicit-id
-#: src/components/nav-menu.jsx:190
-#: src/components/shortcuts-settings.jsx:143
+#: src/components/nav-menu.jsx:199
+#: src/components/shortcuts-settings.jsx:157
 #: src/pages/following.jsx:23
 #: src/pages/following.jsx:156
 msgid "following.title"
 msgstr "关注"
 
-#: src/components/nav-menu.jsx:197
+#: src/components/nav-menu.jsx:206
 #: src/pages/catchup.jsx:1003
 #: src/pages/welcome.jsx:154
 msgid "Catch-up"
 msgstr "补看"
 
-#: src/components/nav-menu.jsx:204
+#: src/components/nav-menu.jsx:213
 #: src/components/shortcuts-settings.jsx:60
-#: src/components/shortcuts-settings.jsx:149
+#: src/components/shortcuts-settings.jsx:163
 #: src/pages/home.jsx:240
 #: src/pages/mentions.jsx:25
 #: src/pages/mentions.jsx:256
-#: src/pages/notifications.jsx:862
+#: src/pages/notifications.jsx:892
 #: src/pages/settings.jsx:1261
 #: src/pages/trending.jsx:384
 msgid "Mentions"
 msgstr "提及"
 
-#: src/components/nav-menu.jsx:211
+#: src/components/nav-menu.jsx:220
 #: src/components/shortcuts-settings.jsx:51
-#: src/components/shortcuts-settings.jsx:155
+#: src/components/shortcuts-settings.jsx:169
 #: src/pages/filters.jsx:24
 #: src/pages/home.jsx:86
 #: src/pages/home.jsx:198
 #: src/pages/notifications.jsx:111
-#: src/pages/notifications.jsx:642
+#: src/pages/notifications.jsx:672
 msgid "Notifications"
 msgstr "通知"
 
-#: src/components/nav-menu.jsx:214
+#: src/components/nav-menu.jsx:223
 msgid "New"
 msgstr "新"
 
-#: src/components/nav-menu.jsx:225
+#: src/components/nav-menu.jsx:234
 #: src/components/shortcuts-settings.jsx:61
-#: src/components/shortcuts-settings.jsx:192
+#: src/components/shortcuts-settings.jsx:223
 msgid "Profile"
 msgstr "个人资料"
 
-#: src/components/nav-menu.jsx:233
+#: src/components/nav-menu.jsx:242
 #: src/components/shortcuts-settings.jsx:56
-#: src/components/shortcuts-settings.jsx:204
+#: src/components/shortcuts-settings.jsx:243
 #: src/pages/bookmarks.jsx:12
 #: src/pages/bookmarks.jsx:26
 msgid "Bookmarks"
 msgstr "收藏夹"
 
-#: src/components/nav-menu.jsx:244
+#: src/components/nav-menu.jsx:253
 #: src/components/text-expander.jsx:215
 msgid "More…"
 msgstr "更多…"
 
-#: src/components/nav-menu.jsx:253
+#: src/components/nav-menu.jsx:262
 #: src/components/shortcuts-settings.jsx:57
-#: src/components/shortcuts-settings.jsx:210
+#: src/components/shortcuts-settings.jsx:249
 #: src/pages/catchup.jsx:1576
 #: src/pages/catchup.jsx:2236
 #: src/pages/favourites.jsx:12
@@ -1450,13 +1452,13 @@ msgstr "更多…"
 msgid "Likes"
 msgstr "点赞列表"
 
-#: src/components/nav-menu.jsx:259
+#: src/components/nav-menu.jsx:268
 #: src/pages/followed-hashtags.jsx:15
 #: src/pages/followed-hashtags.jsx:45
 msgid "Followed Hashtags"
 msgstr "关注的话题标签"
 
-#: src/components/nav-menu.jsx:273
+#: src/components/nav-menu.jsx:282
 #: src/pages/account-statuses.jsx:382
 #: src/pages/filters.jsx:55
 #: src/pages/filters.jsx:94
@@ -1464,27 +1466,27 @@ msgstr "关注的话题标签"
 msgid "Filters"
 msgstr "过滤规则"
 
-#: src/components/nav-menu.jsx:281
+#: src/components/nav-menu.jsx:290
 msgid "Muted users"
 msgstr "已静音的用户"
 
-#: src/components/nav-menu.jsx:289
+#: src/components/nav-menu.jsx:298
 msgid "Muted users…"
 msgstr "已静音的用户…"
 
-#: src/components/nav-menu.jsx:296
+#: src/components/nav-menu.jsx:305
 msgid "Blocked users"
 msgstr "已屏蔽的用户"
 
-#: src/components/nav-menu.jsx:304
+#: src/components/nav-menu.jsx:313
 msgid "Blocked users…"
 msgstr "已屏蔽的用户…"
 
-#: src/components/nav-menu.jsx:316
+#: src/components/nav-menu.jsx:325
 msgid "Accounts…"
 msgstr "账号…"
 
-#: src/components/nav-menu.jsx:326
+#: src/components/nav-menu.jsx:335
 #: src/pages/login.jsx:33
 #: src/pages/login.jsx:227
 #: src/pages/status.jsx:1081
@@ -1492,39 +1494,48 @@ msgstr "账号…"
 msgid "Log in"
 msgstr "登录"
 
-#: src/components/nav-menu.jsx:343
+#: src/components/nav-menu.jsx:352
 #: src/components/shortcuts-settings.jsx:59
-#: src/components/shortcuts-settings.jsx:175
+#: src/components/shortcuts-settings.jsx:206
 #: src/pages/trending.jsx:444
 msgid "Trending"
 msgstr "热门"
 
-#: src/components/nav-menu.jsx:355
-#: src/components/shortcuts-settings.jsx:168
+#: src/components/nav-menu.jsx:366
+#: src/components/shortcuts-settings.jsx:82
+#: src/components/shortcuts-settings.jsx:185
+#: src/components/shortcuts-settings.jsx:764
+msgid "Bubble"
+msgstr ""
+
+#: src/components/nav-menu.jsx:373
+#: src/components/shortcuts-settings.jsx:86
+#: src/components/shortcuts-settings.jsx:186
+#: src/components/shortcuts-settings.jsx:767
 msgid "Federated"
 msgstr "跨站"
 
-#: src/components/nav-menu.jsx:378
+#: src/components/nav-menu.jsx:396
 msgid "Shortcuts / Columns…"
 msgstr "快捷方式 / 栏…"
 
-#: src/components/nav-menu.jsx:388
-#: src/components/nav-menu.jsx:402
+#: src/components/nav-menu.jsx:406
+#: src/components/nav-menu.jsx:420
 msgid "Settings…"
 msgstr "设置…"
 
-#: src/components/nav-menu.jsx:432
-#: src/components/nav-menu.jsx:467
+#: src/components/nav-menu.jsx:450
+#: src/components/nav-menu.jsx:485
 #: src/components/shortcuts-settings.jsx:52
-#: src/components/shortcuts-settings.jsx:161
+#: src/components/shortcuts-settings.jsx:175
 #: src/pages/list.jsx:127
 #: src/pages/lists.jsx:18
 #: src/pages/lists.jsx:54
 msgid "Lists"
 msgstr "列表"
 
-#: src/components/nav-menu.jsx:440
-#: src/components/shortcuts.jsx:243
+#: src/components/nav-menu.jsx:458
+#: src/components/shortcuts.jsx:32
 #: src/pages/list.jsx:139
 msgid "All Lists"
 msgstr "全部列表"
@@ -1717,7 +1728,7 @@ msgstr "是否打开链接？"
 #: src/components/open-link-sheet.jsx:78
 #: src/components/post-embed-modal.jsx:232
 #: src/components/related-actions.jsx:565
-#: src/components/shortcuts-settings.jsx:1165
+#: src/components/shortcuts-settings.jsx:1263
 #: src/components/status.jsx:1468
 msgid "Copy"
 msgstr "复制"
@@ -1882,7 +1893,7 @@ msgid "Save & close"
 msgstr "保存并关闭"
 
 #: src/components/qr-code-modal.jsx:26
-#: src/components/shortcuts-settings.jsx:841
+#: src/components/shortcuts-settings.jsx:939
 msgid "Scan QR code"
 msgstr "扫描二维码"
 
@@ -2063,7 +2074,7 @@ msgid "Search my posts"
 msgstr "搜索我的嘟文"
 
 #: src/components/related-actions.jsx:580
-#: src/components/shortcuts-settings.jsx:1183
+#: src/components/shortcuts-settings.jsx:1281
 #: src/components/status.jsx:1484
 msgid "Sharing doesn't seem to work."
 msgstr "分享似乎无法正常工作。"
@@ -2312,8 +2323,12 @@ msgid "Home / Following"
 msgstr "主页 / 关注"
 
 #: src/components/shortcuts-settings.jsx:53
-msgid "Public (Local / Federated)"
-msgstr "公共 (本站 / 跨站)"
+msgid "Local / Bubble / Federated"
+msgstr ""
+
+#: src/components/shortcuts-settings.jsx:53
+#~ msgid "Public (Local / Federated)"
+#~ msgstr "公共 (本站 / 跨站)"
 
 #: src/components/shortcuts-settings.jsx:55
 msgid "Account"
@@ -2328,268 +2343,276 @@ msgid "List ID"
 msgstr "列表ID"
 
 #: src/components/shortcuts-settings.jsx:73
-msgid "Local only"
-msgstr "仅限本站"
+msgid "Type"
+msgstr ""
 
-#: src/components/shortcuts-settings.jsx:78
-#: src/components/shortcuts-settings.jsx:87
-#: src/components/shortcuts-settings.jsx:125
+#: src/components/shortcuts-settings.jsx:73
+#~ msgid "Local only"
+#~ msgstr "仅限本站"
+
+#: src/components/shortcuts-settings.jsx:92
+#: src/components/shortcuts-settings.jsx:101
+#: src/components/shortcuts-settings.jsx:139
 #: src/pages/login.jsx:231
 msgid "Server"
 msgstr "实例"
 
-#: src/components/shortcuts-settings.jsx:81
-#: src/components/shortcuts-settings.jsx:90
-#: src/components/shortcuts-settings.jsx:128
+#: src/components/shortcuts-settings.jsx:95
+#: src/components/shortcuts-settings.jsx:104
+#: src/components/shortcuts-settings.jsx:142
 msgid "Optional, e.g. mastodon.social"
 msgstr "可选，如 mastodon.social"
 
-#: src/components/shortcuts-settings.jsx:96
+#: src/components/shortcuts-settings.jsx:110
 msgid "Search term"
 msgstr "搜索关键词"
 
-#: src/components/shortcuts-settings.jsx:99
+#: src/components/shortcuts-settings.jsx:113
 msgid "Optional, unless for multi-column mode"
 msgstr "可选，除非为多栏模式"
 
-#: src/components/shortcuts-settings.jsx:116
+#: src/components/shortcuts-settings.jsx:130
 msgid "e.g. PixelArt (Max 5, space-separated)"
 msgstr "例如:像素艺术 (最多 5 个，用空格分隔)"
 
-#: src/components/shortcuts-settings.jsx:120
+#: src/components/shortcuts-settings.jsx:134
 #: src/pages/hashtag.jsx:389
 msgid "Media only"
 msgstr "仅媒体"
 
-#: src/components/shortcuts-settings.jsx:244
-#: src/components/shortcuts.jsx:220
+#: src/components/shortcuts-settings.jsx:283
+#: src/components/shortcuts.jsx:341
 msgid "Shortcuts"
 msgstr "快捷方式"
 
-#: src/components/shortcuts-settings.jsx:252
+#: src/components/shortcuts-settings.jsx:291
 msgid "beta"
 msgstr "beta"
 
-#: src/components/shortcuts-settings.jsx:258
+#: src/components/shortcuts-settings.jsx:297
 msgid "Specify a list of shortcuts that'll appear as:"
 msgstr "指定一组快捷方式，显示样式为:"
 
-#: src/components/shortcuts-settings.jsx:264
+#: src/components/shortcuts-settings.jsx:303
 msgid "Floating button"
 msgstr "悬浮按钮"
 
-#: src/components/shortcuts-settings.jsx:269
+#: src/components/shortcuts-settings.jsx:308
 msgid "Tab/Menu bar"
 msgstr "标签/菜单栏"
 
-#: src/components/shortcuts-settings.jsx:274
+#: src/components/shortcuts-settings.jsx:313
 msgid "Multi-column"
 msgstr "多栏"
 
-#: src/components/shortcuts-settings.jsx:341
+#: src/components/shortcuts-settings.jsx:380
 msgid "Not available in current view mode"
 msgstr "在当前视图模式下不可用"
 
-#: src/components/shortcuts-settings.jsx:360
+#: src/components/shortcuts-settings.jsx:399
 #: src/pages/accounts.jsx:217
 msgid "Move up"
 msgstr "向上移动"
 
-#: src/components/shortcuts-settings.jsx:376
+#: src/components/shortcuts-settings.jsx:415
 #: src/pages/accounts.jsx:232
 msgid "Move down"
 msgstr "向下移动"
 
-#: src/components/shortcuts-settings.jsx:388
+#: src/components/shortcuts-settings.jsx:427
 #: src/components/status.jsx:1615
 #: src/pages/list.jsx:195
 msgid "Edit"
 msgstr "编辑"
 
-#: src/components/shortcuts-settings.jsx:409
+#: src/components/shortcuts-settings.jsx:448
 msgid "Add more than one shortcut/column to make this work."
 msgstr "需要添加一个以上快捷方式/栏以使其正常工作。"
 
-#: src/components/shortcuts-settings.jsx:420
+#: src/components/shortcuts-settings.jsx:459
 msgid "No columns yet. Tap on the Add column button."
 msgstr "尚未添加任何栏。点击以添加栏。"
 
-#: src/components/shortcuts-settings.jsx:421
+#: src/components/shortcuts-settings.jsx:460
 msgid "No shortcuts yet. Tap on the Add shortcut button."
 msgstr "尚未添加任何快捷方式。点击以添加快捷方式。"
 
-#: src/components/shortcuts-settings.jsx:424
+#: src/components/shortcuts-settings.jsx:463
 msgid "Not sure what to add?<0/>Try adding <1>Home / Following and Notifications</1> first."
 msgstr "不确定要添加哪些？<0/>可以先尝试添加<1>主页 / 关注和通知</1>。"
 
-#: src/components/shortcuts-settings.jsx:452
+#: src/components/shortcuts-settings.jsx:491
 msgid "Max {SHORTCUTS_LIMIT} columns"
 msgstr "最多 {SHORTCUTS_LIMIT} 栏"
 
-#: src/components/shortcuts-settings.jsx:453
+#: src/components/shortcuts-settings.jsx:492
 msgid "Max {SHORTCUTS_LIMIT} shortcuts"
 msgstr "最多 {SHORTCUTS_LIMIT} 个快捷方式"
 
-#: src/components/shortcuts-settings.jsx:467
+#: src/components/shortcuts-settings.jsx:506
 #: src/pages/accounts.jsx:358
 msgid "Import/export"
 msgstr "导入/导出"
 
-#: src/components/shortcuts-settings.jsx:477
+#: src/components/shortcuts-settings.jsx:516
 msgid "Add column…"
 msgstr "添加栏…"
 
-#: src/components/shortcuts-settings.jsx:478
+#: src/components/shortcuts-settings.jsx:517
 msgid "Add shortcut…"
 msgstr "添加快捷方式…"
 
-#: src/components/shortcuts-settings.jsx:525
+#: src/components/shortcuts-settings.jsx:564
 msgid "Specific list is optional. For multi-column mode, list is required, else the column will not be shown."
 msgstr "特定的某个列表是可选的。但在多栏模式下，必须添加列表，否则对应的栏将不会显示。"
 
-#: src/components/shortcuts-settings.jsx:526
+#: src/components/shortcuts-settings.jsx:565
 msgid "For multi-column mode, search term is required, else the column will not be shown."
 msgstr "在多栏模式下，搜索关键词是必须的，否则对应的栏将不会显示。"
 
-#: src/components/shortcuts-settings.jsx:527
+#: src/components/shortcuts-settings.jsx:566
 msgid "Multiple hashtags are supported. Space-separated."
 msgstr "支持添加多个话题标签。以空格分隔。"
 
-#: src/components/shortcuts-settings.jsx:596
+#: src/components/shortcuts-settings.jsx:635
 msgid "Edit shortcut"
 msgstr "编辑快捷方式"
 
-#: src/components/shortcuts-settings.jsx:596
+#: src/components/shortcuts-settings.jsx:635
 msgid "Add shortcut"
 msgstr "添加快捷方式"
 
-#: src/components/shortcuts-settings.jsx:632
+#: src/components/shortcuts-settings.jsx:671
 msgid "Timeline"
 msgstr "时间线"
 
-#: src/components/shortcuts-settings.jsx:658
+#: src/components/shortcuts-settings.jsx:705
 msgid "List"
 msgstr "列表"
 
-#: src/components/shortcuts-settings.jsx:798
+#: src/components/shortcuts-settings.jsx:751
+msgid "Variant"
+msgstr ""
+
+#: src/components/shortcuts-settings.jsx:896
 msgid "Import/Export <0>Shortcuts</0>"
 msgstr "导入/导出 <0>快捷方式</0>"
 
-#: src/components/shortcuts-settings.jsx:816
+#: src/components/shortcuts-settings.jsx:914
 msgid "Paste shortcuts here"
 msgstr "在此粘贴快捷方式配置"
 
-#: src/components/shortcuts-settings.jsx:852
+#: src/components/shortcuts-settings.jsx:950
 msgid "Downloading saved shortcuts from server…"
 msgstr "正在从实例下载保存的快捷键配置…"
 
-#: src/components/shortcuts-settings.jsx:880
+#: src/components/shortcuts-settings.jsx:978
 msgid "Unable to download shortcuts"
 msgstr "无法下载快捷方式"
 
-#: src/components/shortcuts-settings.jsx:883
+#: src/components/shortcuts-settings.jsx:981
 msgid "Download shortcuts from server"
 msgstr "从实例下载快捷键配置"
 
-#: src/components/shortcuts-settings.jsx:950
+#: src/components/shortcuts-settings.jsx:1048
 msgid "* Exists in current shortcuts"
 msgstr "* 已存在于当前快捷方式中"
 
-#: src/components/shortcuts-settings.jsx:955
+#: src/components/shortcuts-settings.jsx:1053
 msgid "List may not work if it's from a different account."
 msgstr "如果列表来自不同的账户，则可能无法使用。"
 
-#: src/components/shortcuts-settings.jsx:965
+#: src/components/shortcuts-settings.jsx:1063
 msgid "Invalid settings format"
 msgstr "设置格式非法"
 
-#: src/components/shortcuts-settings.jsx:973
+#: src/components/shortcuts-settings.jsx:1071
 msgid "Append to current shortcuts?"
 msgstr "是否追加到当前快捷方式？"
 
-#: src/components/shortcuts-settings.jsx:976
+#: src/components/shortcuts-settings.jsx:1074
 msgid "Only shortcuts that don’t exist in current shortcuts will be appended."
 msgstr "只有不存在于当前快捷方式中的快捷方式才会被追加。"
 
-#: src/components/shortcuts-settings.jsx:998
+#: src/components/shortcuts-settings.jsx:1096
 msgid "No new shortcuts to import"
 msgstr "没有新的快捷方式可供导入"
 
-#: src/components/shortcuts-settings.jsx:1013
+#: src/components/shortcuts-settings.jsx:1111
 msgid "Shortcuts imported. Exceeded max {SHORTCUTS_LIMIT}, so the rest are not imported."
 msgstr "已导入快捷方式。但总数超出最大限制 {SHORTCUTS_LIMIT}，因此超出的部分未被导入。"
 
-#: src/components/shortcuts-settings.jsx:1014
-#: src/components/shortcuts-settings.jsx:1038
+#: src/components/shortcuts-settings.jsx:1112
+#: src/components/shortcuts-settings.jsx:1136
 msgid "Shortcuts imported"
 msgstr "已导入快捷方式"
 
-#: src/components/shortcuts-settings.jsx:1024
+#: src/components/shortcuts-settings.jsx:1122
 msgid "Import & append…"
 msgstr "导入并追加…"
 
-#: src/components/shortcuts-settings.jsx:1032
+#: src/components/shortcuts-settings.jsx:1130
 msgid "Override current shortcuts?"
 msgstr "是否覆盖当前快捷方式配置？"
 
-#: src/components/shortcuts-settings.jsx:1033
+#: src/components/shortcuts-settings.jsx:1131
 msgid "Import shortcuts?"
 msgstr "是否导入快捷方式？"
 
-#: src/components/shortcuts-settings.jsx:1047
+#: src/components/shortcuts-settings.jsx:1145
 msgid "or override…"
 msgstr "或覆盖…"
 
-#: src/components/shortcuts-settings.jsx:1047
+#: src/components/shortcuts-settings.jsx:1145
 msgid "Import…"
 msgstr "导入…"
 
-#: src/components/shortcuts-settings.jsx:1071
+#: src/components/shortcuts-settings.jsx:1169
 msgid "Shortcuts copied"
 msgstr "已复制快捷方式"
 
-#: src/components/shortcuts-settings.jsx:1074
+#: src/components/shortcuts-settings.jsx:1172
 msgid "Unable to copy shortcuts"
 msgstr "无法复制快捷方式"
 
-#: src/components/shortcuts-settings.jsx:1126
+#: src/components/shortcuts-settings.jsx:1224
 msgid "Saving shortcuts to server…"
 msgstr "正在将快捷键配置保存到实例…"
 
-#: src/components/shortcuts-settings.jsx:1133
+#: src/components/shortcuts-settings.jsx:1231
 msgid "Shortcuts saved"
 msgstr "已保存快捷方式"
 
-#: src/components/shortcuts-settings.jsx:1138
+#: src/components/shortcuts-settings.jsx:1236
 msgid "Unable to save shortcuts"
 msgstr "无法保存快捷方式"
 
-#: src/components/shortcuts-settings.jsx:1141
+#: src/components/shortcuts-settings.jsx:1239
 msgid "Sync to server"
 msgstr "同步到实例"
 
-#: src/components/shortcuts-settings.jsx:1156
+#: src/components/shortcuts-settings.jsx:1254
 msgid "Shortcut settings copied"
 msgstr "已复制快捷方式设置"
 
-#: src/components/shortcuts-settings.jsx:1159
+#: src/components/shortcuts-settings.jsx:1257
 msgid "Unable to copy shortcut settings"
 msgstr "无法复制快捷方式设置"
 
-#: src/components/shortcuts-settings.jsx:1189
+#: src/components/shortcuts-settings.jsx:1287
 msgid "Share"
 msgstr "分享"
 
 #. placeholder {0}: shortcutsStr.length
-#: src/components/shortcuts-settings.jsx:1195
+#: src/components/shortcuts-settings.jsx:1293
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, other {# 个字符}}"
 
-#: src/components/shortcuts-settings.jsx:1207
+#: src/components/shortcuts-settings.jsx:1305
 msgid "Raw Shortcuts JSON"
 msgstr "原始快捷方式 JSON"
 
-#: src/components/shortcuts-settings.jsx:1220
+#: src/components/shortcuts-settings.jsx:1318
 msgid "Import/export settings from/to server (Very experimental)"
 msgstr "从实例导入或导出设置（很不稳定）"
 
@@ -2987,30 +3010,30 @@ msgstr "{index}/{total}"
 msgid "{index}/X"
 msgstr "{index}/X"
 
-#: src/components/timeline.jsx:503
+#: src/components/timeline.jsx:508
 #: src/pages/settings.jsx:1289
 msgid "New posts"
 msgstr "新嘟文"
 
-#: src/components/timeline.jsx:604
+#: src/components/timeline.jsx:609
 #: src/pages/home.jsx:228
-#: src/pages/notifications.jsx:961
+#: src/pages/notifications.jsx:991
 #: src/pages/status.jsx:1240
 #: src/pages/status.jsx:1714
 msgid "Try again"
 msgstr "重试"
 
 #. placeholder {0}: fItems.length
-#: src/components/timeline.jsx:639
+#: src/components/timeline.jsx:644
 msgid "{0, plural, one {# Boost} other {# Boosts}}"
 msgstr "{0, plural, other {# 转嘟}}"
 
-#: src/components/timeline.jsx:644
+#: src/components/timeline.jsx:649
 msgid "Pinned posts"
 msgstr "置顶嘟文"
 
 #. placeholder {0}: filterInfo.titlesStr
-#: src/components/timeline.jsx:997
+#: src/components/timeline.jsx:1002
 msgid "<0>Filtered</0>: <1>{0}</1>"
 msgstr "<0>已过滤</0>: <1>{0}</1>"
 
@@ -3145,7 +3168,7 @@ msgid "Nothing to see here yet."
 msgstr "空空如也"
 
 #: src/pages/account-statuses.jsx:619
-#: src/pages/public.jsx:130
+#: src/pages/public.jsx:154
 #: src/pages/trending.jsx:452
 msgid "Unable to load posts"
 msgstr "无法加载嘟文"
@@ -3670,12 +3693,12 @@ msgid "{hashtagTitle}"
 msgstr "{hashtagTitle}"
 
 #: src/pages/hashtag.jsx:210
-#: src/pages/public.jsx:125
+#: src/pages/public.jsx:149
 msgid "This timeline is disabled on this server."
 msgstr "此实例已经停用这一时间线。"
 
 #: src/pages/hashtag.jsx:212
-#: src/pages/public.jsx:127
+#: src/pages/public.jsx:151
 msgid "Login required to see posts from this server."
 msgstr "登录后才可查看此实例上的嘟文。"
 
@@ -3745,25 +3768,25 @@ msgid "Add to Shortcuts"
 msgstr "添加到快捷方式"
 
 #: src/pages/hashtag.jsx:521
-#: src/pages/public.jsx:172
+#: src/pages/public.jsx:203
 #: src/pages/trending.jsx:481
 msgid "Enter a new server e.g. \"mastodon.social\""
 msgstr "输入一个新实例地址，例如 ”mastodon.social“"
 
 #: src/pages/hashtag.jsx:524
-#: src/pages/public.jsx:175
+#: src/pages/public.jsx:206
 #: src/pages/trending.jsx:484
 msgid "Invalid server"
 msgstr "实例无效"
 
 #: src/pages/hashtag.jsx:538
-#: src/pages/public.jsx:189
+#: src/pages/public.jsx:222
 #: src/pages/trending.jsx:496
 msgid "Go to another server…"
 msgstr "转到另一实例…"
 
 #: src/pages/hashtag.jsx:551
-#: src/pages/public.jsx:202
+#: src/pages/public.jsx:235
 #: src/pages/trending.jsx:507
 msgid "Go to my server (<0>{currentInstance}</0>)"
 msgstr "转到我所在的实例 (<0>{currentInstance}</0>)"
@@ -3880,143 +3903,155 @@ msgstr "不请自来地提及你的人"
 msgid "Who are limited by server moderators"
 msgstr "被实例管理员限制的人"
 
-#: src/pages/notifications.jsx:656
-#: src/pages/notifications.jsx:1009
+#: src/pages/notifications.jsx:686
+#: src/pages/notifications.jsx:1039
 msgid "Notifications settings"
 msgstr "通知设置"
 
-#: src/pages/notifications.jsx:674
+#: src/pages/notifications.jsx:704
 msgid "New notifications"
 msgstr "新通知"
 
 #. placeholder {0}: announcements.length
-#: src/pages/notifications.jsx:685
+#: src/pages/notifications.jsx:715
 msgid "{0, plural, one {Announcement} other {Announcements}}"
 msgstr "{0, plural, other {公告}}"
 
-#: src/pages/notifications.jsx:732
+#: src/pages/notifications.jsx:762
 #: src/pages/settings.jsx:1277
 msgid "Follow requests"
 msgstr "关注请求"
 
 #. placeholder {0}: followRequests.length
-#: src/pages/notifications.jsx:737
+#: src/pages/notifications.jsx:767
 msgid "{0, plural, one {# follow request} other {# follow requests}}"
 msgstr "{0, plural, other {# 个关注请求}}"
 
 #. placeholder {0}: notificationsPolicy.summary.pendingRequestsCount
-#: src/pages/notifications.jsx:792
+#: src/pages/notifications.jsx:822
 msgid "{0, plural, one {Filtered notifications from # person} other {Filtered notifications from # people}}"
 msgstr "{0, plural, other {过滤了 # 人的通知}}"
 
-#: src/pages/notifications.jsx:875
+#: src/pages/notifications.jsx:905
 msgid "Only mentions"
 msgstr "仅提及"
 
-#: src/pages/notifications.jsx:881
+#: src/pages/notifications.jsx:911
 msgid "Today"
 msgstr "今天"
 
-#: src/pages/notifications.jsx:886
+#: src/pages/notifications.jsx:916
 msgid "You're all caught up."
 msgstr "你已经全读完了。"
 
-#: src/pages/notifications.jsx:909
+#: src/pages/notifications.jsx:939
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/pages/notifications.jsx:957
+#: src/pages/notifications.jsx:987
 msgid "Unable to load notifications"
 msgstr "无法加载通知"
 
-#: src/pages/notifications.jsx:1036
+#: src/pages/notifications.jsx:1066
 msgid "Notifications settings updated"
 msgstr "通知设置已更新"
 
-#: src/pages/notifications.jsx:1044
+#: src/pages/notifications.jsx:1074
 msgid "Filter out notifications from people:"
 msgstr "过滤来自这些人的通知:"
 
-#: src/pages/notifications.jsx:1058
+#: src/pages/notifications.jsx:1088
 msgid "Filter"
 msgstr "过滤规则"
 
-#: src/pages/notifications.jsx:1061
+#: src/pages/notifications.jsx:1091
 msgid "Ignore"
 msgstr "忽略"
 
 #. placeholder {0}: niceDateTime(updatedAtDate)
-#: src/pages/notifications.jsx:1134
+#: src/pages/notifications.jsx:1164
 msgid "Updated <0>{0}</0>"
 msgstr "更新于 <0>{0}</0>"
 
 #. placeholder {0}: account.username
-#: src/pages/notifications.jsx:1202
+#: src/pages/notifications.jsx:1232
 msgid "View notifications from <0>@{0}</0>"
 msgstr "查看来自 <0>@{0}</0> 的通知"
 
 #. placeholder {0}: account.username
-#: src/pages/notifications.jsx:1223
+#: src/pages/notifications.jsx:1253
 msgid "Notifications from <0>@{0}</0>"
 msgstr "来自 <0>@{0}</0> 的通知"
 
 #. placeholder {0}: request.account.username
-#: src/pages/notifications.jsx:1291
+#: src/pages/notifications.jsx:1321
 msgid "Notifications from @{0} will not be filtered from now on."
 msgstr "现在起，将不在过滤来自 @{0} 的通知。"
 
-#: src/pages/notifications.jsx:1296
+#: src/pages/notifications.jsx:1326
 msgid "Unable to accept notification request"
 msgstr "无法接受通知请求。"
 
-#: src/pages/notifications.jsx:1301
+#: src/pages/notifications.jsx:1331
 msgid "Allow"
 msgstr "允许"
 
 #. placeholder {0}: request.account.username
-#: src/pages/notifications.jsx:1321
+#: src/pages/notifications.jsx:1351
 msgid "Notifications from @{0} will not show up in Filtered notifications from now on."
 msgstr "现在起，将过滤来自 @{0} 的通知。"
 
-#: src/pages/notifications.jsx:1326
+#: src/pages/notifications.jsx:1356
 msgid "Unable to dismiss notification request"
 msgstr "无法忽略通知请求"
 
-#: src/pages/notifications.jsx:1331
+#: src/pages/notifications.jsx:1361
 msgid "Dismiss"
 msgstr "忽略"
 
-#: src/pages/notifications.jsx:1346
+#: src/pages/notifications.jsx:1376
 msgid "Dismissed"
 msgstr "已忽略"
 
-#: src/pages/public.jsx:30
+#: src/pages/public.jsx:29
 msgid "Local timeline ({instance})"
 msgstr "本站时间线 ({instance})"
+
+#: src/pages/public.jsx:30
+msgid "Bubble timeline ({instance})"
+msgstr ""
 
 #: src/pages/public.jsx:31
 msgid "Federated timeline ({instance})"
 msgstr "跨站时间线 ({instance})"
 
-#: src/pages/public.jsx:117
+#: src/pages/public.jsx:130
 msgid "Local timeline"
 msgstr "本站时间线"
 
-#: src/pages/public.jsx:117
+#: src/pages/public.jsx:131
+msgid "Bubble timeline"
+msgstr ""
+
+#: src/pages/public.jsx:132
 msgid "Federated timeline"
 msgstr "跨站时间线"
 
-#: src/pages/public.jsx:128
+#: src/pages/public.jsx:152
 msgid "No one has posted anything yet."
 msgstr "还没有人发布内容。"
 
-#: src/pages/public.jsx:156
-msgid "Switch to Federated"
-msgstr "切换到跨站时间线"
-
-#: src/pages/public.jsx:163
+#: src/pages/public.jsx:179
 msgid "Switch to Local"
 msgstr "切换到本站时间线"
+
+#: src/pages/public.jsx:187
+msgid "Switch to Bubble"
+msgstr ""
+
+#: src/pages/public.jsx:195
+msgid "Switch to Federated"
+msgstr "切换到跨站时间线"
 
 #: src/pages/scheduled-posts.jsx:110
 msgid "No scheduled posts."
@@ -4584,4 +4619,3 @@ msgstr "当前已有被最小化的嘟文草稿。在创建新嘟文之前，请
 #: src/utils/show-compose.js:21
 msgid "A post is currently open. Post or discard it before creating a new one."
 msgstr "当前已打开一个嘟文撰写框。在创建新嘟文之前，请发布或丢弃它。"
-

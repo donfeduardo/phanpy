@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/components/account-block.jsx:143
 msgid "Locked"
@@ -1178,7 +1184,7 @@ msgstr "Media description"
 #: src/pages/accounts.jsx:147
 #: src/pages/hashtag.jsx:232
 #: src/pages/list.jsx:171
-#: src/pages/public.jsx:171
+#: src/pages/public.jsx:177
 #: src/pages/scheduled-posts.jsx:89
 #: src/pages/status.jsx:1552
 #: src/pages/trending.jsx:474
@@ -3149,7 +3155,7 @@ msgid "Nothing to see here yet."
 msgstr "Nothing to see here yet."
 
 #: src/pages/account-statuses.jsx:619
-#: src/pages/public.jsx:154
+#: src/pages/public.jsx:160
 #: src/pages/trending.jsx:452
 msgid "Unable to load posts"
 msgstr "Unable to load posts"
@@ -3674,12 +3680,12 @@ msgid "{hashtagTitle}"
 msgstr "{hashtagTitle}"
 
 #: src/pages/hashtag.jsx:210
-#: src/pages/public.jsx:149
+#: src/pages/public.jsx:155
 msgid "This timeline is disabled on this server."
 msgstr "This timeline is disabled on this server."
 
 #: src/pages/hashtag.jsx:212
-#: src/pages/public.jsx:151
+#: src/pages/public.jsx:157
 msgid "Login required to see posts from this server."
 msgstr "Login required to see posts from this server."
 
@@ -3749,25 +3755,25 @@ msgid "Add to Shortcuts"
 msgstr "Add to Shortcuts"
 
 #: src/pages/hashtag.jsx:521
-#: src/pages/public.jsx:203
+#: src/pages/public.jsx:209
 #: src/pages/trending.jsx:481
 msgid "Enter a new server e.g. \"mastodon.social\""
 msgstr "Enter a new server e.g. \"mastodon.social\""
 
 #: src/pages/hashtag.jsx:524
-#: src/pages/public.jsx:206
+#: src/pages/public.jsx:212
 #: src/pages/trending.jsx:484
 msgid "Invalid server"
 msgstr "Invalid server"
 
 #: src/pages/hashtag.jsx:538
-#: src/pages/public.jsx:222
+#: src/pages/public.jsx:228
 #: src/pages/trending.jsx:496
 msgid "Go to another server…"
 msgstr "Go to another server…"
 
 #: src/pages/hashtag.jsx:551
-#: src/pages/public.jsx:235
+#: src/pages/public.jsx:241
 #: src/pages/trending.jsx:507
 msgid "Go to my server (<0>{currentInstance}</0>)"
 msgstr "Go to my server (<0>{currentInstance}</0>)"
@@ -3994,43 +4000,43 @@ msgstr "Dismiss"
 msgid "Dismissed"
 msgstr "Dismissed"
 
-#: src/pages/public.jsx:29
+#: src/pages/public.jsx:30
 msgid "Local timeline ({instance})"
 msgstr "Local timeline ({instance})"
 
-#: src/pages/public.jsx:30
+#: src/pages/public.jsx:31
 msgid "Bubble timeline ({instance})"
 msgstr "Bubble timeline ({instance})"
 
-#: src/pages/public.jsx:31
+#: src/pages/public.jsx:32
 msgid "Federated timeline ({instance})"
 msgstr "Federated timeline ({instance})"
 
-#: src/pages/public.jsx:130
+#: src/pages/public.jsx:136
 msgid "Local timeline"
 msgstr "Local timeline"
 
-#: src/pages/public.jsx:131
+#: src/pages/public.jsx:137
 msgid "Bubble timeline"
 msgstr "Bubble timeline"
 
-#: src/pages/public.jsx:132
+#: src/pages/public.jsx:138
 msgid "Federated timeline"
 msgstr "Federated timeline"
 
-#: src/pages/public.jsx:152
+#: src/pages/public.jsx:158
 msgid "No one has posted anything yet."
 msgstr "No one has posted anything yet."
 
-#: src/pages/public.jsx:179
+#: src/pages/public.jsx:185
 msgid "Switch to Local"
 msgstr "Switch to Local"
 
-#: src/pages/public.jsx:187
+#: src/pages/public.jsx:193
 msgid "Switch to Bubble"
 msgstr "Switch to Bubble"
 
-#: src/pages/public.jsx:195
+#: src/pages/public.jsx:201
 msgid "Switch to Federated"
 msgstr "Switch to Federated"
 
