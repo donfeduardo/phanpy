@@ -16,6 +16,7 @@ import { useSnapshot } from 'valtio';
 import FilterContext from '../utils/filter-context';
 import { filteredItems, isFiltered } from '../utils/filters';
 import isRTL from '../utils/is-rtl';
+import setRef from '../utils/set-ref';
 import showToast from '../utils/show-toast';
 import states, { statusKey } from '../utils/states';
 import statusPeek from '../utils/status-peek';
@@ -43,113 +44,16 @@ const scrollIntoViewOptions = {
   behavior: 'instant',
 };
 
-function Timeline({
-  title,
-  titleComponent,
-  id,
-  instance,
-  emptyText,
-  errorText,
-  useItemID, // use statusID instead of status object, assuming it's already in states
-  boostsCarousel,
-  fetchItems = () => {},
-  checkForUpdates = () => {},
-  checkForUpdatesInterval = 15_000, // 15 seconds
-  headerStart,
-  headerEnd,
-  timelineStart,
-  // allowFilters,
-  refresh,
-  view,
-  filterContext,
-  showFollowedTags,
-  showReplyParent,
-  clearWhenRefresh,
-}) {
-  const { t } = useLingui();
-  const snapStates = useSnapshot(states);
-  const [items, setItems] = useState([]);
-  const [uiState, setUIState] = useState('start');
-  const [showMore, setShowMore] = useState(false);
-  const [showNew, setShowNew] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const scrollableRef = useRef();
+// paginationItemsSelector is for Timeline2
+const paginationPrevSelector =
+  '.timeline-pagination button[data-pagination-trigger="prev"]';
+const paginationNextSelector =
+  '.timeline-pagination button[data-pagination-trigger="next"]';
+const itemsSelector = '.timeline-item, .timeline-item-alt';
 
-  console.debug('RENDER Timeline', id, refresh);
-  __BENCHMARK.start(`timeline-${id}-load`);
-
-  const mediaFirst = useMemo(() => isMediaFirstInstance(), []);
-
-  const allowGrouping = view !== 'media';
-  const loadItemsTS = useRef(0); // Ensures only one loadItems at a time
-  const loadItems = useDebouncedCallback(
-    (firstLoad) => {
-      setShowNew(false);
-      // if (uiState === 'loading') return;
-      setUIState('loading');
-      (async () => {
-        try {
-          const ts = (loadItemsTS.current = Date.now());
-          let { done, value } = await fetchItems(firstLoad);
-          if (ts !== loadItemsTS.current) return;
-          if (Array.isArray(value)) {
-            // Avoid grouping for pinned posts
-            const [pinnedPosts, otherPosts] = value.reduce(
-              (acc, item) => {
-                if (item._pinned) {
-                  acc[0].push(item);
-                } else {
-                  acc[1].push(item);
-                }
-                return acc;
-              },
-              [[], []],
-            );
-            value = otherPosts;
-            value = filterHiddenStatuses(value, filterContext);
-            if (allowGrouping) {
-              if (boostsCarousel) {
-                value = groupBoosts(value);
-              }
-              value = groupContext(value, instance);
-            }
-            if (pinnedPosts.length) {
-              value = pinnedPosts.concat(value);
-            }
-            console.log(value);
-            if (firstLoad) {
-              setItems(value);
-            } else {
-              setItems((items) => [...items, ...value]);
-            }
-            if (!value.length) done = true;
-            setShowMore(!done);
-          } else {
-            setShowMore(false);
-          }
-          setUIState('default');
-          __BENCHMARK.end(`timeline-${id}-load`);
-        } catch (e) {
-          console.error(e);
-          setUIState('error');
-          if (firstLoad && !items.length && errorText) {
-            showToast(errorText);
-          }
-        } finally {
-          loadItems.cancel();
-        }
-      })();
-    },
-    1_000,
-    {
-      leading: true,
-      // trailing: false,
-    },
-  );
-
-  const itemsSelector = '.timeline-item, .timeline-item-alt';
-
-  const jRef = useHotkeys(
+// Standalone hotkey hooks for timeline navigation
+export function useJHotkeys(scrollableRef) {
+  return useHotkeys(
     'j, shift+j',
     (e, handler) => {
       // Fix bug: shift+j is fired even when j is pressed due to useKey: true
@@ -159,7 +63,7 @@ function Timeline({
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
       const allItems = Array.from(
-        scrollableRef.current.querySelectorAll(itemsSelector),
+        scrollableRef.current?.querySelectorAll(itemsSelector) || [],
       ).filter((item) => !!item.offsetHeight);
       if (
         activeItem &&
@@ -179,12 +83,20 @@ function Timeline({
         if (nextItem) {
           nextItem.focus();
           nextItem.scrollIntoView(scrollIntoViewOptions);
+        } else {
+          const nextPaginationButton = scrollableRef.current.querySelector(
+            paginationNextSelector,
+          );
+          if (nextPaginationButton) {
+            nextPaginationButton.click();
+          }
         }
       } else {
         // If active status is not in viewport, get the topmost status-link in viewport
         const topmostItem = allItems.find((item) => {
           const itemRect = item.getBoundingClientRect();
           return itemRect.top >= 44 && itemRect.left >= 0; // 44 is the magic number for header height, not real
+          return itemRect.top >= 44 && itemRect.left >= 0;
         });
         if (topmostItem) {
           topmostItem.focus();
@@ -194,21 +106,23 @@ function Timeline({
     },
     {
       useKey: true,
-      ignoreEventWhen: (e) => e.metaKey || e.ctrlKey || e.altKey,
+      ignoreEventWhen: (e) =>
+        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'j',
     },
   );
+}
 
-  const kRef = useHotkeys(
+export function useKHotkeys(scrollableRef) {
+  return useHotkeys(
     'k, shift+k',
     (e, handler) => {
       // Fix bug: shift+k is fired even when k is pressed due to useKey: true
       if (e.shiftKey !== handler.shift) return;
 
-      // focus on previous status after active item
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
       const allItems = Array.from(
-        scrollableRef.current.querySelectorAll(itemsSelector),
+        scrollableRef.current?.querySelectorAll(itemsSelector) || [],
       ).filter((item) => !!item.offsetHeight);
       if (
         activeItem &&
@@ -228,12 +142,20 @@ function Timeline({
         if (prevItem) {
           prevItem.focus();
           prevItem.scrollIntoView(scrollIntoViewOptions);
+        } else {
+          const prevPaginationButton = scrollableRef.current.querySelector(
+            paginationPrevSelector,
+          );
+          if (prevPaginationButton) {
+            prevPaginationButton.click();
+          }
         }
       } else {
         // If active status is not in viewport, get the topmost status-link in viewport
         const topmostItem = allItems.find((item) => {
           const itemRect = item.getBoundingClientRect();
           return itemRect.top >= 44 && itemRect.left >= 0; // 44 is the magic number for header height, not real
+          return itemRect.top >= 44 && itemRect.left >= 0;
         });
         if (topmostItem) {
           topmostItem.focus();
@@ -243,11 +165,14 @@ function Timeline({
     },
     {
       useKey: true,
-      ignoreEventWhen: (e) => e.metaKey || e.ctrlKey || e.altKey,
+      ignoreEventWhen: (e) =>
+        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'k',
     },
   );
+}
 
-  const oRef = useHotkeys(
+export function useOHotkeys() {
+  return useHotkeys(
     ['enter', 'o'],
     (e, handler) => {
       // open active status
@@ -281,9 +206,134 @@ function Timeline({
     },
     {
       useKey: true,
-      ignoreEventWhen: (e) => e.metaKey || e.ctrlKey || e.altKey || e.shiftKey,
+      ignoreEventWhen: (e) => {
+        // 'enter' doesn't need key validation (physical key, layout-independent)
+        if (e.key === 'Enter') return false;
+        return (
+          e.metaKey ||
+          e.ctrlKey ||
+          e.altKey ||
+          e.shiftKey ||
+          e.key.toLowerCase() !== 'o'
+        );
+      },
     },
   );
+}
+
+function Timeline({
+  title,
+  titleComponent,
+  id,
+  instance,
+  emptyText,
+  errorText,
+  useItemID, // use statusID instead of status object, assuming it's already in states
+  boostsCarousel,
+  fetchItems = () => {},
+  checkForUpdates = () => {},
+  checkForUpdatesInterval = 15_000, // 15 seconds
+  headerStart,
+  headerEnd,
+  timelineStart,
+  // allowFilters,
+  refresh,
+  view,
+  filterContext,
+  showFollowedTags,
+  showReplyParent,
+  clearWhenRefresh,
+}) {
+  const { t } = useLingui();
+  const snapStates = useSnapshot(states);
+  const autoHideBars = snapStates.settings.autoHideBars;
+  const [items, setItems] = useState([]);
+  const [uiState, setUIState] = useState('start');
+  const [showMore, setShowMore] = useState(false);
+  const [showNew, setShowNew] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const scrollableRef = useRef();
+
+  console.debug('RENDER Timeline', id, refresh);
+  __BENCHMARK.start(`timeline-${id}-load`);
+
+  const mediaFirst = useMemo(() => isMediaFirstInstance(), []);
+
+  const allowGrouping = view !== 'media';
+  const loadItemsTS = useRef(0); // Ensures only one loadItems at a time
+  const loadItems = useDebouncedCallback(
+    (firstLoad) => {
+      setShowNew(false);
+      // if (uiState === 'loading') return;
+      setUIState('loading');
+      (async () => {
+        try {
+          const ts = (loadItemsTS.current = Date.now());
+          let { done, value } = await fetchItems(firstLoad);
+          if (ts !== loadItemsTS.current) return;
+          if (done) {
+            // Iterator has completed (no more pages)
+            setShowMore(false);
+          } else if (Array.isArray(value)) {
+            // Avoid grouping for pinned posts
+            const [pinnedPosts, otherPosts] = value.reduce(
+              (acc, item) => {
+                if (item._pinned) {
+                  acc[0].push(item);
+                } else {
+                  acc[1].push(item);
+                }
+                return acc;
+              },
+              [[], []],
+            );
+            value = otherPosts;
+            value = filterHiddenStatuses(value, filterContext);
+            if (allowGrouping) {
+              if (boostsCarousel) {
+                value = groupBoosts(value);
+              }
+              value = groupContext(value, instance);
+            }
+            if (pinnedPosts.length) {
+              value = pinnedPosts.concat(value);
+            }
+            console.log(value);
+            if (firstLoad) {
+              setItems(value);
+            } else {
+              setItems((items) => [...items, ...value]);
+            }
+            if (!value.length) done = true;
+            setShowMore(!done);
+          } else {
+            // Iterator returned unexpected data type
+            console.warn('Unexpected iterator result', { done, value });
+            throw new Error('Timeline load failed');
+          }
+          setUIState('default');
+          __BENCHMARK.end(`timeline-${id}-load`);
+        } catch (e) {
+          console.error(e);
+          setUIState('error');
+          if (firstLoad && !items.length && errorText) {
+            showToast(errorText);
+          }
+        } finally {
+          loadItems.cancel();
+        }
+      })();
+    },
+    1_000,
+    {
+      leading: true,
+      // trailing: false,
+    },
+  );
+
+  const jRef = useJHotkeys(scrollableRef);
+  const kRef = useKHotkeys(scrollableRef);
+  const oRef = useOHotkeys();
 
   const showNewPostsIndicator =
     items.length > 0 && uiState !== 'loading' && showNew;
@@ -296,7 +346,11 @@ function Timeline({
   }, [loadItems, showNewPostsIndicator]);
   const dotRef = useHotkeys('.', handleLoadNewPosts, {
     useKey: true,
-    ignoreEventWhen: (e) => e.metaKey || e.ctrlKey || e.altKey || e.shiftKey,
+    ignoreEventWhen: (e) => {
+      // Allow '.' even with Shift (some keyboard layouts require Shift for '.')
+      if (e.key === '.') return false;
+      return e.metaKey || e.ctrlKey || e.altKey || e.shiftKey;
+    },
   });
 
   // const {
@@ -316,7 +370,8 @@ function Timeline({
   const scrollFnCallback = useCallback(
     ({ scrollDirection, nearReachStart, reachStart }) => {
       if (headerRef.current) {
-        const hiddenUI = scrollDirection === 'end' && !nearReachStart;
+        const hiddenUI =
+          autoHideBars && scrollDirection === 'end' && !nearReachStart;
         headerRef.current.hidden = hiddenUI;
       }
       setNearReachStart(nearReachStart);
@@ -324,7 +379,7 @@ function Timeline({
         loadItems(true);
       }
     },
-    [setNearReachStart, loadItems],
+    [setNearReachStart, loadItems, autoHideBars],
   );
   const { resetScrollDirection } = useScrollFn(
     {
@@ -444,10 +499,10 @@ function Timeline({
         }`}
         ref={(node) => {
           scrollableRef.current = node;
-          jRef.current = node;
-          kRef.current = node;
-          oRef.current = node;
-          dotRef.current = node;
+          setRef(jRef, node);
+          setRef(kRef, node);
+          setRef(oRef, node);
+          setRef(dotRef, node);
         }}
         tabIndex="-1"
         onClick={(e) => {
@@ -606,7 +661,7 @@ function Timeline({
               <br />
               <br />
               <button type="button" onClick={() => loadItems(!items.length)}>
-                <Trans>Try again</Trans>
+                <Trans comment="Infinitive form">Try again</Trans>
               </button>
             </p>
           )}
@@ -616,7 +671,7 @@ function Timeline({
   );
 }
 
-const TimelineItem = memo(
+export const TimelineItem = memo(
   ({
     status,
     instance,
@@ -653,26 +708,16 @@ const TimelineItem = memo(
         const filteredItemsIDs = new Set();
         // Here, we don't hide filtered posts, but we sort them last
         fItems.sort((a, b) => {
-          // if (a._filtered && !b._filtered) {
-          //   return 1;
-          // }
-          // if (!a._filtered && b._filtered) {
-          //   return -1;
-          // }
           const aFiltered = isFiltered(a.filtered, filterContext);
           const bFiltered = isFiltered(b.filtered, filterContext);
-          if (aFiltered && aFiltered?.action !== 'blur') {
-            filteredItemsIDs.add(a.id);
-          }
-          if (bFiltered && bFiltered?.action !== 'blur') {
-            filteredItemsIDs.add(b.id);
-          }
-          if (aFiltered && !bFiltered) {
-            return 1;
-          }
-          if (!aFiltered && bFiltered) {
-            return -1;
-          }
+          const aShouldSort = aFiltered && aFiltered.action !== 'blur';
+          const bShouldSort = bFiltered && bFiltered.action !== 'blur';
+
+          if (aShouldSort) filteredItemsIDs.add(a.id);
+          if (bShouldSort) filteredItemsIDs.add(b.id);
+
+          if (aShouldSort && !bShouldSort) return 1;
+          if (!aShouldSort && bShouldSort) return -1;
           return 0;
         });
 
@@ -970,7 +1015,7 @@ function StatusCarousel({ title, class: className, children }) {
   );
 }
 
-function TimelineStatusCompact({ status, instance, filterContext }) {
+export function TimelineStatusCompact({ status, instance, filterContext }) {
   const { t } = useLingui();
   const snapStates = useSnapshot(states);
   const { id, visibility, language } = status;

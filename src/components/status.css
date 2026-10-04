@@ -240,7 +240,12 @@
 .status-card {
   font-size: calc(var(--text-size) * 0.9);
   /* margin: 1em 0 0; */
-  border-radius: 16px;
+  --card-radius: 16px;
+  @supports (corner-shape: squircle) {
+    --card-radius: 32px;
+    corner-shape: squircle;
+  }
+  border-radius: var(--card-radius);
   padding: 12px;
   border: 1px solid var(--outline-color);
   background-color: var(--bg-color);
@@ -250,7 +255,10 @@
   max-width: none !important;
 
   .quote-post-native > & {
-    border-radius: 8px;
+    --card-radius: 8px;
+    @supports (corner-shape: squircle) {
+      --card-radius: 16px;
+    }
   }
 
   .status-card {
@@ -479,6 +487,11 @@
   background-repeat: no-repeat;
   background-size: 100% calc(100% - var(--top-padding) / 2);
 
+  &.hidden {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
   &.visibility-direct {
     background-image: var(--yellow-stripes);
   }
@@ -502,10 +515,7 @@
     inset-inline-start: var(--line-start);
     width: var(--line-width);
     height: calc(
-      100% -
-      var(--top-padding) -
-      var(--avatar-size) +
-      (var(--top-padding) / 2)
+      100% - var(--top-padding) - var(--avatar-size) + (var(--top-padding) / 2)
     );
     background-color: var(--comment-line-color);
     z-index: 0;
@@ -661,6 +671,10 @@
   background: var(--bg-color);
   border: 1px solid var(--reply-to-color);
   border-radius: 4px;
+  @supports (corner-shape: squircle) {
+    border-radius: 8px;
+    corner-shape: squircle;
+  }
   padding: 4px;
   font-size: 10px;
   line-height: 1;
@@ -696,6 +710,10 @@
   background-color: var(--bg-color);
   border: 1px solid var(--reply-to-text-color);
   border-radius: 4px;
+  @supports (corner-shape: squircle) {
+    border-radius: 8px;
+    corner-shape: squircle;
+  }
   padding: 4px;
   font-size: 10px;
   line-height: 1;
@@ -711,6 +729,10 @@
   /* border: var(--hairline-width) solid var(--bg-color); */
   border: var(--hairline-width) dashed var(--text-insignificant-color);
   border-radius: 4px;
+  @supports (corner-shape: squircle) {
+    border-radius: 8px;
+    corner-shape: squircle;
+  }
   padding: 4px;
   font-size: 10px;
   line-height: 1;
@@ -801,6 +823,10 @@
     ruby {
       filter: contrast(0);
       background-color: #000;
+    }
+    .title,
+    .meta {
+      background-color: currentColor;
     }
     * {
       text-decoration-color: inherit;
@@ -1200,7 +1226,7 @@
     .media-gt2
   ) {
   /* 50px = avatar size */
-  margin-inline-start: calc(-1 * ((50px / 2)));
+  margin-inline-start: calc(-1 * (50px / 2));
   /*
     outer padding = 16px
     gap = 12px
@@ -1218,6 +1244,11 @@
   --media-border-width: 1px;
   --media-radius: 16px;
   --media-radius-inner: 4px;
+  @supports (corner-shape: squircle) {
+    --media-radius: 32px;
+    --media-radius-inner: 8px;
+    corner-shape: squircle;
+  }
   border-radius: var(--media-radius);
   overflow: hidden;
   min-height: 80px;
@@ -1280,6 +1311,9 @@
 
   &[data-has-natural-aspect-ratio] {
     --media-radius: 4px;
+    @supports (corner-shape: squircle) {
+      --media-radius: 8px;
+    }
   }
 }
 .status .media-container.media-eq1 .media[data-orientation='portrait'] {
@@ -1435,6 +1469,7 @@ body:has(#modal-container .carousel) .status .media img:hover {
   object-fit: scale-down;
   /* border-radius: calc(var(--media-radius) - var(--media-border-width)); */
   border-radius: inherit;
+  corner-shape: inherit;
 }
 .status :is(.media-video, .media-audio, .media-gif) {
   position: relative;
@@ -1547,7 +1582,11 @@ body:has(#modal-container .carousel) .status .media img:hover {
   height: 100%;
   min-height: var(--min-dimension);
   background-image:
-    radial-gradient(circle at center center, transparent, var(--bg-faded-color)),
+    radial-gradient(
+      circle at center center,
+      transparent,
+      var(--bg-faded-color)
+    ),
     repeating-radial-gradient(
       circle at center center,
       transparent,
@@ -2001,6 +2040,10 @@ body:has(#modal-container .carousel) .status .media img:hover {
   display: flex;
   margin-top: 8px;
   border-radius: 8px;
+  @supports (corner-shape: squircle) {
+    border-radius: 16px;
+    corner-shape: squircle;
+  }
   border: 1px solid var(--outline-color);
   overflow: hidden;
   color: inherit;
@@ -2224,6 +2267,10 @@ a.card:is(:hover, :focus):visited {
   transition: opacity 0.2s ease-in-out;
   margin-top: 8px;
   border-radius: 16px;
+  @supports (corner-shape: squircle) {
+    border-radius: 32px;
+    corner-shape: squircle;
+  }
   border: 1px solid var(--outline-color);
   background-color: var(--bg-faded-color);
   background-image: linear-gradient(
@@ -2277,7 +2324,7 @@ a.card:is(:hover, :focus):visited {
 
     .poll-options.truncated & {
       content-visibility: auto;
-      content-intrinsic-size: auto 1.5lh;
+      content-intrinsic-size: auto 2rem;
     }
 
     &:has(> label) {
@@ -2297,6 +2344,10 @@ a.card:is(:hover, :focus):visited {
       position: absolute;
       inset: 0;
       border-radius: 4px;
+      @supports (corner-shape: squircle) {
+        border-radius: 8px;
+        corner-shape: squircle;
+      }
       background-color: var(--link-bg-color);
       opacity: 0;
       pointer-events: none;
@@ -2315,6 +2366,10 @@ a.card:is(:hover, :focus):visited {
     &:first-child:after {
       border-start-start-radius: 12px;
       border-start-end-radius: 12px;
+      @supports (corner-shape: squircle) {
+        border-start-start-radius: 24px;
+        border-start-end-radius: 24px;
+      }
     }
     &.poll-result:after {
       width: var(--percentage);
@@ -2506,13 +2561,21 @@ a.card:is(:hover, :focus):visited {
   15% {
     transform: translate(0, 0);
   }
-  100% {
+  80% {
     transform: translate(30px, -30px);
     opacity: 0;
   }
+  84% {
+    transform: translate(-10px, 10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
 .status .action > button.plain.reblog-button.checked .icon {
-  animation: reblogged 1s ease-in-out;
+  animation: reblogged 1.25s ease-in-out;
 }
 @media (hover: hover) {
   .status .action > button.plain.favourite-button:hover {
@@ -2618,6 +2681,10 @@ a.card:is(:hover, :focus):visited {
 
 .status .content pre {
   border-radius: 8px;
+  @supports (corner-shape: squircle) {
+    border-radius: 16px;
+    corner-shape: squircle;
+  }
   padding: 8px;
   margin: 8px 0;
   overflow: auto;
@@ -2645,6 +2712,10 @@ a.card:is(:hover, :focus):visited {
   inset-inline-end: 8px;
   background-color: var(--bg-color);
   border-radius: 8px;
+  @supports (corner-shape: squircle) {
+    border-radius: 16px;
+    corner-shape: squircle;
+  }
   z-index: 1;
   border: 1px solid var(--outline-color);
   box-shadow: 0 2px 6px -3px var(--drop-shadow-color);
@@ -2670,6 +2741,10 @@ a.card:is(:hover, :focus):visited {
     backdrop-filter: none;
     padding: 10px;
     border-radius: 8px;
+    @supports (corner-shape: squircle) {
+      border-radius: 16px;
+      corner-shape: squircle;
+    }
     outline-offset: -5px;
     outline: 1px solid transparent;
 
@@ -3121,6 +3196,10 @@ a.card:is(:hover, :focus):visited {
   border: var(--hairline-width) solid var(--media-outline-color);
   /* mix-blend-mode: luminosity; */
   border-radius: 4px;
+  @supports (corner-shape: squircle) {
+    border-radius: 8px;
+    corner-shape: squircle;
+  }
   padding: 4px;
   opacity: 0.65;
 
