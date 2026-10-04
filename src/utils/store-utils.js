@@ -64,6 +64,7 @@ export const getCurrentAccID = mem(getCurrentAccountID, {
 
 export function setCurrentAccountID(id) {
   getCurrentAccID.cache.clear();
+  getCurrentAcc.cache.clear();
   try {
     store.session.set('currentAccount', id);
   } catch (e) {}
@@ -94,13 +95,16 @@ export const getCurrentAcc = mem(getCurrentAccount, {
   expires: 60 * 1000, // 1 minute
 });
 
-export function getCurrentAccountNS() {
-  const account = getCurrentAccount();
+export function getAccountNS(account) {
   const {
     instanceURL,
     info: { id },
   } = account;
   return `${id}@${instanceURL}`;
+}
+
+export function getCurrentAccountNS() {
+  return getAccountNS(getCurrentAccount());
 }
 
 export function saveAccount(account) {

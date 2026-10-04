@@ -117,7 +117,7 @@
     background-position:
       var(--dot-offset-x) var(--dot-offset-y),
       calc(var(--dot-spacing) / 2 + var(--dot-offset-x))
-      calc(var(--dot-spacing) / 2 + var(--dot-offset-y));
+        calc(var(--dot-spacing) / 2 + var(--dot-offset-y));
   }
 
   .posting-stats-bar-quotes {
@@ -523,18 +523,30 @@
 .account-container .account-metadata-box {
   overflow: hidden;
   border-radius: 16px;
+  @supports (corner-shape: squircle) {
+    border-radius: 32px;
+    corner-shape: squircle;
+  }
   display: block;
   text-decoration: none;
 
   & > * {
     margin-bottom: 2px;
     border-radius: 4px;
+    @supports (corner-shape: squircle) {
+      border-radius: 8px;
+      corner-shape: squircle;
+    }
     overflow: hidden;
   }
 
   &:has(+ .account-metadata-box) {
     border-end-start-radius: 4px;
     border-end-end-radius: 4px;
+    @supports (corner-shape: squircle) {
+      border-end-start-radius: 8px;
+      border-end-end-radius: 8px;
+    }
   }
 
   + .account-metadata-box {
@@ -542,6 +554,12 @@
     border-start-end-radius: 4px;
     border-end-start-radius: 16px;
     border-end-end-radius: 16px;
+    @supports (corner-shape: squircle) {
+      border-start-start-radius: 8px;
+      border-start-end-radius: 8px;
+      border-end-start-radius: 32px;
+      border-end-end-radius: 32px;
+    }
   }
 }
 
@@ -566,6 +584,15 @@
   line-height: 1.25;
   flex-shrink: 0;
   max-width: calc(100% - 12px - 2em);
+
+  &.profile-verified {
+    background-image: radial-gradient(
+      farthest-corner,
+      var(--green-bg-color) 25%,
+      transparent
+    );
+    text-shadow: 0 1px var(--bg-color);
+  }
 }
 .account-container .profile-field:only-child {
   max-width: 100%;
@@ -854,9 +881,9 @@
     --shadow-spread: calc(var(--shadow-blur) * -0.75);
     box-shadow:
       calc(var(--shadow-offset) * -1) var(--shadow-offset) var(--shadow-blur)
-      var(--shadow-spread) var(--header-color-1, var(--drop-shadow-color)),
+        var(--shadow-spread) var(--header-color-1, var(--drop-shadow-color)),
       var(--shadow-offset) var(--shadow-offset) var(--shadow-blur)
-      var(--shadow-spread) var(--header-color-2, var(--drop-shadow-color));
+        var(--shadow-spread) var(--header-color-2, var(--drop-shadow-color));
   }
   /* .timeline-start .account-container .header-banner {
     margin-bottom: -77px;
@@ -909,11 +936,18 @@
 }
 
 #edit-profile-container {
+  background-color: var(--bg-faded-color);
+
+  header .loader-container {
+    margin: 0;
+  }
+
   p {
     margin-block: 8px;
   }
 
   label {
+    grapheme-input,
     input:not([type='file']),
     textarea {
       display: block;
@@ -922,13 +956,30 @@
 
     textarea {
       resize: vertical;
-      min-height: 5em;
+      min-height: 2em;
       max-height: 50vh;
     }
   }
 
-  .edit-profile-media-container {
-    margin-block: 8px;
+  fieldset {
+    margin: 16px 0;
+    background-color: var(--bg-color);
+    border: 0;
+    border-radius: 16px;
+    padding: 16px;
+
+    legend {
+      font-weight: 600;
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0 0 8px;
+      width: 100%;
+    }
+
+    .footer {
+      display: flex;
+    }
   }
 
   .edit-profile-media-field {
@@ -991,6 +1042,7 @@
       width: 40%;
     }
 
+    grapheme-input,
     input {
       width: 100%;
     }

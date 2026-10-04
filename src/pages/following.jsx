@@ -21,8 +21,8 @@ function Following({ title, path, id, ...props }) {
   useTitle(
     title ||
       t({
-        id: 'following.title',
         message: 'Following',
+        context: 'section title',
       }),
     path || '/following',
   );
@@ -100,7 +100,7 @@ function Following({ title, path, id, ...props }) {
         limit: 5,
         since_id: latestItem.current,
       };
-      if (supports('@pixelfed/home-include-reblogs')) {
+      if (supportsPixelfed) {
         opts.include_reblogs = true;
       }
       const results = await masto.v1.timelines.home.list(opts).values().next();
@@ -153,7 +153,7 @@ function Following({ title, path, id, ...props }) {
 
   return (
     <Timeline
-      title={title || t({ id: 'following.title', message: 'Following' })}
+      title={title || t({ message: 'Following', context: 'section title' })}
       id={id || 'following'}
       emptyText={t`Nothing to see here.`}
       errorText={t`Unable to load posts.`}

@@ -8,6 +8,7 @@ import { useLongPress } from 'use-long-press';
 import { useSnapshot } from 'valtio';
 
 import { api } from '../utils/api';
+import { isSupported as collectionsSupported } from '../utils/collections';
 import { getLists } from '../utils/lists';
 import safeBoundingBoxPadding from '../utils/safe-bounding-box-padding';
 import states from '../utils/states';
@@ -196,7 +197,7 @@ function NavMenu(props) {
                 <MenuLink to="/following">
                   <Icon icon="following" size="l" />{' '}
                   <span>
-                    <Trans id="following.title">Following</Trans>
+                    <Trans context="section title">Following</Trans>
                   </span>
                 </MenuLink>
               )}
@@ -262,6 +263,14 @@ function NavMenu(props) {
                     <Trans>Likes</Trans>
                   </span>
                 </MenuLink>
+                {currentAccount?.info?.id && collectionsSupported() && (
+                  <MenuLink to={`/${instance}/a/${currentAccount.info.id}/c`}>
+                    <Icon icon="collections" size="l" />{' '}
+                    <span>
+                      <Trans>Collections</Trans>
+                    </span>
+                  </MenuLink>
+                )}
                 <MenuLink to="/fh">
                   <Icon icon="hashtag" size="l" />{' '}
                   <span>
@@ -346,20 +355,25 @@ function NavMenu(props) {
               <Trans>Search</Trans>
             </span>
           </MenuLink>
-          <MenuLink to={`/${instance}/trending`}>
-            <Icon icon="chart" size="l" />{' '}
-            <span>
-              <Trans>Trending</Trans>
-            </span>
-          </MenuLink>
-          <MenuLink to={`/${instance}/p/l`}>
-            <Icon icon="building" size="l" />{' '}
-            <span>
-              <Trans>Local</Trans>
-            </span>
-          </MenuLink>
+          {!snapStates.settings.hideTrendingTimeline && (
+            <MenuLink to={`/${instance}/trending`}>
+              <Icon icon="chart" size="l" />{' '}
+              <span>
+                <Trans>Trending</Trans>
+              </span>
+            </MenuLink>
+          )}
+          {!snapStates.settings.hideLocalTimeline && (
+            <MenuLink to={`/${instance}/p/l`}>
+              <Icon icon="building" size="l" />{' '}
+              <span>
+                <Trans>Local</Trans>
+              </span>
+            </MenuLink>
+          )}
           {(supports('@chuckya/bubble-timeline') ||
-            supports('@akkoma/bubble-timeline')) && (
+            supports('@akkoma/bubble-timeline') &&
+            !snapStates.settings.hideFederatedTimeline) && (
             <MenuLink to={`/${instance}/p/b`}>
               <Icon icon="star2" size="l" />{' '}
               <span>
@@ -367,12 +381,14 @@ function NavMenu(props) {
               </span>
             </MenuLink>
           )}
-          <MenuLink to={`/${instance}/p`}>
-            <Icon icon="earth" size="l" />{' '}
-            <span>
-              <Trans>Federated</Trans>
-            </span>
-          </MenuLink>
+          {!snapStates.settings.hideFederatedTimeline && (
+            <MenuLink to={`/${instance}/p`}>
+              <Icon icon="earth" size="l" />{' '}
+              <span>
+                <Trans>Federated</Trans>
+              </span>
+            </MenuLink>
+          )}
           {authenticated ? (
             <>
               <MenuDivider className="divider-grow" />

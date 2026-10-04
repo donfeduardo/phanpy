@@ -4,6 +4,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/preact';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { MenuDivider, MenuItem } from '@szhsin/react-menu';
 import { useReducer } from 'preact/hooks';
+import punycode from 'punycode/';
 
 import Avatar from '../components/avatar';
 import Icon from '../components/icon';
@@ -15,7 +16,9 @@ import NameText from '../components/name-text';
 import RelativeTime from '../components/relative-time';
 import { api } from '../utils/api';
 import { revokeAccessToken } from '../utils/auth';
+import haptics from '../utils/haptics';
 import niceDateTime from '../utils/nice-date-time';
+import { removeAccountPushSettings } from '../utils/push-notifications';
 import states from '../utils/states';
 import store from '../utils/store';
 import {
@@ -57,8 +60,11 @@ function Accounts({ onClose }) {
               const isCurrent = account.info.id === currentAccount;
               const isDefault = i === 0; // first account is always default
               const isLoggedOut = !account.accessToken;
+              const unicodeAcct = account.info.acct
+                ? punycode.toUnicode(account.info.acct)
+                : account.info.acct;
 
-              const removeAccount = () => {
+              const removeAccount = async () => {
                 accounts.splice(i, 1);
                 saveAccounts(accounts);
                 try {
@@ -66,6 +72,7 @@ function Accounts({ onClose }) {
                     store.session.del('currentAccount');
                   }
                 } catch (e) {}
+                await removeAccountPushSettings(account);
               };
 
               const logOutAccount = async () => {
@@ -115,6 +122,7 @@ function Accounts({ onClose }) {
                       }
                       showAcct
                       onClick={() => {
+                        haptics.trigger('medium');
                         if (isLoggedOut) {
                           location.href = `/#/login?instance=${account.instanceURL}`;
                           onClose();
@@ -245,7 +253,7 @@ function Accounts({ onClose }) {
                                 <Trans>
                                   Log out{' '}
                                   <span class="bidi-isolate">
-                                    @{account.info.acct}
+                                    @{unicodeAcct}
                                   </span>
                                   ?
                                 </Trans>
@@ -257,6 +265,7 @@ function Accounts({ onClose }) {
                             await logOutAccount();
                             delete account.accessToken;
                             saveAccounts(accounts);
+                            await removeAccountPushSettings(account);
                             reload();
                           }}
                           menuExtras={
@@ -264,7 +273,7 @@ function Accounts({ onClose }) {
                               className="danger"
                               onClick={async () => {
                                 await logOutAccount();
-                                removeAccount();
+                                await removeAccount();
                                 location.href = location.pathname || '/';
                               }}
                             >
@@ -273,7 +282,7 @@ function Accounts({ onClose }) {
                                 <Trans>
                                   Log out and remove{' '}
                                   <span class="bidi-isolate">
-                                    @{account.info.acct}
+                                    @{unicodeAcct}
                                   </span>
                                 </Trans>
                               </span>
@@ -295,7 +304,7 @@ function Accounts({ onClose }) {
                                 <Trans>
                                   Remove{' '}
                                   <span class="bidi-isolate">
-                                    @{account.info.acct}
+                                    @{unicodeAcct}
                                   </span>
                                   ?
                                 </Trans>
@@ -303,8 +312,8 @@ function Accounts({ onClose }) {
                             </>
                           }
                           menuItemClassName="danger"
-                          onClick={() => {
-                            removeAccount();
+                          onClick={async () => {
+                            await removeAccount();
                             reload();
                           }}
                         >

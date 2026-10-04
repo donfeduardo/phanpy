@@ -63,8 +63,7 @@ body.exp-tab-bar-v2 {
   --tmp-inset-sides: max(var(--sai-left), var(--sai-right), 16px);
   --tmp-inset-bottom: max(16px, var(--sai-bottom));
   --tmp-inset-new: calc(
-    (var(--tmp-inset-sides) + var(--tmp-inset-bottom)) /
-    2.4
+    (var(--tmp-inset-sides) + var(--tmp-inset-bottom)) / 2.4
   );
   --inset-new: var(--tmp-inset-new);
 }
@@ -97,11 +96,8 @@ body.exp-tab-bar-v2 {
     inset-inline-start: var(--inset-inline-start);
     inset-block-end: max(16px, var(--inset-new));
     max-width: calc(
-      100vw -
-      var(--inset-inline-start) -
-      var(--inset-inline-end) -
-      var(--compose-button-width) -
-      8px
+      100vw - var(--inset-inline-start) - var(--inset-inline-end) -
+        var(--compose-button-width) - 8px
     );
     border-radius: 999px;
     box-shadow:
@@ -122,9 +118,7 @@ body.exp-tab-bar-v2 {
   #filters-page ~ #shortcuts .tab-bar:not([hidden]),
   #lists-page ~ #shortcuts .tab-bar:not([hidden]) {
     max-width: calc(
-      100vw -
-      var(--inset-inline-start) -
-      var(--inset-inline-end)
+      100vw - var(--inset-inline-start) - var(--inset-inline-end)
     );
   }
 }
@@ -217,6 +211,10 @@ body.exp-tab-bar-v2 {
     content: '';
     position: absolute;
     border-radius: 8px;
+    @supports (corner-shape: squircle) {
+      border-radius: 16px;
+      corner-shape: squircle;
+    }
     z-index: -1;
     transform: scale(0.5);
     opacity: 0;
@@ -265,7 +263,7 @@ shortcuts .tab-bar[hidden] {
   vertical-align: middle;
 }
 
-@media (max-width: calc(40em - 1px)) {
+@media (max-width: calc(40em - 1px)), (min-width: 40em) and (hover: none) {
   #app[data-shortcuts-view-mode='tab-menu-bar'] .deck-container {
     padding-bottom: 52px;
   }
