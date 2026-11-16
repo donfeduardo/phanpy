@@ -375,7 +375,7 @@ function NavMenu(props) {
             (supports('@akkoma/bubble-timeline') &&
               !snapStates.settings.hideFederatedTimeline)) && (
             <MenuLink to={`/${instance}/p/b`}>
-              <Icon icon="star2" size="l" />{' '}
+              <Icon icon="star-2" size="l" />{' '}
               <span>
                 <Trans>Bubble</Trans>
               </span>
