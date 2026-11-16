@@ -18,6 +18,7 @@ export const ICONS = {
   'arrow-up': () => import('../iconify-icons/mingcute/arrow-up-line.js'),
   'arrow-down': () => import('../iconify-icons/mingcute/arrow-down-line.js'),
   earth: () => import('../iconify-icons/mingcute/world-2-line.js'),
+  star: () => import('../iconify-icons/mingcute/star-2-line.js'),
   lock: () => import('../iconify-icons/mingcute/lock-line.js'),
   unlock: () => import('../iconify-icons/mingcute/unlock-line.js'),
   'eye-close': () => import('../iconify-icons/mingcute/eye-close-line.js'),

@@ -186,7 +186,7 @@ function Public({ variant = 'federated', columnMode, ...props }) {
           )}
           {variant !== 'bubble' && (
             <MenuItem href={`/#/${instance}/p/b`}>
-              <Icon icon="star2" />{' '}
+              <Icon icon="star" />{' '}
               <span>
                 <Trans>Switch to Bubble</Trans>
               </span>

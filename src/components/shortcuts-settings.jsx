@@ -197,7 +197,7 @@ export const SHORTCUTS_META = {
     icon: ({ variant }) =>
       ({
         local: 'building',
-        bubble: 'star2',
+        bubble: 'star',
         federated: 'earth',
       })[variant],
   },
